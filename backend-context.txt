@@ -1,0 +1,5901 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitattributes
+.gitignore
+.mvn/wrapper/maven-wrapper.properties
+mvnw
+mvnw.cmd
+pom.xml
+src/main.zip
+src/main/java/com/nirapod/config/CorsConfig.java
+src/main/java/com/nirapod/config/GlobalExceptionHandler.java
+src/main/java/com/nirapod/controller/AuditController.java
+src/main/java/com/nirapod/controller/AuthController.java
+src/main/java/com/nirapod/controller/BusinessController.java
+src/main/java/com/nirapod/controller/DashboardController.java
+src/main/java/com/nirapod/controller/DocumentController.java
+src/main/java/com/nirapod/controller/IncomeTaxReturnController.java
+src/main/java/com/nirapod/controller/MasterDataController.java
+src/main/java/com/nirapod/controller/NoticeController.java
+src/main/java/com/nirapod/controller/PaymentController.java
+src/main/java/com/nirapod/controller/PenaltyController.java
+src/main/java/com/nirapod/controller/ProductController.java
+src/main/java/com/nirapod/controller/RefundController.java
+src/main/java/com/nirapod/controller/TaxpayerController.java
+src/main/java/com/nirapod/controller/TaxStructureController.java
+src/main/java/com/nirapod/controller/TinController.java
+src/main/java/com/nirapod/controller/UserController.java
+src/main/java/com/nirapod/controller/VatReturnController.java
+src/main/java/com/nirapod/dao/AuditDAO.java
+src/main/java/com/nirapod/dao/BusinessCategoryDAO.java
+src/main/java/com/nirapod/dao/BusinessDAO.java
+src/main/java/com/nirapod/dao/BusinessTypeDAO.java
+src/main/java/com/nirapod/dao/DistrictDAO.java
+src/main/java/com/nirapod/dao/DivisionDAO.java
+src/main/java/com/nirapod/dao/DocumentDAO.java
+src/main/java/com/nirapod/dao/IncomeTaxReturnDAO.java
+src/main/java/com/nirapod/dao/NoticeDAO.java
+src/main/java/com/nirapod/dao/PaymentDAO.java
+src/main/java/com/nirapod/dao/PenaltyDAO.java
+src/main/java/com/nirapod/dao/ProductDAO.java
+src/main/java/com/nirapod/dao/RefundDAO.java
+src/main/java/com/nirapod/dao/TaxCircleDAO.java
+src/main/java/com/nirapod/dao/TaxpayerDAO.java
+src/main/java/com/nirapod/dao/TaxpayerTypeDAO.java
+src/main/java/com/nirapod/dao/TaxStructureDAO.java
+src/main/java/com/nirapod/dao/TaxZoneDAO.java
+src/main/java/com/nirapod/dao/TinDAO.java
+src/main/java/com/nirapod/dao/UserDAO.java
+src/main/java/com/nirapod/dao/VatReturnDAO.java
+src/main/java/com/nirapod/dto/ProductRequest.java
+src/main/java/com/nirapod/model/Address.java
+src/main/java/com/nirapod/model/Audit.java
+src/main/java/com/nirapod/model/Business.java
+src/main/java/com/nirapod/model/BusinessCategory.java
+src/main/java/com/nirapod/model/BusinessType.java
+src/main/java/com/nirapod/model/District.java
+src/main/java/com/nirapod/model/Division.java
+src/main/java/com/nirapod/model/Document.java
+src/main/java/com/nirapod/model/IncomeTaxReturn.java
+src/main/java/com/nirapod/model/ITRAction.java
+src/main/java/com/nirapod/model/Notice.java
+src/main/java/com/nirapod/model/Payment.java
+src/main/java/com/nirapod/model/Penalty.java
+src/main/java/com/nirapod/model/Product.java
+src/main/java/com/nirapod/model/Refund.java
+src/main/java/com/nirapod/model/TaxCircle.java
+src/main/java/com/nirapod/model/Taxpayer.java
+src/main/java/com/nirapod/model/TaxpayerType.java
+src/main/java/com/nirapod/model/TaxStructure.java
+src/main/java/com/nirapod/model/TaxZone.java
+src/main/java/com/nirapod/model/Tin.java
+src/main/java/com/nirapod/model/User.java
+src/main/java/com/nirapod/model/VatReturn.java
+src/main/java/com/nirapod/services/AuditService.java
+src/main/java/com/nirapod/services/BusinessService.java
+src/main/java/com/nirapod/services/DocumentService.java
+src/main/java/com/nirapod/services/IncomeTaxReturnService.java
+src/main/java/com/nirapod/services/NoticeService.java
+src/main/java/com/nirapod/services/PaymentService.java
+src/main/java/com/nirapod/services/PenaltyService.java
+src/main/java/com/nirapod/services/ProductService.java
+src/main/java/com/nirapod/services/RefundService.java
+src/main/java/com/nirapod/services/TaxpayerService.java
+src/main/java/com/nirapod/services/TaxStructureService.java
+src/main/java/com/nirapod/services/TinCertificateService.java
+src/main/java/com/nirapod/services/TinService.java
+src/main/java/com/nirapod/services/UserService.java
+src/main/java/com/nirapod/services/VatReturnService.java
+src/main/java/com/nirapod/vattax/VatTaxApplication.java
+src/main/resources/application.properties
+src/main/resources/images/govt_logo.png
+src/main/resources/images/watermark.png
+src/test/java/com/nirapod/demo/DemoApplicationTests.java
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="src/main/java/com/nirapod/config/CorsConfig.java">
+package com.nirapod.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+
+@Configuration
+public class CorsConfig {
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:4200")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
+            }
+        };
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/config/GlobalExceptionHandler.java">
+package com.nirapod.config;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.time.LocalDateTime;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    // Thrown when taxpayer already has a TIN (duplicate prevention)
+    @ExceptionHandler(IllegalStateException.class)
+    public ResponseEntity<Map<String, Object>> handleIllegalState(IllegalStateException ex) {
+        return buildResponse(HttpStatus.CONFLICT, ex.getMessage());
+    }
+
+    // Thrown when required fields are missing (e.g. taxpayerId is null)
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, Object>> handleIllegalArgument(IllegalArgumentException ex) {
+        return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
+    }
+
+    private ResponseEntity<Map<String, Object>> buildResponse(HttpStatus status, String message) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", LocalDateTime.now().toString());
+        body.put("status", status.value());
+        body.put("error", status.getReasonPhrase());
+        body.put("message", message);
+        return ResponseEntity.status(status).body(body);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/AuditController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.Audit;
+import com.nirapod.services.AuditService;
+
+@RestController
+@RequestMapping("/api/audits")
+@CrossOrigin(origins = "http://localhost:4200")
+public class AuditController {
+
+    @Autowired
+    private AuditService auditService;
+
+    @PostMapping
+    public ResponseEntity<Audit> create(@RequestBody Audit audit) {
+        auditService.create(audit);
+        return ResponseEntity.ok(audit);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Audit>> getAll() {
+        return ResponseEntity.ok(auditService.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Audit> getById(@PathVariable int id) {
+        Audit result = auditService.getById(id);
+        return result != null ? ResponseEntity.ok(result) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Audit> update(@PathVariable int id, @RequestBody Audit audit) {
+        auditService.update(audit);
+        return ResponseEntity.ok(audit);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        auditService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/AuthController.java">
+package com.nirapod.controller;
+
+import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.User;
+import com.nirapod.services.UserService;
+
+@RestController
+@RequestMapping("/api/auth")
+@CrossOrigin(origins = "http://localhost:4200")
+public class AuthController {
+
+    @Autowired
+    private UserService userService;
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
+        String email    = credentials.get("email");
+        String password = credentials.get("password");
+
+        if (email == null || password == null) {
+            return ResponseEntity.badRequest().body(Map.of("message", "Email and password required"));
+        }
+
+        List<User> users = userService.getAll();
+        User matched = users.stream()
+                .filter(u -> email.equals(u.getEmail()) && password.equals(u.getPassword()))
+                .findFirst()
+                .orElse(null);
+
+        if (matched == null) {
+            return ResponseEntity.status(401).body(Map.of("message", "Invalid credentials"));
+        }
+
+        // Update lastLogin
+        matched.setLastLogin(LocalDateTime.now());
+        userService.update(matched);
+
+        // Build response (no real JWT yet — simple token placeholder)
+        Map<String, Object> response = new HashMap<>();
+        response.put("id",       matched.getId());
+        response.put("fullName", matched.getFullName());
+        response.put("email",    matched.getEmail());
+        response.put("role",     matched.getRole());
+        response.put("token",    "token-" + matched.getId() + "-" + System.currentTimeMillis());
+
+        return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout() {
+        return ResponseEntity.ok(Map.of("message", "Logged out successfully"));
+    }
+
+    @GetMapping("/profile")
+    public ResponseEntity<?> profile(@RequestHeader(value = "Authorization", required = false) String authHeader) {
+        // Simplified: return a placeholder. Add JWT parsing later.
+        return ResponseEntity.ok(Map.of("message", "Profile endpoint ready"));
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/BusinessController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.Business;
+import com.nirapod.services.BusinessService;
+
+@RestController
+@RequestMapping("/api/businesses")
+@CrossOrigin(origins = "http://localhost:4200")
+public class BusinessController {
+
+    @Autowired
+    private BusinessService businessService;
+
+    @PostMapping
+    public ResponseEntity<Business> create(@RequestBody Business business) {
+        Business saved = businessService.create(business);
+        return ResponseEntity.ok(saved);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Business>> getAll() {
+        return ResponseEntity.ok(businessService.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Business> getById(@PathVariable Long id) {
+        Business b = businessService.getById(id);
+        return b != null ? ResponseEntity.ok(b) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Business> update(@PathVariable Long id, @RequestBody Business business) {
+        business.setId(id);
+        Business updated = businessService.update(business);
+        return ResponseEntity.ok(updated);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        businessService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/DashboardController.java">
+package com.nirapod.controller;
+
+import java.util.*;
+import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.*;
+import com.nirapod.services.*;
+
+@RestController
+@RequestMapping("/api/dashboard")
+@CrossOrigin(origins = "http://localhost:4200")
+public class DashboardController {
+
+    @Autowired private TaxpayerService taxpayerService;
+    @Autowired private BusinessService businessService;
+    @Autowired private VatReturnService vatReturnService;
+    @Autowired private PaymentService paymentService;
+    @Autowired private AuditService auditService;
+    @Autowired private RefundService refundService;
+    @Autowired private PenaltyService penaltyService;
+
+    @GetMapping("/stats")
+    public ResponseEntity<Map<String, Object>> getStats() {
+        List<Taxpayer>  taxpayers  = taxpayerService.getAll();
+        List<Business>  businesses = businessService.getAll();
+        List<VatReturn> vatReturns = vatReturnService.getAll();
+        List<Payment>   payments   = paymentService.getAll();
+        List<Audit>     audits     = auditService.getAll();
+        List<Refund>    refunds    = refundService.getAll();
+        List<Penalty>   penalties  = penaltyService.getAll();
+
+        double totalRevenue = payments.stream()
+                .filter(p -> "Completed".equals(p.getStatus()))
+                .mapToDouble(p -> p.getAmount() != null ? p.getAmount() : 0)
+                .sum();
+
+        long pendingAudits  = audits.stream().filter(a -> "Scheduled".equals(a.getStatus()) || "In Progress".equals(a.getStatus())).count();
+        long pendingRefunds = refunds.stream().filter(r -> "Pending".equals(r.getStatus())).count();
+        long issuedPenalties = penalties.stream().filter(p -> "Issued".equals(p.getStatus()) || "Pending".equals(p.getStatus())).count();
+        long completedAudits = audits.stream().filter(a -> "Completed".equals(a.getStatus())).count();
+        long flaggedCases    = audits.stream().filter(a -> "Flagged".equals(a.getStatus())).count();
+
+        Map<String, Object> stats = new LinkedHashMap<>();
+        stats.put("totalTaxpayers",       taxpayers.size());
+        stats.put("totalBusinesses",       businesses.size());
+        stats.put("totalVatReturns",       vatReturns.size());
+        stats.put("totalPayments",         payments.size());
+        stats.put("totalRevenue",          totalRevenue);
+        stats.put("pendingAudits",         pendingAudits);
+        stats.put("pendingRefunds",        pendingRefunds);
+        stats.put("issuedPenalties",       issuedPenalties);
+        stats.put("taxpayerGrowth",        5.2);
+        stats.put("revenueGrowth",         8.7);
+        stats.put("vatReturnGrowth",       3.1);
+        stats.put("paymentGrowth",         6.4);
+        stats.put("totalAudits",           audits.size());
+        stats.put("completedAudits",       completedAudits);
+        stats.put("flaggedCases",          flaggedCases);
+        stats.put("auditGrowth",           2.3);
+        stats.put("todayEntries",          0);
+        stats.put("pendingTasks",          pendingAudits + pendingRefunds);
+        stats.put("taxpayersAddedThisMonth", 0);
+        stats.put("myVatReturns",          0);
+        stats.put("myPayments",            0);
+        stats.put("myPendingNotices",      0);
+        stats.put("myRefundStatus",        0);
+        stats.put("myTotalPaid",           0.0);
+
+        return ResponseEntity.ok(stats);
+    }
+
+    @GetMapping("/recent-taxpayers")
+    public ResponseEntity<List<Map<String, Object>>> getRecentTaxpayers() {
+        List<Taxpayer> all = taxpayerService.getAll();
+        int limit = Math.min(5, all.size());
+        List<Map<String, Object>> result = new ArrayList<>();
+        for (int i = all.size() - 1; i >= all.size() - limit; i--) {
+            Taxpayer t = all.get(i);
+            Map<String, Object> m = new LinkedHashMap<>();
+            m.put("id",               t.getId());
+            m.put("tin",              t.getTinNumber());
+            m.put("fullName",         t.getFullName());
+            m.put("email",            t.getEmail());
+            m.put("phone",            t.getPhone());
+            m.put("status",           t.getStatus());
+            m.put("registrationDate", t.getRegistrationDate());
+            result.add(m);
+        }
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/recent-payments")
+    public ResponseEntity<List<Map<String, Object>>> getRecentPayments() {
+        List<Payment> all = paymentService.getAll();
+        int limit = Math.min(5, all.size());
+        List<Map<String, Object>> result = new ArrayList<>();
+        for (int i = all.size() - 1; i >= all.size() - limit; i--) {
+            Payment p = all.get(i);
+            Map<String, Object> m = new LinkedHashMap<>();
+            m.put("id",            p.getId());
+            m.put("transactionId", p.getTransactionId());
+            m.put("taxpayerName",  p.getTaxpayerName());
+            m.put("amount",        p.getAmount());
+            m.put("paymentType",   p.getPaymentType());
+            m.put("paymentDate",   p.getPaymentDate());
+            m.put("status",        p.getStatus());
+            result.add(m);
+        }
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/vat-chart")
+    public ResponseEntity<List<Map<String, Object>>> getVatChart() {
+        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+        List<VatReturn> all = vatReturnService.getAll();
+        List<Map<String, Object>> chart = new ArrayList<>();
+        for (String month : months) {
+            long count = all.stream().filter(v -> month.equalsIgnoreCase(v.getPeriodMonth())).count();
+            Map<String, Object> point = new LinkedHashMap<>();
+            point.put("label", month);
+            point.put("value", count);
+            chart.add(point);
+        }
+        return ResponseEntity.ok(chart);
+    }
+
+    @GetMapping("/payment-chart")
+    public ResponseEntity<List<Map<String, Object>>> getPaymentChart() {
+        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+        List<Payment> all = paymentService.getAll();
+        List<Map<String, Object>> chart = new ArrayList<>();
+        for (String month : months) {
+            double total = all.stream()
+                    .filter(p -> p.getPaymentDate() != null &&
+                                 month.equals(p.getPaymentDate().getMonth().name().substring(0,3).charAt(0)
+                                     + p.getPaymentDate().getMonth().name().substring(1,3).toLowerCase()))
+                    .mapToDouble(p -> p.getAmount() != null ? p.getAmount() : 0)
+                    .sum();
+            Map<String, Object> point = new LinkedHashMap<>();
+            point.put("label", month);
+            point.put("value", total);
+            chart.add(point);
+        }
+        return ResponseEntity.ok(chart);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/DocumentController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.Document;
+import com.nirapod.services.DocumentService;
+
+@RestController
+@RequestMapping("/api/documents")
+@CrossOrigin(origins = "http://localhost:4200")
+public class DocumentController {
+
+    @Autowired
+    private DocumentService documentService;
+
+    @PostMapping
+    public ResponseEntity<Document> create(@RequestBody Document document) {
+        documentService.create(document);
+        return ResponseEntity.ok(document);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Document>> getAll() {
+        return ResponseEntity.ok(documentService.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Document> getById(@PathVariable int id) {
+        Document result = documentService.getById(id);
+        return result != null ? ResponseEntity.ok(result) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Document> update(@PathVariable int id, @RequestBody Document document) {
+        documentService.update(document);
+        return ResponseEntity.ok(document);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        documentService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/IncomeTaxReturnController.java">
+package com.nirapod.controller;
+
+import com.nirapod.model.IncomeTaxReturn;
+import com.nirapod.services.IncomeTaxReturnService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import java.util.List;
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/income-tax-returns")
+@CrossOrigin(origins = "http://localhost:4200")
+public class IncomeTaxReturnController {
+    
+    @Autowired
+    private IncomeTaxReturnService incomeTaxReturnService;
+
+    // Create
+    @PostMapping
+    public ResponseEntity<IncomeTaxReturn> submitReturn(@RequestBody IncomeTaxReturn itr) {
+        // GlobalExceptionHandler থাকলে try-catch দরকার নেই।
+        return new ResponseEntity<>(incomeTaxReturnService.createReturn(itr), HttpStatus.CREATED);
+    }
+
+    // Get All
+    @GetMapping
+    public ResponseEntity<List<IncomeTaxReturn>> getAllReturns() {
+        return new ResponseEntity<>(incomeTaxReturnService.getAllReturns(), HttpStatus.OK);
+    }
+
+    // Get By ID
+    @GetMapping("/{id}")
+    public ResponseEntity<IncomeTaxReturn> getReturnById(@PathVariable Long id) {
+        return new ResponseEntity<>(incomeTaxReturnService.getReturnById(id), HttpStatus.OK);
+    }
+
+    // Update
+    @PutMapping("/{id}")
+    public ResponseEntity<IncomeTaxReturn> updateReturn(@PathVariable Long id, @RequestBody IncomeTaxReturn updatedData) {
+        return new ResponseEntity<>(incomeTaxReturnService.updateReturn(id, updatedData), HttpStatus.OK);
+    }
+    
+    // Status Update (Workflow) - Now using Service
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<IncomeTaxReturn> updateStatus(@PathVariable Long id, @RequestBody Map<String, String> payload) {
+        String newStatus = payload.get("status");
+        String remarks = payload.get("remarks"); 
+        String action = payload.get("action");
+        String performedBy = payload.get("performedBy");
+        String role = payload.get("role");
+
+        IncomeTaxReturn updatedItr = incomeTaxReturnService.updateStatus(id, newStatus, remarks, action, performedBy, role);
+        return ResponseEntity.ok(updatedItr);
+    }
+
+    // Soft Delete
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteReturn(@PathVariable Long id) {
+        incomeTaxReturnService.softDeleteReturn(id);
+        return new ResponseEntity<>("Income Tax Return deleted successfully.", HttpStatus.OK);
+    }
+    
+ // Export Returns
+    @GetMapping("/export")
+    public ResponseEntity<byte[]> exportReturns() {
+        byte[] csvData = incomeTaxReturnService.exportReturnsToCsv();
+        
+        HttpHeaders headers = new HttpHeaders();
+        // ফাইলের নাম সেট করে দেওয়া হচ্ছে
+        headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=income_tax_returns.csv");
+        headers.setContentType(MediaType.parseMediaType("text/csv"));
+        
+        return new ResponseEntity<>(csvData, headers, HttpStatus.OK);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/MasterDataController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nirapod.dao.BusinessCategoryDAO;
+import com.nirapod.dao.BusinessTypeDAO;
+import com.nirapod.dao.DistrictDAO;
+import com.nirapod.dao.DivisionDAO;
+import com.nirapod.dao.TaxpayerTypeDAO;
+import com.nirapod.dao.TaxZoneDAO;
+import com.nirapod.dao.TaxCircleDAO;
+import com.nirapod.model.BusinessCategory;
+import com.nirapod.model.BusinessType;
+import com.nirapod.model.District;
+import com.nirapod.model.Division;
+import com.nirapod.model.TaxpayerType;
+import com.nirapod.model.TaxZone;
+import com.nirapod.model.TaxCircle;
+
+
+@RestController
+@RequestMapping("/api/master")
+public class MasterDataController {
+	
+	@Autowired
+	private DivisionDAO divisionDAO;
+	
+	@Autowired
+	private DistrictDAO districtDAO;
+	
+	@Autowired
+	private TaxpayerTypeDAO taxpayerTypeDAO;
+	
+	@Autowired
+	private BusinessTypeDAO businessTypeDAO;
+
+	@Autowired
+	private BusinessCategoryDAO businessCategoryDAO;
+
+	@Autowired
+	private TaxZoneDAO taxZoneDAO;
+
+	@Autowired
+	private TaxCircleDAO taxCircleDAO;
+	
+	@GetMapping("/divisions")
+	public List<Division> getDivision() {
+		
+		return divisionDAO.findAll();
+	}
+	
+	@GetMapping("/divisions/{id}/districts")
+	public List<District> getDistrictsByDivision(@PathVariable Long id) {
+	    return districtDAO.findByDivisionId(id);
+	}
+	
+	@GetMapping("/districts")
+	public List<District> getDistrict() {
+		
+		return districtDAO.findAll();
+	}
+	
+	@GetMapping("/taxpayer-types")
+	public List<TaxpayerType> getTaxpayerType() {
+		
+		return taxpayerTypeDAO.findAll();
+	}
+	
+	@GetMapping("/business-types")
+	public List<BusinessType> getBusinessTypes() {
+	    return businessTypeDAO.findAll();
+	}
+	
+	@GetMapping("/business-categories")
+	public List<BusinessCategory> getBusinessCategories() {
+	    return businessCategoryDAO.findAll();
+	}
+
+	// Tax Zones — filtered by district id
+	@GetMapping("/districts/{districtId}/tax-zones")
+	public List<TaxZone> getTaxZonesByDistrict(@PathVariable Long districtId) {
+	    return taxZoneDAO.findByDistrictId(districtId);
+	}
+
+	// Tax Circles — filtered by zone id
+	@GetMapping("/tax-zones/{zoneId}/tax-circles")
+	public List<TaxCircle> getTaxCirclesByZone(@PathVariable Long zoneId) {
+	    return taxCircleDAO.findByTaxZoneId(zoneId);
+	}
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/NoticeController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.Notice;
+import com.nirapod.services.NoticeService;
+
+@RestController
+@RequestMapping("/api/notices")
+@CrossOrigin(origins = "http://localhost:4200")
+public class NoticeController {
+
+    @Autowired
+    private NoticeService noticeService;
+
+    @PostMapping
+    public ResponseEntity<Notice> create(@RequestBody Notice notice) {
+        noticeService.create(notice);
+        return ResponseEntity.ok(notice);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Notice>> getAll() {
+        return ResponseEntity.ok(noticeService.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Notice> getById(@PathVariable int id) {
+        Notice result = noticeService.getById(id);
+        return result != null ? ResponseEntity.ok(result) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Notice> update(@PathVariable int id, @RequestBody Notice notice) {
+        noticeService.update(notice);
+        return ResponseEntity.ok(notice);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        noticeService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/PaymentController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.Payment;
+import com.nirapod.services.PaymentService;
+
+@RestController
+@RequestMapping("/api/payments")
+@CrossOrigin(origins = "http://localhost:4200")
+public class PaymentController {
+
+    @Autowired
+    private PaymentService paymentService;
+
+    @PostMapping
+    public ResponseEntity<Payment> create(@RequestBody Payment payment) {
+        paymentService.create(payment);
+        return ResponseEntity.ok(payment);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Payment>> getAll() {
+        return ResponseEntity.ok(paymentService.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Payment> getById(@PathVariable int id) {
+        Payment result = paymentService.getById(id);
+        return result != null ? ResponseEntity.ok(result) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Payment> update(@PathVariable int id, @RequestBody Payment payment) {
+        paymentService.update(payment);
+        return ResponseEntity.ok(payment);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        paymentService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/PenaltyController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.Penalty;
+import com.nirapod.services.PenaltyService;
+
+@RestController
+@RequestMapping("/api/penalties")
+@CrossOrigin(origins = "http://localhost:4200")
+public class PenaltyController {
+
+    @Autowired
+    private PenaltyService penaltyService;
+
+    @PostMapping
+    public ResponseEntity<Penalty> create(@RequestBody Penalty penalty) {
+        penaltyService.create(penalty);
+        return ResponseEntity.ok(penalty);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Penalty>> getAll() {
+        return ResponseEntity.ok(penaltyService.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Penalty> getById(@PathVariable int id) {
+        Penalty result = penaltyService.getById(id);
+        return result != null ? ResponseEntity.ok(result) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Penalty> update(@PathVariable int id, @RequestBody Penalty penalty) {
+        penaltyService.update(penalty);
+        return ResponseEntity.ok(penalty);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        penaltyService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/ProductController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.*;
+
+import com.nirapod.dto.ProductRequest;
+import com.nirapod.model.Product;
+import com.nirapod.services.ProductService;
+
+
+@RestController
+@RequestMapping(value = "/api/taxable-products")
+@CrossOrigin(origins = "http://localhost:4200")
+public class ProductController {
+
+    @Autowired
+    ProductService productService;
+    
+    @PostMapping
+    public void create(@RequestBody ProductRequest request) {
+        productService.create(request);
+    }
+
+   
+    
+    @GetMapping()
+    public List<Product> getAll( ){
+    	return productService.getAll();
+    }
+    
+    @GetMapping("/{id}")
+    public Product getById(@PathVariable int id) {
+        return productService.getById(id);
+    }
+    
+    @PutMapping("/{id}")
+    public void update(@PathVariable int id, @RequestBody ProductRequest request) {
+        productService.update(id, request);
+    }
+    
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable int id) {
+    	productService.delete(id);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/RefundController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.Refund;
+import com.nirapod.services.RefundService;
+
+@RestController
+@RequestMapping("/api/refunds")
+@CrossOrigin(origins = "http://localhost:4200")
+public class RefundController {
+
+    @Autowired
+    private RefundService refundService;
+
+    @PostMapping
+    public ResponseEntity<Refund> create(@RequestBody Refund refund) {
+        refundService.create(refund);
+        return ResponseEntity.ok(refund);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Refund>> getAll() {
+        return ResponseEntity.ok(refundService.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Refund> getById(@PathVariable int id) {
+        Refund result = refundService.getById(id);
+        return result != null ? ResponseEntity.ok(result) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Refund> update(@PathVariable int id, @RequestBody Refund refund) {
+        refundService.update(refund);
+        return ResponseEntity.ok(refund);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        refundService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/TaxpayerController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.Taxpayer;
+import com.nirapod.services.TaxpayerService;
+
+@RestController
+@RequestMapping("/api/taxpayers")
+@CrossOrigin(origins = "http://localhost:4200")
+public class TaxpayerController {
+
+    @Autowired
+    private TaxpayerService taxpayerService;
+
+    @PostMapping
+    public ResponseEntity<Taxpayer> create(@RequestBody Taxpayer taxpayer) {
+        taxpayerService.create(taxpayer);
+        return ResponseEntity.ok(taxpayer);
+    }
+
+
+    
+    @GetMapping
+    public ResponseEntity<List<Taxpayer>> getAll(
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) String status) {
+
+        List<Taxpayer> result;
+
+        if (search != null && !search.isBlank()) {
+            result = taxpayerService.search(search.trim());
+        } else if (status != null && !status.isBlank()) {
+            result = taxpayerService.getByStatus(status);
+        } else {
+            result = taxpayerService.getAll();
+        }
+
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Taxpayer> getById(@PathVariable Long id) {
+        Taxpayer result = taxpayerService.getById(id);
+        return result != null ? ResponseEntity.ok(result) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Taxpayer> update(@PathVariable Long id, @RequestBody Taxpayer taxpayer) {
+        taxpayer.setId(id);
+        taxpayerService.update(taxpayer);
+        return ResponseEntity.ok(taxpayer);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        taxpayerService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+    
+    
+ // Export Taxpayers
+    @GetMapping("/export")
+    public ResponseEntity<byte[]> exportTaxpayers() {
+        byte[] csvData = taxpayerService.exportTaxpayersToCsv(); 
+        
+        HttpHeaders headers = new HttpHeaders();
+        headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=taxpayer_list.csv");
+        headers.setContentType(MediaType.parseMediaType("text/csv"));
+        
+        return new ResponseEntity<>(csvData, headers, HttpStatus.OK);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/TaxStructureController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.TaxStructure;
+import com.nirapod.services.TaxStructureService;
+
+@RestController
+@RequestMapping("/api/tax-structures")
+@CrossOrigin(origins = "http://localhost:4200")
+public class TaxStructureController {
+
+    @Autowired
+    private TaxStructureService taxStructureService;
+
+    @PostMapping
+    public ResponseEntity<TaxStructure> create(@RequestBody TaxStructure taxStructure) {
+        taxStructureService.create(taxStructure);
+        return ResponseEntity.ok(taxStructure);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<TaxStructure>> getAll() {
+        return ResponseEntity.ok(taxStructureService.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TaxStructure> getById(@PathVariable int id) {
+        TaxStructure result = taxStructureService.getById(id);
+        return result != null ? ResponseEntity.ok(result) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TaxStructure> update(@PathVariable int id, @RequestBody TaxStructure taxStructure) {
+        taxStructureService.update(taxStructure);
+        return ResponseEntity.ok(taxStructure);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        taxStructureService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/TinController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.nirapod.model.Taxpayer;
+import com.nirapod.model.Tin;
+import com.nirapod.services.TaxpayerService;
+import com.nirapod.services.TinCertificateService;
+import com.nirapod.services.TinService;
+
+import jakarta.servlet.http.HttpServletResponse;
+
+@RestController
+@RequestMapping("/api/tins")
+@CrossOrigin(origins = "http://localhost:4200") 
+public class TinController {
+
+    @Autowired
+    private TinService tinService;
+    
+    @Autowired
+    private TaxpayerService taxpayerService;
+
+    @Autowired
+    private TinCertificateService tinCertificateService;
+
+    @PostMapping
+    public ResponseEntity<Tin> createTin(@RequestBody Tin tin) {
+        Tin createdTin = tinService.createTin(tin);
+        return ResponseEntity.ok(createdTin);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Tin>> getAllTins() {
+        return ResponseEntity.ok(tinService.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Tin> getTinById(@PathVariable Long id) {
+        Tin tin = tinService.getById(id);
+        return tin != null ? ResponseEntity.ok(tin) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Tin> updateTin(@PathVariable Long id, @RequestBody Tin tin) {
+        Tin updatedTin = tinService.updateTin(id, tin);
+        return updatedTin != null ? ResponseEntity.ok(updatedTin) : ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteTin(@PathVariable Long id) {
+        tinService.deleteTin(id);
+        return ResponseEntity.noContent().build();
+    }
+    
+    @GetMapping("/{id}/certificate")
+    public void downloadTinCertificate(@PathVariable Long id, HttpServletResponse response) throws Exception {
+
+        Tin tin = tinService.getById(id);
+        Taxpayer taxpayer = taxpayerService.getById(tin.getTaxpayerId());
+
+
+        response.setContentType("application/pdf");
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=TIN_Certificate_" + tin.getTinNumber() + ".pdf";
+        response.setHeader(headerKey, headerValue);
+
+
+        tinCertificateService.generateCertificate(tin, taxpayer, response);
+    }
+    
+ // Export TINs
+    @GetMapping("/export")
+    public ResponseEntity<byte[]> exportTins() {
+        byte[] csvData = tinService.exportTinsToCsv();
+        
+        HttpHeaders headers = new HttpHeaders();
+        // ফাইলের নাম সেট করে দেওয়া হচ্ছে
+        headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=tin_list.csv");
+        headers.setContentType(MediaType.parseMediaType("text/csv"));
+        
+        return new ResponseEntity<>(csvData, headers, HttpStatus.OK);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/UserController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.User;
+import com.nirapod.services.UserService;
+
+@RestController
+@RequestMapping("/api/users")
+@CrossOrigin(origins = "http://localhost:4200")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @PostMapping
+    public ResponseEntity<User> create(@RequestBody User user) {
+        userService.create(user);
+        return ResponseEntity.ok(user);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<User>> getAll() {
+        return ResponseEntity.ok(userService.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getById(@PathVariable int id) {
+        User result = userService.getById(id);
+        return result != null ? ResponseEntity.ok(result) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> update(@PathVariable int id, @RequestBody User user) {
+        userService.update(user);
+        return ResponseEntity.ok(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        userService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/controller/VatReturnController.java">
+package com.nirapod.controller;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.nirapod.model.VatReturn;
+import com.nirapod.services.VatReturnService;
+
+@RestController
+@RequestMapping("/api/vat-returns")
+@CrossOrigin(origins = "http://localhost:4200")
+public class VatReturnController {
+
+    @Autowired
+    private VatReturnService vatReturnService;
+
+    @PostMapping
+    public ResponseEntity<VatReturn> create(@RequestBody VatReturn vatReturn) {
+        vatReturnService.create(vatReturn);
+        return ResponseEntity.ok(vatReturn);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<VatReturn>> getAll() {
+        return ResponseEntity.ok(vatReturnService.getAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<VatReturn> getById(@PathVariable int id) {
+        VatReturn result = vatReturnService.getById(id);
+        return result != null ? ResponseEntity.ok(result) : ResponseEntity.notFound().build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<VatReturn> update(@PathVariable int id, @RequestBody VatReturn vatReturn) {
+        vatReturnService.update(vatReturn);
+        return ResponseEntity.ok(vatReturn);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable int id) {
+        vatReturnService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/AuditDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.nirapod.model.Audit;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+
+@Repository
+public class AuditDAO {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Transactional
+    public void save(Audit entity) {
+        entityManager.persist(entity);
+    }
+
+    public List<Audit> getAll() {
+        return entityManager.createQuery("from audit", Audit.class).getResultList();
+    }
+
+    public Audit getById(int id) {
+        return entityManager.find(Audit.class, id);
+    }
+
+    @Transactional
+    public void update(Audit entity) {
+        entityManager.merge(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        Audit entity = getById(id);
+        if (entity != null) entityManager.remove(entity);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/BusinessCategoryDAO.java">
+package com.nirapod.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.nirapod.model.BusinessCategory;
+
+@Repository
+public interface BusinessCategoryDAO extends  JpaRepository<BusinessCategory, Long>{
+
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/BusinessDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.nirapod.model.Business;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+
+@Repository
+public class BusinessDAO {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Transactional
+    public Business save(Business entity) {
+        entityManager.persist(entity);
+        return entity;
+    }
+
+    public List<Business> getAll() {
+        return entityManager.createQuery("from business", Business.class).getResultList();
+    }
+
+
+    public Business getById(Long id) {
+        return entityManager.find(Business.class, id);
+    }
+
+    @Transactional
+    public Business update(Business entity) {
+
+        return entityManager.merge(entity);
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        Business entity = getById(id);
+        if (entity != null) entityManager.remove(entity);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/BusinessTypeDAO.java">
+package com.nirapod.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.nirapod.model.BusinessType;
+
+@Repository
+public interface BusinessTypeDAO extends JpaRepository<BusinessType, Long> {
+	
+	
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/DistrictDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.nirapod.model.District;
+
+@Repository
+public interface DistrictDAO extends JpaRepository<District, Long> {
+	List<District> findByDivisionId(Long divisionId);
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/DivisionDAO.java">
+package com.nirapod.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.nirapod.model.Division;
+
+@Repository
+public interface DivisionDAO extends JpaRepository<Division, Long> {
+
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/DocumentDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.nirapod.model.Document;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+
+@Repository
+public class DocumentDAO {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Transactional
+    public void save(Document entity) {
+        entityManager.persist(entity);
+    }
+
+    public List<Document> getAll() {
+        return entityManager.createQuery("from document", Document.class).getResultList();
+    }
+
+    public Document getById(int id) {
+        return entityManager.find(Document.class, id);
+    }
+
+    @Transactional
+    public void update(Document entity) {
+        entityManager.merge(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        Document entity = getById(id);
+        if (entity != null) entityManager.remove(entity);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/IncomeTaxReturnDAO.java">
+package com.nirapod.dao;
+
+import com.nirapod.model.IncomeTaxReturn;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public interface IncomeTaxReturnDAO extends JpaRepository<IncomeTaxReturn, Long> {
+    
+    boolean existsByTinNumberAndAssessmentYearAndIsDeletedFalse(String tinNumber, String assessmentYear);
+    
+    List<IncomeTaxReturn> findByIsDeletedFalse();
+    
+    Optional<IncomeTaxReturn> findByIdAndIsDeletedFalse(Long id);
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/NoticeDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.nirapod.model.Notice;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+
+@Repository
+public class NoticeDAO {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Transactional
+    public void save(Notice entity) {
+        entityManager.persist(entity);
+    }
+
+    public List<Notice> getAll() {
+        return entityManager.createQuery("from notice", Notice.class).getResultList();
+    }
+
+    public Notice getById(int id) {
+        return entityManager.find(Notice.class, id);
+    }
+
+    @Transactional
+    public void update(Notice entity) {
+        entityManager.merge(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        Notice entity = getById(id);
+        if (entity != null) entityManager.remove(entity);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/PaymentDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.nirapod.model.Payment;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+
+@Repository
+public class PaymentDAO {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Transactional
+    public void save(Payment entity) {
+        entityManager.persist(entity);
+    }
+
+    public List<Payment> getAll() {
+        return entityManager.createQuery("from payment", Payment.class).getResultList();
+    }
+
+    public Payment getById(int id) {
+        return entityManager.find(Payment.class, id);
+    }
+
+    @Transactional
+    public void update(Payment entity) {
+        entityManager.merge(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        Payment entity = getById(id);
+        if (entity != null) entityManager.remove(entity);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/PenaltyDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.nirapod.model.Penalty;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+
+@Repository
+public class PenaltyDAO {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Transactional
+    public void save(Penalty entity) {
+        entityManager.persist(entity);
+    }
+
+    public List<Penalty> getAll() {
+        return entityManager.createQuery("from penalty", Penalty.class).getResultList();
+    }
+
+    public Penalty getById(int id) {
+        return entityManager.find(Penalty.class, id);
+    }
+
+    @Transactional
+    public void update(Penalty entity) {
+        entityManager.merge(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        Penalty entity = getById(id);
+        if (entity != null) entityManager.remove(entity);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/ProductDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.nirapod.model.Product;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+
+
+@Repository(value = "productDAO")
+public class ProductDAO {
+
+	@PersistenceContext
+	private EntityManager entityManager;
+	
+	public void save(Product product) {
+		entityManager.persist(product);
+	}
+   
+	public List<Product> getAll(){
+		String sql = "from product";
+		List<Product> Products = entityManager.createQuery(sql).getResultList();
+		return Products;
+	}
+	
+	public Product getById(int id) {
+        return entityManager.find(Product.class, id);
+	}
+	
+	public void update (Product product) {
+		entityManager.merge(product);
+	}
+	
+	public void delete (int id) {
+		String sql = "delete from product where id = :id";
+		entityManager.createQuery(sql).setParameter("id", id).executeUpdate();
+	}
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/RefundDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.nirapod.model.Refund;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+
+@Repository
+public class RefundDAO {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Transactional
+    public void save(Refund entity) {
+        entityManager.persist(entity);
+    }
+
+    public List<Refund> getAll() {
+        return entityManager.createQuery("from refund", Refund.class).getResultList();
+    }
+
+    public Refund getById(int id) {
+        return entityManager.find(Refund.class, id);
+    }
+
+    @Transactional
+    public void update(Refund entity) {
+        entityManager.merge(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        Refund entity = getById(id);
+        if (entity != null) entityManager.remove(entity);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/TaxCircleDAO.java">
+package com.nirapod.dao;
+
+import com.nirapod.model.TaxCircle;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+
+@Repository
+public interface TaxCircleDAO extends JpaRepository<TaxCircle, Long> {
+    List<TaxCircle> findByTaxZoneId(Long taxZoneId);
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/TaxpayerDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.nirapod.model.Taxpayer;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+
+
+@Repository(value = "taxpayerDAO")
+public class TaxpayerDAO {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    public void save(Taxpayer taxpayer) {
+        entityManager.persist(taxpayer);
+    }
+
+    public List<Taxpayer> getAll() {
+        return entityManager.createQuery("from taxpayer", Taxpayer.class)
+                .getResultList();
+    }
+
+    public List<Taxpayer> getByStatus(String status) {
+        return entityManager
+                .createQuery("from taxpayer where status = :status", Taxpayer.class)
+                .setParameter("status", status)
+                .getResultList();
+    }
+
+    // server-side search across name, NID, company name, TIN, email, phone
+    public List<Taxpayer> search(String query) {
+        String like = "%" + query.toLowerCase() + "%";
+        return entityManager.createQuery(
+                "from taxpayer t where " +
+                "lower(t.fullName)     like :q or " +
+                "lower(t.companyName)  like :q or " +
+                "lower(t.nid)          like :q or " +
+                "lower(t.tinNumber)    like :q or " +
+                "lower(t.email)        like :q or " +
+                "lower(t.phone)        like :q or " +
+                "lower(t.tradeLicenseNo) like :q or " +
+                "lower(t.rjscNo)       like :q",
+                Taxpayer.class)
+                .setParameter("q", like)
+                .getResultList();
+    }
+
+    public Taxpayer getById(Long id) {
+        return entityManager.find(Taxpayer.class, id);
+    }
+
+    public void update(Taxpayer taxpayer) {
+        entityManager.merge(taxpayer);
+    }
+
+
+    public void delete(Long id) {
+        entityManager.createQuery("delete from taxpayer where id = :id")
+                .setParameter("id", id)
+                .executeUpdate();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/TaxpayerTypeDAO.java">
+package com.nirapod.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.nirapod.model.TaxpayerType;
+
+@Repository
+public interface TaxpayerTypeDAO extends JpaRepository<TaxpayerType, Long> {
+
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/TaxStructureDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.nirapod.model.TaxStructure;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+
+
+@Repository(value = "taxStructureDAO")
+public class TaxStructureDAO {
+
+	@PersistenceContext
+	private EntityManager entityManager;
+	
+	public void save(TaxStructure taxStructure) {
+		entityManager.persist(taxStructure);
+	}
+   
+	public List<TaxStructure> getAll(){
+		String sql = "from taxStructure";
+		List<TaxStructure> taxStructures = entityManager.createQuery(sql).getResultList();
+		return taxStructures;
+	}
+	
+	public TaxStructure getById(int id) {
+        return entityManager.find(TaxStructure.class, id);
+	}
+	
+	public void update (TaxStructure taxStructure) {
+		entityManager.merge(taxStructure);
+	}
+	
+	public void delete (int id) {
+		String sql = "delete from taxStructure where id = :id";
+		entityManager.createQuery(sql).setParameter("id", id).executeUpdate();
+	}
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/TaxZoneDAO.java">
+package com.nirapod.dao;
+
+import com.nirapod.model.TaxZone;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.List;
+
+@Repository
+public interface TaxZoneDAO extends JpaRepository<TaxZone, Long> {
+    List<TaxZone> findByDistrictId(Long districtId);
+    List<TaxZone> findByDistrictName(String districtName);
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/TinDAO.java">
+package com.nirapod.dao;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.nirapod.model.Tin;
+
+@Repository
+public interface TinDAO extends JpaRepository<Tin, Long> {
+
+    Tin findByTinNumber(String tinNumber);
+
+   
+    Optional<Tin> findByTaxpayerId(Long taxpayerId);
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/UserDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.nirapod.model.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+
+@Repository
+public class UserDAO {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Transactional
+    public void save(User entity) {
+        entityManager.persist(entity);
+    }
+
+    public List<User> getAll() {
+        return entityManager.createQuery("from user", User.class).getResultList();
+    }
+
+    public User getById(int id) {
+        return entityManager.find(User.class, id);
+    }
+
+    @Transactional
+    public void update(User entity) {
+        entityManager.merge(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        User entity = getById(id);
+        if (entity != null) entityManager.remove(entity);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dao/VatReturnDAO.java">
+package com.nirapod.dao;
+
+import java.util.List;
+import org.springframework.stereotype.Repository;
+import com.nirapod.model.VatReturn;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
+
+@Repository
+public class VatReturnDAO {
+
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Transactional
+    public void save(VatReturn entity) {
+        entityManager.persist(entity);
+    }
+
+    public List<VatReturn> getAll() {
+        return entityManager.createQuery("from vatReturn", VatReturn.class).getResultList();
+    }
+
+    public VatReturn getById(int id) {
+        return entityManager.find(VatReturn.class, id);
+    }
+
+    @Transactional
+    public void update(VatReturn entity) {
+        entityManager.merge(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        VatReturn entity = getById(id);
+        if (entity != null) entityManager.remove(entity);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/dto/ProductRequest.java">
+package com.nirapod.dto;
+
+public class ProductRequest {
+
+    private String productName;
+    private String hsCode;
+    private String category;
+    private String taxType;
+    private Integer taxStructureId;
+    private Double taxRate;
+    private String unit;
+    private String description;
+    private String status;
+
+    public ProductRequest() {
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getHsCode() {
+        return hsCode;
+    }
+
+    public void setHsCode(String hsCode) {
+        this.hsCode = hsCode;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getTaxType() {
+        return taxType;
+    }
+
+    public void setTaxType(String taxType) {
+        this.taxType = taxType;
+    }
+
+    public Integer getTaxStructureId() {
+        return taxStructureId;
+    }
+
+    public void setTaxStructureId(Integer taxStructureId) {
+        this.taxStructureId = taxStructureId;
+    }
+
+    public Double getTaxRate() {
+        return taxRate;
+    }
+
+    public void setTaxRate(Double taxRate) {
+        this.taxRate = taxRate;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/Address.java">
+package com.nirapod.model;
+
+import jakarta.persistence.Embeddable;
+
+@Embeddable
+public class Address {
+    
+    private String division;
+    private String district;
+    private String thana;
+    private String roadVillage;
+
+    // ----- Getters and Setters -----
+    public String getDivision() { return division; }
+    public void setDivision(String division) { this.division = division; }
+
+    public String getDistrict() { return district; }
+    public void setDistrict(String district) { this.district = district; }
+
+    public String getThana() { return thana; }
+    public void setThana(String thana) { this.thana = thana; }
+
+    public String getRoadVillage() { return roadVillage; }
+    public void setRoadVillage(String roadVillage) { this.roadVillage = roadVillage; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/Audit.java">
+package com.nirapod.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity(name = "audit")
+@Table(name = "audits")
+public class Audit {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(unique = true)
+    private String auditNo;
+
+    private String tinNumber;
+    private String taxpayerName;
+    private String auditType;
+    private String priority;
+    private String assessmentYear;
+    private String returnNo;
+    private LocalDate scheduledDate;
+    private LocalDate startDate;
+    private LocalDate completionDate;
+    private String assignedTo;
+    private String supervisedBy;
+
+    @Column(length = 5000)
+    private String auditFindings;
+
+    private Double taxDemand;
+    private Double penaltyRecommended;
+    private String status;
+
+    @Column(length = 2000)
+    private String remarks;
+
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        if (this.status == null) this.status = "Scheduled";
+        if (this.auditNo == null || this.auditNo.isEmpty())
+            this.auditNo = "AUD-" + System.currentTimeMillis();
+    }
+
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
+    public String getAuditNo() { return auditNo; }
+    public void setAuditNo(String auditNo) { this.auditNo = auditNo; }
+    public String getTinNumber() { return tinNumber; }
+    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
+    public String getTaxpayerName() { return taxpayerName; }
+    public void setTaxpayerName(String taxpayerName) { this.taxpayerName = taxpayerName; }
+    public String getAuditType() { return auditType; }
+    public void setAuditType(String auditType) { this.auditType = auditType; }
+    public String getPriority() { return priority; }
+    public void setPriority(String priority) { this.priority = priority; }
+    public String getAssessmentYear() { return assessmentYear; }
+    public void setAssessmentYear(String assessmentYear) { this.assessmentYear = assessmentYear; }
+    public String getReturnNo() { return returnNo; }
+    public void setReturnNo(String returnNo) { this.returnNo = returnNo; }
+    public LocalDate getScheduledDate() { return scheduledDate; }
+    public void setScheduledDate(LocalDate scheduledDate) { this.scheduledDate = scheduledDate; }
+    public LocalDate getStartDate() { return startDate; }
+    public void setStartDate(LocalDate startDate) { this.startDate = startDate; }
+    public LocalDate getCompletionDate() { return completionDate; }
+    public void setCompletionDate(LocalDate completionDate) { this.completionDate = completionDate; }
+    public String getAssignedTo() { return assignedTo; }
+    public void setAssignedTo(String assignedTo) { this.assignedTo = assignedTo; }
+    public String getSupervisedBy() { return supervisedBy; }
+    public void setSupervisedBy(String supervisedBy) { this.supervisedBy = supervisedBy; }
+    public String getAuditFindings() { return auditFindings; }
+    public void setAuditFindings(String auditFindings) { this.auditFindings = auditFindings; }
+    public Double getTaxDemand() { return taxDemand; }
+    public void setTaxDemand(Double taxDemand) { this.taxDemand = taxDemand; }
+    public Double getPenaltyRecommended() { return penaltyRecommended; }
+    public void setPenaltyRecommended(Double penaltyRecommended) { this.penaltyRecommended = penaltyRecommended; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+    public String getRemarks() { return remarks; }
+    public void setRemarks(String remarks) { this.remarks = remarks; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/Business.java">
+package com.nirapod.model;
+
+import jakarta.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.UUID;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity(name = "business")
+@Table(name = "businesses")
+public class Business {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "taxpayer_id", nullable = false)
+    @JsonIgnoreProperties("businesses")
+    private Taxpayer taxpayer;
+
+    @Column(unique = true)
+    private String businessRegNo;
+
+    @Column(nullable = false)
+    private String businessName;
+
+
+    @Column(nullable = true)
+    private String tinNumber;
+
+    @Column(unique = true)
+    private String binNo;
+
+    @Column(nullable = false)
+    private String ownerName;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "division_id")
+    private Division division;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "district_id")
+    private District district;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "business_type_id")
+    private BusinessType businessType;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "business_category_id")
+    private BusinessCategory businessCategory;
+
+    private String tradeLicenseNo;
+    private String email;
+    private String phone;
+    @Column(nullable = false)
+    private String status;
+
+    @Column(length = 1000)
+    private String address;
+
+    private LocalDate incorporationDate;
+    private LocalDate registrationDate;
+    private LocalDate expiryDate;
+
+
+    @Column(precision = 19, scale = 2)
+    private BigDecimal annualTurnover;
+
+    private Integer numberOfEmployees;
+
+    @Column(length = 1000)
+    private String remarks;
+
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+        if (this.status == null) this.status = "Active";
+        if (this.businessRegNo == null || this.businessRegNo.isEmpty())
+            this.businessRegNo = "BUS-" + UUID.randomUUID()
+                                              .toString()
+                                              .substring(0, 8)
+                                              .toUpperCase();
+    }
+
+
+    @PreUpdate
+    public void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
+
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public Taxpayer getTaxpayer() { return taxpayer; }
+    public void setTaxpayer(Taxpayer taxpayer) { this.taxpayer = taxpayer; }
+
+    public String getBusinessRegNo() { return businessRegNo; }
+    public void setBusinessRegNo(String businessRegNo) { this.businessRegNo = businessRegNo; }
+
+    public String getBusinessName() { return businessName; }
+    public void setBusinessName(String businessName) { this.businessName = businessName; }
+
+    public String getTinNumber() { return tinNumber; }
+    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
+
+    public String getBinNo() { return binNo; }
+    public void setBinNo(String binNo) { this.binNo = binNo; }
+
+    public String getOwnerName() { return ownerName; }
+    public void setOwnerName(String ownerName) { this.ownerName = ownerName; }
+
+    public Division getDivision() { return division; }
+    public void setDivision(Division division) { this.division = division; }
+
+    public District getDistrict() { return district; }
+    public void setDistrict(District district) { this.district = district; }
+
+    public BusinessType getBusinessType() { return businessType; }
+    public void setBusinessType(BusinessType businessType) { this.businessType = businessType; }
+
+    public BusinessCategory getBusinessCategory() { return businessCategory; }
+    public void setBusinessCategory(BusinessCategory businessCategory) { this.businessCategory = businessCategory; }
+
+    public String getTradeLicenseNo() { return tradeLicenseNo; }
+    public void setTradeLicenseNo(String tradeLicenseNo) { this.tradeLicenseNo = tradeLicenseNo; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
+
+    public LocalDate getIncorporationDate() { return incorporationDate; }
+    public void setIncorporationDate(LocalDate incorporationDate) { this.incorporationDate = incorporationDate; }
+
+    public LocalDate getRegistrationDate() { return registrationDate; }
+    public void setRegistrationDate(LocalDate registrationDate) { this.registrationDate = registrationDate; }
+
+    public LocalDate getExpiryDate() { return expiryDate; }
+    public void setExpiryDate(LocalDate expiryDate) { this.expiryDate = expiryDate; }
+
+    public BigDecimal getAnnualTurnover() { return annualTurnover; }
+    public void setAnnualTurnover(BigDecimal annualTurnover) { this.annualTurnover = annualTurnover; }
+
+    public Integer getNumberOfEmployees() { return numberOfEmployees; }
+    public void setNumberOfEmployees(Integer numberOfEmployees) { this.numberOfEmployees = numberOfEmployees; }
+
+    public String getRemarks() { return remarks; }
+    public void setRemarks(String remarks) { this.remarks = remarks; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/BusinessCategory.java">
+package com.nirapod.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.*;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity
+@Table(name = "business_categories")
+public class BusinessCategory {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(nullable = false)
+    private String categoryName;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String typeName) {
+		this.categoryName = typeName;
+	} 
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/BusinessType.java">
+package com.nirapod.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.*;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity
+@Table(name = "business_types")
+public class BusinessType {
+	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(nullable = false)
+    private String typeName;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTypeName() {
+		return typeName;
+	}
+
+	public void setTypeName(String typeName) {
+		this.typeName = typeName;
+	} 
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/District.java">
+package com.nirapod.model;
+
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity
+@Table(name = "districts")
+public class District {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(nullable = false)
+    private String name;
+
+    @ManyToOne
+    @JoinColumn(name = "division_id")
+    @JsonBackReference
+    private Division division;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Division getDivision() {
+		return division;
+	}
+
+	public void setDivision(Division division) {
+		this.division = division;
+	}
+    
+
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/Division.java">
+package com.nirapod.model;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.*;
+
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity
+@Table(name = "divisions")
+
+public class Division {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(nullable = false)
+    private String name;
+
+    @OneToMany(mappedBy = "division", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<District> districts;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<District> getDistricts() {
+		return districts;
+	}
+
+	public void setDistricts(List<District> districts) {
+		this.districts = districts;
+	}
+    
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/Document.java">
+package com.nirapod.model;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity(name = "document")
+@Table(name = "documents")
+@Getter
+@Setter
+public class Document {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(unique = true)
+    private String documentNo;
+
+    private String tinNumber;
+    private String taxpayerName;
+    private String documentType;
+    private String documentCategory;
+    private String documentTitle;
+    private String referenceNo;
+    private LocalDate issueDate;
+    private LocalDate expiryDate;
+    private LocalDate submissionDate;
+    private LocalDate verificationDate;
+    private String fileSize;
+    private String status;
+    private String verifiedBy;
+
+    @Column(length = 2000)
+    private String remarks;
+
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        if (this.status == null) this.status = "Pending";
+        if (this.documentNo == null || this.documentNo.isEmpty())
+            this.documentNo = "DOC-" + System.currentTimeMillis();
+    }
+
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/IncomeTaxReturn.java">
+package com.nirapod.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.util.List;
+
+@Entity
+@Table(name = "income_tax_returns")
+public class IncomeTaxReturn {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(unique = true)
+    private String returnNo;
+
+    @Column(name = "tin_number", nullable = false)
+    private String tinNumber;
+
+    @Column(name = "taxpayer_name", nullable = false)
+    private String taxpayerName;
+
+    @Column(name = "itr_category", nullable = false)
+    private String itrCategory; 
+
+    @Column(name = "assessment_year", nullable = false)
+    private String assessmentYear;
+
+    @Column(name = "income_year", nullable = false)
+    private String incomeYear;
+
+    @Column(name = "return_period")
+    private String returnPeriod; 
+
+    @Column(name = "gross_income")
+    private Double grossIncome;
+
+    @Column(name = "exempt_income")
+    private Double exemptIncome;
+
+    @Column(name = "tax_rate")
+    private Double taxRate;
+
+    @Column(name = "gross_tax")
+    private Double grossTax;
+
+    @Column(name = "tax_rebate")
+    private Double taxRebate;
+
+    @Column(name = "advance_tax_paid")
+    private Double advanceTaxPaid;
+
+    @Column(name = "withholding_tax")
+    private Double withholdingTax;
+
+    @Column(name = "tax_paid")
+    private Double taxPaid;
+
+    @Column(name = "submission_date")
+    private LocalDate submissionDate;
+
+    @Column(name = "due_date")
+    private LocalDate dueDate;
+
+    @Column(name = "submitted_by")
+    private String submittedBy;
+
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "remarks", columnDefinition = "TEXT")
+    private String remarks;
+
+
+    @Column(name = "is_deleted")
+    private boolean isDeleted = false;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "taxpayer_id")
+    private Taxpayer taxpayer;
+
+
+    @Transient
+    private Long taxpayerId;
+    
+    @OneToMany(mappedBy = "incomeTaxReturn", cascade = CascadeType.ALL) 
+    private List<ITRAction> actionHistory;
+
+    
+    // GETTERS & SETTERS 
+    
+    
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getReturnNo() { return returnNo; }
+    public void setReturnNo(String returnNo) { this.returnNo = returnNo; }
+
+    public String getTinNumber() { return tinNumber; }
+    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
+
+    public String getTaxpayerName() { return taxpayerName; }
+    public void setTaxpayerName(String taxpayerName) { this.taxpayerName = taxpayerName; }
+
+    public String getItrCategory() { return itrCategory; }
+    public void setItrCategory(String itrCategory) { this.itrCategory = itrCategory; }
+
+    public String getAssessmentYear() { return assessmentYear; }
+    public void setAssessmentYear(String assessmentYear) { this.assessmentYear = assessmentYear; }
+
+    public String getIncomeYear() { return incomeYear; }
+    public void setIncomeYear(String incomeYear) { this.incomeYear = incomeYear; }
+
+    public String getReturnPeriod() { return returnPeriod; }
+    public void setReturnPeriod(String returnPeriod) { this.returnPeriod = returnPeriod; }
+
+    public Double getGrossIncome() { return grossIncome; }
+    public void setGrossIncome(Double grossIncome) { this.grossIncome = grossIncome; }
+
+    public Double getExemptIncome() { return exemptIncome; }
+    public void setExemptIncome(Double exemptIncome) { this.exemptIncome = exemptIncome; }
+
+    public Double getTaxRate() { return taxRate; }
+    public void setTaxRate(Double taxRate) { this.taxRate = taxRate; }
+
+    public Double getGrossTax() { return grossTax; }
+    public void setGrossTax(Double grossTax) { this.grossTax = grossTax; }
+
+    public Double getTaxRebate() { return taxRebate; }
+    public void setTaxRebate(Double taxRebate) { this.taxRebate = taxRebate; }
+
+    public Double getAdvanceTaxPaid() { return advanceTaxPaid; }
+    public void setAdvanceTaxPaid(Double advanceTaxPaid) { this.advanceTaxPaid = advanceTaxPaid; }
+
+    public Double getWithholdingTax() { return withholdingTax; }
+    public void setWithholdingTax(Double withholdingTax) { this.withholdingTax = withholdingTax; }
+
+    public Double getTaxPaid() { return taxPaid; }
+    public void setTaxPaid(Double taxPaid) { this.taxPaid = taxPaid; }
+
+    public LocalDate getSubmissionDate() { return submissionDate; }
+    public void setSubmissionDate(LocalDate submissionDate) { this.submissionDate = submissionDate; }
+
+    public LocalDate getDueDate() { return dueDate; }
+    public void setDueDate(LocalDate dueDate) { this.dueDate = dueDate; }
+
+    public String getSubmittedBy() { return submittedBy; }
+    public void setSubmittedBy(String submittedBy) { this.submittedBy = submittedBy; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+
+    public String getRemarks() { return remarks; }
+    public void setRemarks(String remarks) { this.remarks = remarks; }
+
+    public boolean isDeleted() { return isDeleted; }
+    public void setDeleted(boolean deleted) { isDeleted = deleted; }
+
+    public Taxpayer getTaxpayer() { return taxpayer; }
+    public void setTaxpayer(Taxpayer taxpayer) { this.taxpayer = taxpayer; }
+
+    public Long getTaxpayerId() { return taxpayerId; }
+    public void setTaxpayerId(Long taxpayerId) { this.taxpayerId = taxpayerId; }
+    
+	public List<ITRAction> getActionHistory() {
+		return actionHistory;
+	}
+	public void setActionHistory(List<ITRAction> actionHistory) {
+		this.actionHistory = actionHistory;
+	}
+    
+    
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/ITRAction.java">
+package com.nirapod.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "itr_action_history")
+public class ITRAction {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String action;
+    private String status;
+    private String remarks;
+    
+    @Column(name = "performed_by")
+    private String performedBy;
+    
+    private String role;
+    
+    private LocalDateTime timestamp = LocalDateTime.now();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "return_id")
+    @JsonIgnore
+    private IncomeTaxReturn incomeTaxReturn;
+
+    // --- Manual Getters & Setters ---
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getAction() { return action; }
+    public void setAction(String action) { this.action = action; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+
+    public String getRemarks() { return remarks; }
+    public void setRemarks(String remarks) { this.remarks = remarks; }
+
+    public String getPerformedBy() { return performedBy; }
+    public void setPerformedBy(String performedBy) { this.performedBy = performedBy; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
+
+    public LocalDateTime getTimestamp() { return timestamp; }
+    public void setTimestamp(LocalDateTime timestamp) { this.timestamp = timestamp; }
+
+    public IncomeTaxReturn getIncomeTaxReturn() { return incomeTaxReturn; }
+    public void setIncomeTaxReturn(IncomeTaxReturn incomeTaxReturn) { this.incomeTaxReturn = incomeTaxReturn; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/Notice.java">
+package com.nirapod.model;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity(name = "notice")
+@Table(name = "notices")
+@Setter
+@Getter
+public class Notice {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(unique = true)
+    private String noticeNo;
+
+    private String subject;
+
+    @Column(length = 5000)
+    private String body;
+
+    private String noticeType;
+    private String priority;
+    private String targetType;
+    private String tinNumber;
+    private String taxpayerName;
+    private String issuedBy;
+    private LocalDate issuedDate;
+    private LocalDate dueDate;
+    private LocalDate readDate;
+    private LocalDate responseDate;
+
+    @Column(length = 2000)
+    private String responseNote;
+
+    private String attachmentName;
+    private String status;
+
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        if (this.status == null) this.status = "Unread";
+        if (this.noticeNo == null || this.noticeNo.isEmpty())
+            this.noticeNo = "NTC-" + System.currentTimeMillis();
+    }
+
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/Payment.java">
+package com.nirapod.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity(name = "payment")
+@Table(name = "payments")
+public class Payment {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(unique = true)
+    private String transactionId;
+
+    private String tinNumber;
+    private String taxpayerName;
+    private String paymentType;
+    private String paymentMethod;
+    private Double amount;
+    private String bankName;
+    private String bankBranch;
+    private String accountNo;
+    private String chequeNo;
+    private LocalDate paymentDate;
+    private LocalDate valueDate;
+    private String referenceNo;
+    private String returnNo;
+    private String status;
+    private String processedBy;
+
+    @Column(length = 1000)
+    private String remarks;
+
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        if (this.status == null) this.status = "Pending";
+        if (this.transactionId == null || this.transactionId.isEmpty())
+            this.transactionId = "TXN-" + System.currentTimeMillis();
+    }
+
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
+    public String getTransactionId() { return transactionId; }
+    public void setTransactionId(String transactionId) { this.transactionId = transactionId; }
+    public String getTinNumber() { return tinNumber; }
+    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
+    public String getTaxpayerName() { return taxpayerName; }
+    public void setTaxpayerName(String taxpayerName) { this.taxpayerName = taxpayerName; }
+    public String getPaymentType() { return paymentType; }
+    public void setPaymentType(String paymentType) { this.paymentType = paymentType; }
+    public String getPaymentMethod() { return paymentMethod; }
+    public void setPaymentMethod(String paymentMethod) { this.paymentMethod = paymentMethod; }
+    public Double getAmount() { return amount; }
+    public void setAmount(Double amount) { this.amount = amount; }
+    public String getBankName() { return bankName; }
+    public void setBankName(String bankName) { this.bankName = bankName; }
+    public String getBankBranch() { return bankBranch; }
+    public void setBankBranch(String bankBranch) { this.bankBranch = bankBranch; }
+    public String getAccountNo() { return accountNo; }
+    public void setAccountNo(String accountNo) { this.accountNo = accountNo; }
+    public String getChequeNo() { return chequeNo; }
+    public void setChequeNo(String chequeNo) { this.chequeNo = chequeNo; }
+    public LocalDate getPaymentDate() { return paymentDate; }
+    public void setPaymentDate(LocalDate paymentDate) { this.paymentDate = paymentDate; }
+    public LocalDate getValueDate() { return valueDate; }
+    public void setValueDate(LocalDate valueDate) { this.valueDate = valueDate; }
+    public String getReferenceNo() { return referenceNo; }
+    public void setReferenceNo(String referenceNo) { this.referenceNo = referenceNo; }
+    public String getReturnNo() { return returnNo; }
+    public void setReturnNo(String returnNo) { this.returnNo = returnNo; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+    public String getProcessedBy() { return processedBy; }
+    public void setProcessedBy(String processedBy) { this.processedBy = processedBy; }
+    public String getRemarks() { return remarks; }
+    public void setRemarks(String remarks) { this.remarks = remarks; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/Penalty.java">
+package com.nirapod.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity(name = "penalty")
+@Table(name = "penalties")
+public class Penalty {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(unique = true)
+    private String penaltyNo;
+
+    private String tinNumber;
+    private String taxpayerName;
+    private String penaltyType;
+    private String severity;
+    private Double penaltyAmount;
+    private Double interestAmount;
+    private Double totalAmount;
+    private Double paidAmount;
+    private String returnNo;
+    private String assessmentYear;
+    private LocalDate issueDate;
+    private LocalDate dueDate;
+    private LocalDate paymentDate;
+    private String status;
+    private String issuedBy;
+    private String approvedBy;
+
+    @Column(length = 2000)
+    private String description;
+
+    @Column(length = 2000)
+    private String remarks;
+
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        if (this.status == null) this.status = "Issued";
+        if (this.penaltyNo == null || this.penaltyNo.isEmpty())
+            this.penaltyNo = "PEN-" + System.currentTimeMillis();
+        if (this.penaltyAmount != null && this.interestAmount != null)
+            this.totalAmount = this.penaltyAmount + this.interestAmount;
+        if (this.paidAmount == null) this.paidAmount = 0.0;
+    }
+
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
+    public String getPenaltyNo() { return penaltyNo; }
+    public void setPenaltyNo(String penaltyNo) { this.penaltyNo = penaltyNo; }
+    public String getTinNumber() { return tinNumber; }
+    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
+    public String getTaxpayerName() { return taxpayerName; }
+    public void setTaxpayerName(String taxpayerName) { this.taxpayerName = taxpayerName; }
+    public String getPenaltyType() { return penaltyType; }
+    public void setPenaltyType(String penaltyType) { this.penaltyType = penaltyType; }
+    public String getSeverity() { return severity; }
+    public void setSeverity(String severity) { this.severity = severity; }
+    public Double getPenaltyAmount() { return penaltyAmount; }
+    public void setPenaltyAmount(Double penaltyAmount) { this.penaltyAmount = penaltyAmount; }
+    public Double getInterestAmount() { return interestAmount; }
+    public void setInterestAmount(Double interestAmount) { this.interestAmount = interestAmount; }
+    public Double getTotalAmount() { return totalAmount; }
+    public void setTotalAmount(Double totalAmount) { this.totalAmount = totalAmount; }
+    public Double getPaidAmount() { return paidAmount; }
+    public void setPaidAmount(Double paidAmount) { this.paidAmount = paidAmount; }
+    public String getReturnNo() { return returnNo; }
+    public void setReturnNo(String returnNo) { this.returnNo = returnNo; }
+    public String getAssessmentYear() { return assessmentYear; }
+    public void setAssessmentYear(String assessmentYear) { this.assessmentYear = assessmentYear; }
+    public LocalDate getIssueDate() { return issueDate; }
+    public void setIssueDate(LocalDate issueDate) { this.issueDate = issueDate; }
+    public LocalDate getDueDate() { return dueDate; }
+    public void setDueDate(LocalDate dueDate) { this.dueDate = dueDate; }
+    public LocalDate getPaymentDate() { return paymentDate; }
+    public void setPaymentDate(LocalDate paymentDate) { this.paymentDate = paymentDate; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+    public String getIssuedBy() { return issuedBy; }
+    public void setIssuedBy(String issuedBy) { this.issuedBy = issuedBy; }
+    public String getApprovedBy() { return approvedBy; }
+    public void setApprovedBy(String approvedBy) { this.approvedBy = approvedBy; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+    public String getRemarks() { return remarks; }
+    public void setRemarks(String remarks) { this.remarks = remarks; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/Product.java">
+package com.nirapod.model;
+
+import java.time.LocalDateTime;
+import jakarta.persistence.*;
+
+@Entity(name = "product")
+@Table(name = "products")
+public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(nullable = false, unique = true)
+    private String productCode;
+
+    @Column(nullable = false)
+    private String productName;
+
+    @Column(nullable = false, unique = true)
+    private String hsCode;
+
+    @Column(nullable = false)
+    private String category;
+
+    @Column(nullable = false)
+    private String taxType;
+
+    @ManyToOne
+    @JoinColumn(name = "tax_structure_id", nullable = false)
+    private TaxStructure taxStructure;
+
+    @Column(nullable = false)
+    private Double taxRate;
+
+    @Column(nullable = false)
+    private String unit;
+
+    private String description;
+
+    @Column(nullable = false)
+    private String status;
+
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    public Product() {
+        super();
+    }
+
+    public Product(int id, String productCode, String productName, String hsCode, String category, String taxType,
+                   TaxStructure taxStructure, Double taxRate, String unit, String description, String status,
+                   LocalDateTime createdAt) {
+        super();
+        this.id = id;
+        this.productCode = productCode;
+        this.productName = productName;
+        this.hsCode = hsCode;
+        this.category = category;
+        this.taxType = taxType;
+        this.taxStructure = taxStructure;
+        this.taxRate = taxRate;
+        this.unit = unit;
+        this.description = description;
+        this.status = status;
+        this.createdAt = createdAt;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        if (this.productCode == null || this.productCode.isEmpty()) {
+            this.productCode = "PRD-" + System.currentTimeMillis();
+        }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getHsCode() {
+        return hsCode;
+    }
+
+    public void setHsCode(String hsCode) {
+        this.hsCode = hsCode;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getTaxType() {
+        return taxType;
+    }
+
+    public void setTaxType(String taxType) {
+        this.taxType = taxType;
+    }
+
+    public TaxStructure getTaxStructure() {
+        return taxStructure;
+    }
+
+    public void setTaxStructure(TaxStructure taxStructure) {
+        this.taxStructure = taxStructure;
+    }
+
+    public Double getTaxRate() {
+        return taxRate;
+    }
+
+    public void setTaxRate(Double taxRate) {
+        this.taxRate = taxRate;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/Refund.java">
+package com.nirapod.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity(name = "refund")
+@Table(name = "refunds")
+public class Refund {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(unique = true)
+    private String refundNo;
+
+    private String tinNumber;
+    private String taxpayerName;
+    private String refundType;
+    private String refundMethod;
+    private Double claimAmount;
+    private Double approvedAmount;
+    private Double paidAmount;
+    private String returnNo;
+    private String paymentRef;
+    private String bankName;
+    private String bankBranch;
+    private String accountNo;
+    private LocalDate claimDate;
+    private LocalDate approvalDate;
+    private LocalDate paymentDate;
+    private String status;
+    private String processedBy;
+    private String approvedBy;
+
+    @Column(length = 2000)
+    private String remarks;
+
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        if (this.status == null) this.status = "Pending";
+        if (this.refundNo == null || this.refundNo.isEmpty())
+            this.refundNo = "REF-" + System.currentTimeMillis();
+        if (this.approvedAmount == null) this.approvedAmount = 0.0;
+        if (this.paidAmount == null) this.paidAmount = 0.0;
+    }
+
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
+    public String getRefundNo() { return refundNo; }
+    public void setRefundNo(String refundNo) { this.refundNo = refundNo; }
+    public String getTinNumber() { return tinNumber; }
+    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
+    public String getTaxpayerName() { return taxpayerName; }
+    public void setTaxpayerName(String taxpayerName) { this.taxpayerName = taxpayerName; }
+    public String getRefundType() { return refundType; }
+    public void setRefundType(String refundType) { this.refundType = refundType; }
+    public String getRefundMethod() { return refundMethod; }
+    public void setRefundMethod(String refundMethod) { this.refundMethod = refundMethod; }
+    public Double getClaimAmount() { return claimAmount; }
+    public void setClaimAmount(Double claimAmount) { this.claimAmount = claimAmount; }
+    public Double getApprovedAmount() { return approvedAmount; }
+    public void setApprovedAmount(Double approvedAmount) { this.approvedAmount = approvedAmount; }
+    public Double getPaidAmount() { return paidAmount; }
+    public void setPaidAmount(Double paidAmount) { this.paidAmount = paidAmount; }
+    public String getReturnNo() { return returnNo; }
+    public void setReturnNo(String returnNo) { this.returnNo = returnNo; }
+    public String getPaymentRef() { return paymentRef; }
+    public void setPaymentRef(String paymentRef) { this.paymentRef = paymentRef; }
+    public String getBankName() { return bankName; }
+    public void setBankName(String bankName) { this.bankName = bankName; }
+    public String getBankBranch() { return bankBranch; }
+    public void setBankBranch(String bankBranch) { this.bankBranch = bankBranch; }
+    public String getAccountNo() { return accountNo; }
+    public void setAccountNo(String accountNo) { this.accountNo = accountNo; }
+    public LocalDate getClaimDate() { return claimDate; }
+    public void setClaimDate(LocalDate claimDate) { this.claimDate = claimDate; }
+    public LocalDate getApprovalDate() { return approvalDate; }
+    public void setApprovalDate(LocalDate approvalDate) { this.approvalDate = approvalDate; }
+    public LocalDate getPaymentDate() { return paymentDate; }
+    public void setPaymentDate(LocalDate paymentDate) { this.paymentDate = paymentDate; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+    public String getProcessedBy() { return processedBy; }
+    public void setProcessedBy(String processedBy) { this.processedBy = processedBy; }
+    public String getApprovedBy() { return approvedBy; }
+    public void setApprovedBy(String approvedBy) { this.approvedBy = approvedBy; }
+    public String getRemarks() { return remarks; }
+    public void setRemarks(String remarks) { this.remarks = remarks; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/TaxCircle.java">
+package com.nirapod.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity
+@Table(name = "tax_circles")
+public class TaxCircle {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tax_zone_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "taxCircles", "district"})
+    private TaxZone taxZone;
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public TaxZone getTaxZone() { return taxZone; }
+    public void setTaxZone(TaxZone taxZone) { this.taxZone = taxZone; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/Taxpayer.java">
+package com.nirapod.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity(name = "taxpayer")
+@Table(name = "taxpayers")
+public class Taxpayer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    
+   
+    @Column(unique = true)
+    private String tinNumber;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "taxpayer_type_id")
+    private TaxpayerType taxpayerType;
+
+    // ─── Individual Fields ───
+    private String fullName;
+    private String nid;
+    private String fathersName;
+    private String mothersName;
+    private LocalDate dateOfBirth;
+    private String profession;
+
+    // ─── Company Fields ───
+    private String companyName;
+    private String companySubType;
+    private LocalDate incorporationDate;
+    private String tradeLicenseNo;
+    private String rjscNo;
+    private String natureOfBusiness;
+    private String authorizedPersonName;
+    private String authorizedPersonNid;
+    private String authorizedPersonDesignation;
+
+    // ─── Contact Info ───
+    private String email;
+    private String phone;
+
+    // ─── Address Info (Embedded) ───
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "division", column = @Column(name = "present_division")),
+        @AttributeOverride(name = "district", column = @Column(name = "present_district")),
+        @AttributeOverride(name = "thana", column = @Column(name = "present_thana")),
+        @AttributeOverride(name = "roadVillage", column = @Column(name = "present_road_village"))
+    })
+    private Address presentAddress;
+
+    @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "division", column = @Column(name = "permanent_division")),
+        @AttributeOverride(name = "district", column = @Column(name = "permanent_district")),
+        @AttributeOverride(name = "thana", column = @Column(name = "permanent_thana")),
+        @AttributeOverride(name = "roadVillage", column = @Column(name = "permanent_road_village"))
+    })
+    private Address permanentAddress;
+
+    private Boolean sameAsPermanent;
+
+    // ─── Meta Info ───
+    private String status; 
+    private LocalDate registrationDate;
+
+    @OneToMany(mappedBy = "taxpayer", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("taxpayer")
+    private List<Business> businesses;
+
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+    }
+
+    // ─── Getters and Setters ───
+   
+    
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getTinNumber() { return tinNumber; }
+    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
+
+    public TaxpayerType getTaxpayerType() { return taxpayerType; }
+    public void setTaxpayerType(TaxpayerType taxpayerType) { this.taxpayerType = taxpayerType; }
+
+    public String getFullName() { return fullName; }
+    public void setFullName(String fullName) { this.fullName = fullName; }
+
+    public String getNid() { return nid; }
+    public void setNid(String nid) { this.nid = nid; }
+
+    public String getFathersName() { return fathersName; }
+    public void setFathersName(String fathersName) { this.fathersName = fathersName; }
+
+    public String getMothersName() { return mothersName; }
+    public void setMothersName(String mothersName) { this.mothersName = mothersName; }
+
+    public LocalDate getDateOfBirth() { return dateOfBirth; }
+    public void setDateOfBirth(LocalDate dateOfBirth) { this.dateOfBirth = dateOfBirth; }
+
+    public String getProfession() { return profession; }
+    public void setProfession(String profession) { this.profession = profession; }
+
+    public String getCompanyName() { return companyName; }
+    public void setCompanyName(String companyName) { this.companyName = companyName; }
+
+    public String getCompanySubType() { return companySubType; }
+    public void setCompanySubType(String companySubType) { this.companySubType = companySubType; }
+
+    public LocalDate getIncorporationDate() { return incorporationDate; }
+    public void setIncorporationDate(LocalDate incorporationDate) { this.incorporationDate = incorporationDate; }
+
+    public String getTradeLicenseNo() { return tradeLicenseNo; }
+    public void setTradeLicenseNo(String tradeLicenseNo) { this.tradeLicenseNo = tradeLicenseNo; }
+
+    public String getRjscNo() { return rjscNo; }
+    public void setRjscNo(String rjscNo) { this.rjscNo = rjscNo; }
+
+    public String getNatureOfBusiness() { return natureOfBusiness; }
+    public void setNatureOfBusiness(String natureOfBusiness) { this.natureOfBusiness = natureOfBusiness; }
+
+    public String getAuthorizedPersonName() { return authorizedPersonName; }
+    public void setAuthorizedPersonName(String authorizedPersonName) { this.authorizedPersonName = authorizedPersonName; }
+
+    public String getAuthorizedPersonNid() { return authorizedPersonNid; }
+    public void setAuthorizedPersonNid(String authorizedPersonNid) { this.authorizedPersonNid = authorizedPersonNid; }
+
+    public String getAuthorizedPersonDesignation() { return authorizedPersonDesignation; }
+    public void setAuthorizedPersonDesignation(String authorizedPersonDesignation) { this.authorizedPersonDesignation = authorizedPersonDesignation; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+
+    public Address getPresentAddress() { return presentAddress; }
+    public void setPresentAddress(Address presentAddress) { this.presentAddress = presentAddress; }
+
+    public Address getPermanentAddress() { return permanentAddress; }
+    public void setPermanentAddress(Address permanentAddress) { this.permanentAddress = permanentAddress; }
+
+    public Boolean getSameAsPermanent() { return sameAsPermanent; }
+    public void setSameAsPermanent(Boolean sameAsPermanent) { this.sameAsPermanent = sameAsPermanent; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+
+    public LocalDate getRegistrationDate() { return registrationDate; }
+    public void setRegistrationDate(LocalDate registrationDate) { this.registrationDate = registrationDate; }
+
+    public List<Business> getBusinesses() { return businesses; }
+    public void setBusinesses(List<Business> businesses) { this.businesses = businesses; }
+
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/TaxpayerType.java">
+package com.nirapod.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity
+@Table(name = "taxpayer_types")
+public class TaxpayerType {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String typeName;
+
+    // 
+    @Column(nullable = false)
+    private String category; 
+
+    // getters setters
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/TaxStructure.java">
+package com.nirapod.model;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.*;
+
+@Entity(name ="taxStructure")
+@Table(name = "tax_structures")
+public class TaxStructure {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(nullable = false, unique = true)
+    private String taxCode;
+
+    @Column(nullable = false, unique = true)
+    private String taxName;
+
+    @Column(nullable = false)
+    private String taxType;
+
+    @Column(nullable = false)
+    private Double rate;
+
+    @Column(nullable = false)
+    private String applicableTo;
+
+    @Column(nullable = false)
+    private LocalDate effectiveDate;
+
+    private LocalDate expiryDate;
+
+    @Column(length = 1000)
+    private String description;
+
+    @Column(nullable = false)
+    private String status;
+
+    private String createdBy;
+
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+    
+    @OneToMany(mappedBy = "taxStructure")
+    @JsonIgnore
+    private List<Product> products;
+
+    public TaxStructure() {
+        super();
+    }
+
+    public TaxStructure(Integer id, String taxCode, String taxName, String taxType, Double rate, String applicableTo,
+                        LocalDate effectiveDate, LocalDate expiryDate, String description, String status,
+                        String createdBy, LocalDateTime createdAt) {
+        super();
+        this.id = id;
+        this.taxCode = taxCode;
+        this.taxName = taxName;
+        this.taxType = taxType;
+        this.rate = rate;
+        this.applicableTo = applicableTo;
+        this.effectiveDate = effectiveDate;
+        this.expiryDate = expiryDate;
+        this.description = description;
+        this.status = status;
+        this.createdBy = createdBy;
+        this.createdAt = createdAt;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTaxCode() {
+        return taxCode;
+    }
+
+    public void setTaxCode(String taxCode) {
+        this.taxCode = taxCode;
+    }
+
+    public String getTaxName() {
+        return taxName;
+    }
+
+    public void setTaxName(String taxName) {
+        this.taxName = taxName;
+    }
+
+    public String getTaxType() {
+        return taxType;
+    }
+
+    public void setTaxType(String taxType) {
+        this.taxType = taxType;
+    }
+
+    public Double getRate() {
+        return rate;
+    }
+
+    public void setRate(Double rate) {
+        this.rate = rate;
+    }
+
+    public String getApplicableTo() {
+        return applicableTo;
+    }
+
+    public void setApplicableTo(String applicableTo) {
+        this.applicableTo = applicableTo;
+    }
+
+    public LocalDate getEffectiveDate() {
+        return effectiveDate;
+    }
+
+    public void setEffectiveDate(LocalDate effectiveDate) {
+        this.effectiveDate = effectiveDate;
+    }
+
+    public LocalDate getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(LocalDate expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/TaxZone.java">
+package com.nirapod.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
+import java.util.List;
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Entity
+@Table(name = "tax_zones")
+public class TaxZone {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "district_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "division"})
+    private District district;
+
+    @OneToMany(mappedBy = "taxZone", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("taxZone")
+    private List<TaxCircle> taxCircles;
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public District getDistrict() { return district; }
+    public void setDistrict(District district) { this.district = district; }
+
+    public List<TaxCircle> getTaxCircles() { return taxCircles; }
+    public void setTaxCircles(List<TaxCircle> taxCircles) { this.taxCircles = taxCircles; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/Tin.java">
+package com.nirapod.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "tins")
+public class Tin {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(unique = true, nullable = false, length = 20)
+    private String tinNumber;
+
+    private String taxpayerName;
+    private String tinCategory;
+    private String nid;
+    private String passportNo;
+    private LocalDate dateOfBirth;
+    private LocalDate incorporationDate;
+    private String email;
+    private String phone;
+    private String address;
+    private String district;
+    private String division;
+    private String taxZone;
+    private String taxCircle;
+    private LocalDate issuedDate;
+    private LocalDate lastUpdated;
+    private String status;
+    private String remarks;
+
+
+    @Column(name = "taxpayer_id", nullable = false)
+    private Long taxpayerId;
+
+    @PrePersist
+    public void prePersist() {
+        if (this.status == null) {
+            this.status = "Active";
+        }
+        if (this.issuedDate == null) {
+            this.issuedDate = LocalDate.now();
+        }
+        this.lastUpdated = LocalDate.now();
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        this.lastUpdated = LocalDate.now();
+    }
+
+    // ─── Getters and Setters (Generate them in your IDE) ───
+    
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getTinNumber() { return tinNumber; }
+    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
+
+    public String getTaxpayerName() { return taxpayerName; }
+    public void setTaxpayerName(String taxpayerName) { this.taxpayerName = taxpayerName; }
+
+    public String getTinCategory() { return tinCategory; }
+    public void setTinCategory(String tinCategory) { this.tinCategory = tinCategory; }
+
+    public String getNid() { return nid; }
+    public void setNid(String nid) { this.nid = nid; }
+
+    public String getPassportNo() { return passportNo; }
+    public void setPassportNo(String passportNo) { this.passportNo = passportNo; }
+
+    public LocalDate getDateOfBirth() { return dateOfBirth; }
+    public void setDateOfBirth(LocalDate dateOfBirth) { this.dateOfBirth = dateOfBirth; }
+
+    public LocalDate getIncorporationDate() { return incorporationDate; }
+    public void setIncorporationDate(LocalDate incorporationDate) { this.incorporationDate = incorporationDate; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
+
+    public String getDistrict() { return district; }
+    public void setDistrict(String district) { this.district = district; }
+
+    public String getDivision() { return division; }
+    public void setDivision(String division) { this.division = division; }
+
+    public String getTaxZone() { return taxZone; }
+    public void setTaxZone(String taxZone) { this.taxZone = taxZone; }
+
+    public String getTaxCircle() { return taxCircle; }
+    public void setTaxCircle(String taxCircle) { this.taxCircle = taxCircle; }
+
+    public LocalDate getIssuedDate() { return issuedDate; }
+    public void setIssuedDate(LocalDate issuedDate) { this.issuedDate = issuedDate; }
+
+    public LocalDate getLastUpdated() { return lastUpdated; }
+    public void setLastUpdated(LocalDate lastUpdated) { this.lastUpdated = lastUpdated; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+
+    public String getRemarks() { return remarks; }
+    public void setRemarks(String remarks) { this.remarks = remarks; }
+
+    public Long getTaxpayerId() { return taxpayerId; }
+    public void setTaxpayerId(Long taxpayerId) { this.taxpayerId = taxpayerId; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/User.java">
+package com.nirapod.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
+@Entity(name = "appUser")
+@Table(name = "users")
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(nullable = false)
+    private String fullName;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    private String password;
+    private String role;
+    private String phone;
+    private String status;
+    private String department;
+
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    private LocalDateTime lastLogin;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        if (this.status == null) this.status = "Active";
+        if (this.role == null) this.role = "GUEST";
+    }
+
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
+    public String getFullName() { return fullName; }
+    public void setFullName(String fullName) { this.fullName = fullName; }
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
+    public String getPhone() { return phone; }
+    public void setPhone(String phone) { this.phone = phone; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+    public String getDepartment() { return department; }
+    public void setDepartment(String department) { this.department = department; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public LocalDateTime getLastLogin() { return lastLogin; }
+    public void setLastLogin(LocalDateTime lastLogin) { this.lastLogin = lastLogin; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/model/VatReturn.java">
+package com.nirapod.model;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity(name = "vatReturn")
+@Table(name = "vat_returns")
+public class VatReturn {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(unique = true)
+    private String returnNo;
+
+    private String binNo;
+    private String tinNumber;
+    private String businessName;
+    private String returnPeriod;
+    private String periodMonth;
+    private String periodYear;
+    private Double taxableSupplies;
+    private Double exemptSupplies;
+    private Double zeroRatedSupplies;
+    private Double totalSupplies;
+    private Double outputTax;
+    private Double inputTax;
+    private Double netTaxPayable;
+    private Double taxPaid;
+    private LocalDate submissionDate;
+    private LocalDate dueDate;
+    private String assessmentYear;
+    private String status;
+    private String submittedBy;
+
+    @Column(length = 2000)
+    private String remarks;
+
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+        if (this.status == null) this.status = "Draft";
+        if (this.returnNo == null || this.returnNo.isEmpty())
+            this.returnNo = "VR-" + System.currentTimeMillis();
+        if (this.taxableSupplies != null && this.exemptSupplies != null && this.zeroRatedSupplies != null)
+            this.totalSupplies = this.taxableSupplies + this.exemptSupplies + this.zeroRatedSupplies;
+        if (this.outputTax != null && this.inputTax != null)
+            this.netTaxPayable = this.outputTax - this.inputTax;
+    }
+
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
+    public String getReturnNo() { return returnNo; }
+    public void setReturnNo(String returnNo) { this.returnNo = returnNo; }
+    public String getBinNo() { return binNo; }
+    public void setBinNo(String binNo) { this.binNo = binNo; }
+    public String getTinNumber() { return tinNumber; }
+    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
+    public String getBusinessName() { return businessName; }
+    public void setBusinessName(String businessName) { this.businessName = businessName; }
+    public String getReturnPeriod() { return returnPeriod; }
+    public void setReturnPeriod(String returnPeriod) { this.returnPeriod = returnPeriod; }
+    public String getPeriodMonth() { return periodMonth; }
+    public void setPeriodMonth(String periodMonth) { this.periodMonth = periodMonth; }
+    public String getPeriodYear() { return periodYear; }
+    public void setPeriodYear(String periodYear) { this.periodYear = periodYear; }
+    public Double getTaxableSupplies() { return taxableSupplies; }
+    public void setTaxableSupplies(Double taxableSupplies) { this.taxableSupplies = taxableSupplies; }
+    public Double getExemptSupplies() { return exemptSupplies; }
+    public void setExemptSupplies(Double exemptSupplies) { this.exemptSupplies = exemptSupplies; }
+    public Double getZeroRatedSupplies() { return zeroRatedSupplies; }
+    public void setZeroRatedSupplies(Double zeroRatedSupplies) { this.zeroRatedSupplies = zeroRatedSupplies; }
+    public Double getTotalSupplies() { return totalSupplies; }
+    public void setTotalSupplies(Double totalSupplies) { this.totalSupplies = totalSupplies; }
+    public Double getOutputTax() { return outputTax; }
+    public void setOutputTax(Double outputTax) { this.outputTax = outputTax; }
+    public Double getInputTax() { return inputTax; }
+    public void setInputTax(Double inputTax) { this.inputTax = inputTax; }
+    public Double getNetTaxPayable() { return netTaxPayable; }
+    public void setNetTaxPayable(Double netTaxPayable) { this.netTaxPayable = netTaxPayable; }
+    public Double getTaxPaid() { return taxPaid; }
+    public void setTaxPaid(Double taxPaid) { this.taxPaid = taxPaid; }
+    public LocalDate getSubmissionDate() { return submissionDate; }
+    public void setSubmissionDate(LocalDate submissionDate) { this.submissionDate = submissionDate; }
+    public LocalDate getDueDate() { return dueDate; }
+    public void setDueDate(LocalDate dueDate) { this.dueDate = dueDate; }
+    public String getAssessmentYear() { return assessmentYear; }
+    public void setAssessmentYear(String assessmentYear) { this.assessmentYear = assessmentYear; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+    public String getSubmittedBy() { return submittedBy; }
+    public void setSubmittedBy(String submittedBy) { this.submittedBy = submittedBy; }
+    public String getRemarks() { return remarks; }
+    public void setRemarks(String remarks) { this.remarks = remarks; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/AuditService.java">
+package com.nirapod.services;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.nirapod.dao.AuditDAO;
+import com.nirapod.model.Audit;
+import jakarta.transaction.Transactional;
+
+@Service
+public class AuditService {
+
+    @Autowired
+    private AuditDAO auditDAO;
+
+    @Transactional
+    public void create(Audit entity) {
+        auditDAO.save(entity);
+    }
+
+    public List<Audit> getAll() {
+        return auditDAO.getAll();
+    }
+
+    public Audit getById(int id) {
+        return auditDAO.getById(id);
+    }
+
+    @Transactional
+    public void update(Audit entity) {
+        auditDAO.update(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        auditDAO.delete(id);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/BusinessService.java">
+package com.nirapod.services;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.nirapod.dao.BusinessDAO;
+import com.nirapod.model.Business;
+
+@Service
+public class BusinessService {
+
+    @Autowired
+    private BusinessDAO businessDAO;
+
+    public Business create(Business business) {
+
+        return businessDAO.save(business);
+    }
+
+    public List<Business> getAll() {
+        return businessDAO.getAll();
+    }
+
+    public Business getById(Long id) {
+        return businessDAO.getById(id);
+    }
+
+    public Business update(Business business) {
+        return businessDAO.update(business);
+    }
+
+
+    public void delete(Long id) {
+        businessDAO.delete(id);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/DocumentService.java">
+package com.nirapod.services;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.nirapod.dao.DocumentDAO;
+import com.nirapod.model.Document;
+import jakarta.transaction.Transactional;
+
+@Service
+public class DocumentService {
+
+    @Autowired
+    private DocumentDAO documentDAO;
+
+    @Transactional
+    public void create(Document entity) {
+        documentDAO.save(entity);
+    }
+
+    public List<Document> getAll() {
+        return documentDAO.getAll();
+    }
+
+    public Document getById(int id) {
+        return documentDAO.getById(id);
+    }
+
+    @Transactional
+    public void update(Document entity) {
+        documentDAO.update(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        documentDAO.delete(id);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/IncomeTaxReturnService.java">
+package com.nirapod.services;
+
+import com.nirapod.dao.IncomeTaxReturnDAO;
+import com.nirapod.dao.TaxpayerDAO;
+import com.nirapod.model.ITRAction;
+import com.nirapod.model.IncomeTaxReturn;
+import com.nirapod.model.Taxpayer;
+
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.UUID;
+
+@Service
+public class IncomeTaxReturnService {
+	
+	// Valid Statuses List
+    private static final List<String> VALID_STATUSES = List.of(
+        "Draft", "Submitted", "Under Review", "Accepted", "Rejected", "Overdue", "Amended", "Send Back"
+    );
+
+    @Autowired
+    private IncomeTaxReturnDAO incomeTaxReturnDAO;
+    
+    @Autowired
+    private TaxpayerDAO taxpayerDAO;
+
+    @Transactional
+    public IncomeTaxReturn createReturn(IncomeTaxReturn itr) {
+        
+        // 1. Duplicate Check
+        if (incomeTaxReturnDAO.existsByTinNumberAndAssessmentYearAndIsDeletedFalse(itr.getTinNumber(), itr.getAssessmentYear())) {
+            throw new IllegalStateException("A return for this TIN and assessment year already exists.");
+        }
+
+        // 2. returnNo Generation 
+        String shortId = UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+        String generatedNo = "ITR-" + itr.getAssessmentYear() + "-" + shortId;
+        itr.setReturnNo(generatedNo);
+
+        // 3. Set Taxpayer FK
+        if (itr.getTaxpayerId() != null) {
+            Taxpayer taxpayer = taxpayerDAO.getById(itr.getTaxpayerId()); 
+            if (taxpayer == null) {
+                throw new IllegalArgumentException("Invalid Taxpayer ID");
+            }
+            itr.setTaxpayer(taxpayer);
+        } else {
+            throw new IllegalArgumentException("Taxpayer ID is required from frontend.");
+        }
+
+        itr.setSubmissionDate(LocalDate.now());
+        itr.setStatus("Submitted");
+        return incomeTaxReturnDAO.save(itr);
+    }
+
+    public List<IncomeTaxReturn> getAllReturns() {
+        return incomeTaxReturnDAO.findByIsDeletedFalse();
+    }
+
+    public IncomeTaxReturn getReturnById(Long id) {
+        return incomeTaxReturnDAO.findByIdAndIsDeletedFalse(id)
+                .orElseThrow(() -> new IllegalArgumentException("Income Tax Return not found with ID: " + id));
+    }
+
+    @Transactional
+    public IncomeTaxReturn updateReturn(Long id, IncomeTaxReturn updatedData) {
+        IncomeTaxReturn existingReturn = getReturnById(id);
+
+        existingReturn.setGrossIncome(updatedData.getGrossIncome());
+        existingReturn.setExemptIncome(updatedData.getExemptIncome());
+        existingReturn.setTaxRate(updatedData.getTaxRate());
+        existingReturn.setGrossTax(updatedData.getGrossTax());
+        existingReturn.setTaxRebate(updatedData.getTaxRebate());
+        existingReturn.setAdvanceTaxPaid(updatedData.getAdvanceTaxPaid());
+        existingReturn.setWithholdingTax(updatedData.getWithholdingTax());
+        existingReturn.setTaxPaid(updatedData.getTaxPaid());
+        existingReturn.setRemarks(updatedData.getRemarks());
+
+        return incomeTaxReturnDAO.save(existingReturn);
+    }
+    
+    //	Status Update Logic
+    @Transactional
+    public IncomeTaxReturn updateStatus(Long id, String newStatus, String remarks, String action, String performedBy, String role) {
+        
+        //  Status Validation
+        if (!VALID_STATUSES.contains(newStatus)) {
+            throw new IllegalArgumentException("Invalid status: " + newStatus);
+        }
+
+        IncomeTaxReturn existingReturn = getReturnById(id);
+        existingReturn.setStatus(newStatus);
+        
+        //  Remarks Handle
+        if (remarks != null && !remarks.trim().isEmpty()) {
+            existingReturn.setRemarks(remarks);
+        }
+
+        //  Audit History Create
+        ITRAction history = new ITRAction();
+        history.setAction(action);
+        history.setStatus(newStatus);
+        history.setRemarks(remarks);
+        history.setPerformedBy(performedBy);
+        history.setRole(role);
+        history.setIncomeTaxReturn(existingReturn);
+
+        // Action History 
+        existingReturn.getActionHistory().add(history);
+		
+		return incomeTaxReturnDAO.save(existingReturn);
+		    
+		}
+
+    @Transactional
+    public void softDeleteReturn(Long id) {
+        IncomeTaxReturn existingReturn = getReturnById(id);
+        existingReturn.setDeleted(true); 
+        incomeTaxReturnDAO.save(existingReturn);
+    }
+    
+ // --- Export Data to CSV ---
+    public byte[] exportReturnsToCsv() {
+        List<IncomeTaxReturn> returns = getAllReturns();
+        StringBuilder csvBuilder = new StringBuilder();
+        
+        // CSV Header
+        csvBuilder.append("Return No,TIN Number,Taxpayer Name,Category,Assessment Year,Status,Net Tax Payable\n");
+        
+        // Data Rows
+        for (IncomeTaxReturn itr : returns) {
+            
+            double grossTax = itr.getGrossTax() != null ? itr.getGrossTax() : 0.0;
+            double taxRebate = itr.getTaxRebate() != null ? itr.getTaxRebate() : 0.0;
+            double netTaxPayable = Math.max(0, grossTax - taxRebate);
+
+            csvBuilder.append(itr.getReturnNo() != null ? itr.getReturnNo() : "N/A").append(",")
+                      .append(itr.getTinNumber() != null ? itr.getTinNumber() : "N/A").append(",")
+                      .append("\"").append(itr.getTaxpayerName() != null ? itr.getTaxpayerName() : "N/A").append("\",")
+                      .append(itr.getItrCategory() != null ? itr.getItrCategory() : "N/A").append(",")
+                      .append(itr.getAssessmentYear() != null ? itr.getAssessmentYear() : "N/A").append(",")
+                      .append(itr.getStatus() != null ? itr.getStatus() : "N/A").append(",")
+                      .append(netTaxPayable).append("\n");
+        }
+        
+        return csvBuilder.toString().getBytes();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/NoticeService.java">
+package com.nirapod.services;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.nirapod.dao.NoticeDAO;
+import com.nirapod.model.Notice;
+import jakarta.transaction.Transactional;
+
+@Service
+public class NoticeService {
+
+    @Autowired
+    private NoticeDAO noticeDAO;
+
+    @Transactional
+    public void create(Notice entity) {
+        noticeDAO.save(entity);
+    }
+
+    public List<Notice> getAll() {
+        return noticeDAO.getAll();
+    }
+
+    public Notice getById(int id) {
+        return noticeDAO.getById(id);
+    }
+
+    @Transactional
+    public void update(Notice entity) {
+        noticeDAO.update(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        noticeDAO.delete(id);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/PaymentService.java">
+package com.nirapod.services;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.nirapod.dao.PaymentDAO;
+import com.nirapod.model.Payment;
+import jakarta.transaction.Transactional;
+
+@Service
+public class PaymentService {
+
+    @Autowired
+    private PaymentDAO paymentDAO;
+
+    @Transactional
+    public void create(Payment entity) {
+        paymentDAO.save(entity);
+    }
+
+    public List<Payment> getAll() {
+        return paymentDAO.getAll();
+    }
+
+    public Payment getById(int id) {
+        return paymentDAO.getById(id);
+    }
+
+    @Transactional
+    public void update(Payment entity) {
+        paymentDAO.update(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        paymentDAO.delete(id);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/PenaltyService.java">
+package com.nirapod.services;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.nirapod.dao.PenaltyDAO;
+import com.nirapod.model.Penalty;
+import jakarta.transaction.Transactional;
+
+@Service
+public class PenaltyService {
+
+    @Autowired
+    private PenaltyDAO penaltyDAO;
+
+    @Transactional
+    public void create(Penalty entity) {
+        penaltyDAO.save(entity);
+    }
+
+    public List<Penalty> getAll() {
+        return penaltyDAO.getAll();
+    }
+
+    public Penalty getById(int id) {
+        return penaltyDAO.getById(id);
+    }
+
+    @Transactional
+    public void update(Penalty entity) {
+        penaltyDAO.update(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        penaltyDAO.delete(id);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/ProductService.java">
+package com.nirapod.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.nirapod.dao.ProductDAO;
+import com.nirapod.dao.TaxStructureDAO;
+import com.nirapod.dto.ProductRequest;
+import com.nirapod.model.Product;
+import com.nirapod.model.TaxStructure;
+
+@Service(value = "productService")
+@Transactional
+public class ProductService {
+
+    @Autowired
+    ProductDAO productDAO;
+
+    @Autowired
+    TaxStructureDAO taxStructureDAO;
+
+    public void create(ProductRequest request) {
+    TaxStructure taxStructure = taxStructureDAO.getById(request.getTaxStructureId());
+
+    if (taxStructure == null) {
+        throw new RuntimeException("Tax structure not found with id: " + request.getTaxStructureId());
+    }
+
+    Product product = new Product();
+    applyRequestToProduct(product, request, taxStructure);
+    productDAO.save(product);
+}
+
+	
+
+
+    public List<Product> getAll() {
+        return productDAO.getAll();
+    }
+
+    public Product getById(int id) {
+        return productDAO.getById(id);
+    }
+
+    public void update(int id, ProductRequest request) {
+	    Product existingProduct = productDAO.getById(id);
+	
+	    if (existingProduct == null) {
+	        throw new RuntimeException("Product not found with id: " + id);
+	    }
+	
+	    TaxStructure taxStructure = taxStructureDAO.getById(request.getTaxStructureId());
+	
+	    if (taxStructure == null) {
+	        throw new RuntimeException("Tax structure not found with id: " + request.getTaxStructureId());
+	    }
+	
+	    applyRequestToProduct(existingProduct, request, taxStructure);
+	    productDAO.update(existingProduct);
+	}
+
+    public void delete(int id) {
+        productDAO.delete(id);
+    }
+    
+    private void applyRequestToProduct(Product product, ProductRequest request, TaxStructure taxStructure) {
+        product.setProductName(request.getProductName());
+        product.setHsCode(request.getHsCode());
+        product.setCategory(request.getCategory());
+        product.setTaxType(request.getTaxType());
+        product.setTaxStructure(taxStructure);
+        product.setTaxRate(request.getTaxRate());
+        product.setUnit(request.getUnit());
+        product.setDescription(request.getDescription());
+        product.setStatus(request.getStatus());
+    }
+
+    
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/RefundService.java">
+package com.nirapod.services;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.nirapod.dao.RefundDAO;
+import com.nirapod.model.Refund;
+import jakarta.transaction.Transactional;
+
+@Service
+public class RefundService {
+
+    @Autowired
+    private RefundDAO refundDAO;
+
+    @Transactional
+    public void create(Refund entity) {
+        refundDAO.save(entity);
+    }
+
+    public List<Refund> getAll() {
+        return refundDAO.getAll();
+    }
+
+    public Refund getById(int id) {
+        return refundDAO.getById(id);
+    }
+
+    @Transactional
+    public void update(Refund entity) {
+        refundDAO.update(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        refundDAO.delete(id);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/TaxpayerService.java">
+package com.nirapod.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.nirapod.dao.TaxpayerDAO;
+import com.nirapod.model.Taxpayer;
+
+@Service(value = "taxpayerService")
+@Transactional
+public class TaxpayerService {
+
+    @Autowired
+    TaxpayerDAO taxpayerDAO;
+
+    public void create(Taxpayer taxpayer) {
+        taxpayerDAO.save(taxpayer);
+    }
+
+    public List<Taxpayer> getAll() {
+        return taxpayerDAO.getAll();
+    }
+
+    public List<Taxpayer> getByStatus(String status) {
+        return taxpayerDAO.getByStatus(status);
+    }
+
+	//    DAO search query
+    public List<Taxpayer> search(String query) {
+        return taxpayerDAO.search(query);
+    }
+
+    public Taxpayer getById(Long id) {
+        return taxpayerDAO.getById(id);
+    }
+
+    public void update(Taxpayer taxpayer) {
+        taxpayerDAO.update(taxpayer);
+    }
+
+    // Soft delete 
+    public void delete(Long id) {
+        Taxpayer taxpayer = taxpayerDAO.getById(id);
+        if (taxpayer != null) {
+            taxpayer.setStatus("Inactive");
+            taxpayerDAO.update(taxpayer);
+        }
+    }
+    
+	 // --- Export Taxpayers Data to CSV ---
+    public byte[] exportTaxpayersToCsv() {
+        List<Taxpayer> taxpayers = taxpayerDAO.getAll(); 
+        StringBuilder csvBuilder = new StringBuilder();
+        
+        // CSV Header
+        csvBuilder.append("Taxpayer Name,Taxpayer Type,NID / Trade License,Phone,Email\n");
+        
+        // Data Rows
+        for (Taxpayer t : taxpayers) {
+            String name = t.getFullName() != null ? t.getFullName() : (t.getCompanyName() != null ? t.getCompanyName() : "N/A");
+            
+            String identifier = t.getNid() != null ? t.getNid() : (t.getTradeLicenseNo() != null ? t.getTradeLicenseNo() : "N/A");
+
+            csvBuilder.append("\"").append(name).append("\",")
+                      .append(t.getTaxpayerType() != null ? t.getTaxpayerType() : "N/A").append(",")
+                      .append(identifier).append(",")
+                      .append(t.getPhone() != null ? t.getPhone() : "N/A").append(",")
+                      .append(t.getEmail() != null ? t.getEmail() : "N/A").append("\n");
+        }
+        
+        return csvBuilder.toString().getBytes();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/TaxStructureService.java">
+package com.nirapod.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.nirapod.dao.TaxStructureDAO;
+import com.nirapod.model.TaxStructure;
+
+@Service(value = "taxStructureService")
+@Transactional
+public class TaxStructureService {
+
+    @Autowired
+    TaxStructureDAO taxStructureDAO;
+    
+    public void create(TaxStructure taxStructure) {
+    	taxStructureDAO.save(taxStructure);
+    }
+    
+    public List<TaxStructure> getAll() {
+    	return taxStructureDAO.getAll();
+    }
+    
+    public TaxStructure getById(int id) {
+        return taxStructureDAO.getById(id);
+    }
+    
+    public void update(TaxStructure taxStructure) {
+    	taxStructureDAO.update(taxStructure);
+    }
+    
+    public void delete(int id) {
+    	taxStructureDAO.delete(id);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/TinCertificateService.java">
+package com.nirapod.services;
+
+import com.lowagie.text.*;
+import com.lowagie.text.pdf.*;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.common.BitMatrix;
+
+import javax.imageio.ImageIO;
+import java.io.ByteArrayOutputStream;
+import java.awt.image.BufferedImage;
+
+import com.nirapod.model.Taxpayer;
+import com.nirapod.model.Tin;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+
+@Service
+public class TinCertificateService {
+
+    // ✅ QR Generator
+    private BufferedImage generateQR(String text) throws Exception {
+        QRCodeWriter writer = new QRCodeWriter();
+        BitMatrix matrix = writer.encode(text, BarcodeFormat.QR_CODE, 150, 150);
+
+        BufferedImage image = new BufferedImage(150, 150, BufferedImage.TYPE_INT_RGB);
+
+        for (int x = 0; x < 150; x++) {
+            for (int y = 0; y < 150; y++) {
+                image.setRGB(x, y, matrix.get(x, y) ? 0x000000 : 0xFFFFFF);
+            }
+        }
+        return image;
+    }
+
+    public void generateCertificate(Tin tin, Taxpayer taxpayer, HttpServletResponse response) throws Exception {
+
+        Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+        PdfWriter writer = PdfWriter.getInstance(document, response.getOutputStream());
+        document.open();
+
+        PdfContentByte canvas = writer.getDirectContent();
+
+        // Border
+        Rectangle rect = new Rectangle(30, 30, 565, 812);
+        rect.setBorder(Rectangle.BOX);
+        rect.setBorderWidth(1.5f);
+        canvas.rectangle(rect);
+
+        // Watermark
+        try {
+            Image watermark = Image.getInstance(new ClassPathResource("images/watermark.png").getURL());
+            watermark.scaleToFit(250, 250);
+            float x = (PageSize.A4.getWidth() - watermark.getScaledWidth()) / 2;
+            float y = (PageSize.A4.getHeight() - watermark.getScaledHeight()) / 2;
+            watermark.setAbsolutePosition(x, y);
+
+            canvas.saveState(); 
+
+            PdfGState state = new PdfGState();
+            state.setFillOpacity(0.15f); 
+            canvas.setGState(state); 
+            canvas.addImage(watermark);
+            canvas.restoreState(); 
+
+        } catch (Exception ignored) {}
+
+
+        // Fonts
+        Font titleFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 16);
+        Font subTitleFont = FontFactory.getFont(FontFactory.HELVETICA, 12);
+        Font boldFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 11);
+        Font normalFont = FontFactory.getFont(FontFactory.HELVETICA, 11);
+        Font smallFont = FontFactory.getFont(FontFactory.HELVETICA, 8);
+
+        // Logo
+        try {
+            Image logo = Image.getInstance(new ClassPathResource("images/govt_logo.png").getURL());
+            logo.scaleToFit(60, 60);
+            logo.setAlignment(Element.ALIGN_CENTER);
+            document.add(logo);
+        } catch (Exception ignored) {}
+
+        // Header
+        Paragraph p1 = new Paragraph("Government of the People's Republic of Bangladesh", titleFont);
+        p1.setAlignment(Element.ALIGN_CENTER);
+        document.add(p1);
+
+        Paragraph p2 = new Paragraph("National Board of Revenue", titleFont);
+        p2.setAlignment(Element.ALIGN_CENTER);
+        document.add(p2);
+
+        document.add(Chunk.NEWLINE);
+
+        Paragraph p3 = new Paragraph("Taxpayer's Identification Number (TIN) Certificate", subTitleFont);
+        p3.setAlignment(Element.ALIGN_CENTER);
+        document.add(p3);
+
+        Paragraph tinTitle = new Paragraph("TIN : " + tin.getTinNumber(), titleFont);
+        tinTitle.setAlignment(Element.ALIGN_CENTER);
+        document.add(tinTitle);
+
+        document.add(new Paragraph("________________________________________________________________________"));
+        document.add(Chunk.NEWLINE);
+
+        // Name logic
+        String name = taxpayer.getTaxpayerType().getTypeName().equalsIgnoreCase("Company")
+                ? taxpayer.getCompanyName()
+                : taxpayer.getFullName();
+
+        // Certification
+        Paragraph certifyText = new Paragraph();
+        certifyText.add(new Chunk("This is to Certify that ", normalFont));
+        certifyText.add(new Chunk(name, boldFont));
+        certifyText.add(new Chunk(" is a Registered Taxpayer of National Board of Revenue under the jurisdiction of ", normalFont));
+        certifyText.add(new Chunk("Taxes Circle-" + tin.getTaxCircle() + ", Taxes Zone-" + tin.getTaxZone() + ".", boldFont));
+        certifyText.setAlignment(Element.ALIGN_JUSTIFIED);
+        document.add(certifyText);
+
+        document.add(Chunk.NEWLINE);
+
+        // Details
+        document.add(new Paragraph("Taxpayer's Particulars :", boldFont));
+        document.add(Chunk.NEWLINE);
+
+        document.add(new Paragraph("1) Name : " + name, normalFont));
+        document.add(new Paragraph("2) Father's Name : " + taxpayer.getFathersName(), normalFont));
+        document.add(new Paragraph("3) Mother's Name : " + taxpayer.getMothersName(), normalFont));
+        document.add(new Paragraph("4.a) Current Address : " + tin.getAddress(), normalFont));
+        document.add(new Paragraph("b) Permanent Address : " + tin.getAddress(), normalFont));
+        document.add(new Paragraph("5) Previous TIN : Not Applicable", boldFont));
+        document.add(new Paragraph("6) Status : " + taxpayer.getTaxpayerType().getTypeName(), boldFont));
+
+        document.add(Chunk.NEWLINE);
+        document.add(new Paragraph("Date : " + LocalDate.now(), normalFont));
+
+        document.add(Chunk.NEWLINE);
+        document.add(Chunk.NEWLINE);
+
+        // ✅ QR Generate FIRST
+        BufferedImage qrBuffered = generateQR(
+                "TIN: " + tin.getTinNumber() + "\nName: " + name
+        );
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(qrBuffered, "png", baos);
+
+        Image qrImage = Image.getInstance(baos.toByteArray());
+        qrImage.scaleToFit(100, 100);
+
+        PdfPCell qrCell = new PdfPCell(qrImage, false);
+        qrCell.setBorder(Rectangle.NO_BORDER);
+
+        // Note Cell
+        PdfPCell noteCell = new PdfPCell();
+        noteCell.setBorder(Rectangle.NO_BORDER);
+        noteCell.addElement(new Paragraph("Please Note:", boldFont));
+        noteCell.addElement(new Paragraph("1. A Taxpayer is liable to file Return under section 75.", smallFont));
+        noteCell.addElement(new Paragraph("2. Failure may result in penalty.", smallFont));
+
+        // Sign Cell
+        PdfPCell signCell = new PdfPCell();
+        signCell.setBorder(Rectangle.NO_BORDER);
+        signCell.addElement(new Paragraph("Deputy Commissioner of Taxes", boldFont));
+        signCell.addElement(new Paragraph("Taxes Circle-" + tin.getTaxCircle(), smallFont));
+        signCell.addElement(new Paragraph("Taxes Zone-" + tin.getTaxZone() + ", Dhaka", smallFont));
+
+        // ✅ Table AFTER all cells ready
+        PdfPTable footerTable = new PdfPTable(3);
+        footerTable.setWidthPercentage(100);
+        footerTable.setWidths(new float[]{2f, 1f, 1f});
+
+        footerTable.addCell(noteCell);
+        footerTable.addCell(signCell);
+        footerTable.addCell(qrCell);
+
+        document.add(footerTable);
+
+        // Footer note
+        document.add(Chunk.NEWLINE);
+        Paragraph sysNote = new Paragraph(
+                "N.B: This is a system generated certificate and requires no manual signature.",
+                smallFont
+        );
+        sysNote.setAlignment(Element.ALIGN_CENTER);
+        document.add(sysNote);
+
+        document.close();
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/TinService.java">
+package com.nirapod.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.nirapod.dao.TinDAO;
+import com.nirapod.dao.TaxpayerDAO;
+import com.nirapod.model.Tin;
+import com.nirapod.model.Taxpayer;
+
+@Service
+@Transactional
+public class TinService {
+
+    @Autowired
+    private TinDAO tinDAO;
+
+    @Autowired
+    private TaxpayerDAO taxpayerDAO;
+
+
+    public Tin createTin(Tin tin) {
+
+        if (tin.getTaxpayerId() == null) {
+            throw new IllegalArgumentException("taxpayerId is required to issue a TIN.");
+        }
+
+        // Duplicate check:
+        boolean alreadyExists = tinDAO.findByTaxpayerId(tin.getTaxpayerId()).isPresent();
+        if (alreadyExists) {
+            throw new IllegalStateException(
+                "A TIN has already been issued for taxpayer ID: " + tin.getTaxpayerId()
+            );
+        }
+
+
+        tin.setTinNumber("PENDING");
+        Tin savedTin = tinDAO.saveAndFlush(tin);
+
+
+        String generatedTin = generateTIN(savedTin.getId());
+        savedTin.setTinNumber(generatedTin);
+        tinDAO.save(savedTin);
+
+
+        Taxpayer taxpayer = taxpayerDAO.getById(tin.getTaxpayerId());
+        if (taxpayer != null) {
+            taxpayer.setTinNumber(generatedTin);
+            taxpayerDAO.update(taxpayer);
+        }
+
+        return savedTin;
+    }
+
+    private String generateTIN(long id) {
+        return "TIN-" + String.format("%09d", id);
+    }
+
+    public List<Tin> getAll() {
+        return tinDAO.findAll();
+    }
+
+    public Tin getById(Long id) {
+        return tinDAO.findById(id).orElse(null);
+    }
+
+    public Tin updateTin(Long id, Tin updatedTin) {
+        return tinDAO.findById(id).map(existing -> {
+            existing.setTaxpayerName(updatedTin.getTaxpayerName());
+            existing.setTinCategory(updatedTin.getTinCategory());
+            existing.setEmail(updatedTin.getEmail());
+            existing.setPhone(updatedTin.getPhone());
+            existing.setAddress(updatedTin.getAddress());
+            existing.setDistrict(updatedTin.getDistrict());
+            existing.setDivision(updatedTin.getDivision());
+            existing.setTaxZone(updatedTin.getTaxZone());
+            existing.setTaxCircle(updatedTin.getTaxCircle());
+            existing.setStatus(updatedTin.getStatus());
+            existing.setRemarks(updatedTin.getRemarks());
+            return tinDAO.save(existing);
+        }).orElse(null);
+    }
+
+    // Soft delete
+    public void deleteTin(Long id) {
+        tinDAO.findById(id).ifPresent(tin -> {
+            tin.setStatus("Inactive");
+            tinDAO.save(tin);
+        });
+    }
+    
+    public byte[] exportTinsToCsv() {
+        
+        List<Tin> tins = tinDAO.findAll(); 
+        StringBuilder csvBuilder = new StringBuilder();
+        
+        // CSV Header
+        csvBuilder.append("TIN Number,Taxpayer Name,Category,Tax Zone,Tax Circle,Issue Date,Status\n");
+        
+        // Data Rows
+        for (Tin tin : tins) {
+            csvBuilder.append(tin.getTinNumber() != null ? tin.getTinNumber() : "N/A").append(",")
+                      
+            		  .append("\"").append(tin.getTaxpayerName() != null ? tin.getTaxpayerName() : "N/A").append("\",")                      .append(tin.getTinCategory() != null ? tin.getTinCategory() : "N/A").append(",")
+                      .append(tin.getTaxZone() != null ? tin.getTaxZone() : "N/A").append(",")
+                      .append(tin.getTaxCircle() != null ? tin.getTaxCircle() : "N/A").append(",")
+                      .append(tin.getIssuedDate() != null ? tin.getIssuedDate() : "N/A").append(",")
+                      .append(tin.getStatus() != null ? tin.getStatus() : "N/A").append("\n");
+        }
+        
+        return csvBuilder.toString().getBytes();
+    }
+    
+    
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/UserService.java">
+package com.nirapod.services;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.nirapod.dao.UserDAO;
+import com.nirapod.model.User;
+import jakarta.transaction.Transactional;
+
+@Service
+public class UserService {
+
+    @Autowired
+    private UserDAO userDAO;
+
+    @Transactional
+    public void create(User entity) {
+        userDAO.save(entity);
+    }
+
+    public List<User> getAll() {
+        return userDAO.getAll();
+    }
+
+    public User getById(int id) {
+        return userDAO.getById(id);
+    }
+
+    @Transactional
+    public void update(User entity) {
+        userDAO.update(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        userDAO.delete(id);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/services/VatReturnService.java">
+package com.nirapod.services;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.nirapod.dao.VatReturnDAO;
+import com.nirapod.model.VatReturn;
+import jakarta.transaction.Transactional;
+
+@Service
+public class VatReturnService {
+
+    @Autowired
+    private VatReturnDAO vatReturnDAO;
+
+    @Transactional
+    public void create(VatReturn entity) {
+        vatReturnDAO.save(entity);
+    }
+
+    public List<VatReturn> getAll() {
+        return vatReturnDAO.getAll();
+    }
+
+    public VatReturn getById(int id) {
+        return vatReturnDAO.getById(id);
+    }
+
+    @Transactional
+    public void update(VatReturn entity) {
+        vatReturnDAO.update(entity);
+    }
+
+    @Transactional
+    public void delete(int id) {
+        vatReturnDAO.delete(id);
+    }
+}
+</file>
+
+<file path="src/main/java/com/nirapod/vattax/VatTaxApplication.java">
+package com.nirapod.vattax;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+@SpringBootApplication
+@EnableJpaRepositories(basePackages = "com.nirapod.dao")
+@ComponentScan(basePackages = "com.nirapod")
+@EntityScan(basePackages = {"com.nirapod"})
+public class VatTaxApplication {
+
+	
+	public static void main(String[] args) {
+		SpringApplication.run(VatTaxApplication.class, args);
+	}
+
+}
+</file>
+
+<file path="src/test/java/com/nirapod/demo/DemoApplicationTests.java">
+package com.nirapod.demo;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class DemoApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
+</file>
+
+<file path=".gitattributes">
+/mvnw text eol=lf
+*.cmd text eol=crlf
+</file>
+
+<file path=".gitignore">
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+</file>
+
+<file path=".mvn/wrapper/maven-wrapper.properties">
+wrapperVersion=3.3.4
+distributionType=only-script
+distributionUrl=https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.14/apache-maven-3.9.14-bin.zip
+</file>
+
+<file path="mvnw">
+#!/bin/sh
+# ----------------------------------------------------------------------------
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+# ----------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------
+# Apache Maven Wrapper startup batch script, version 3.3.4
+#
+# Optional ENV vars
+# -----------------
+#   JAVA_HOME - location of a JDK home dir, required when download maven via java source
+#   MVNW_REPOURL - repo url base for downloading maven distribution
+#   MVNW_USERNAME/MVNW_PASSWORD - user and password for downloading maven
+#   MVNW_VERBOSE - true: enable verbose log; debug: trace the mvnw script; others: silence the output
+# ----------------------------------------------------------------------------
+
+set -euf
+[ "${MVNW_VERBOSE-}" != debug ] || set -x
+
+# OS specific support.
+native_path() { printf %s\\n "$1"; }
+case "$(uname)" in
+CYGWIN* | MINGW*)
+  [ -z "${JAVA_HOME-}" ] || JAVA_HOME="$(cygpath --unix "$JAVA_HOME")"
+  native_path() { cygpath --path --windows "$1"; }
+  ;;
+esac
+
+# set JAVACMD and JAVACCMD
+set_java_home() {
+  # For Cygwin and MinGW, ensure paths are in Unix format before anything is touched
+  if [ -n "${JAVA_HOME-}" ]; then
+    if [ -x "$JAVA_HOME/jre/sh/java" ]; then
+      # IBM's JDK on AIX uses strange locations for the executables
+      JAVACMD="$JAVA_HOME/jre/sh/java"
+      JAVACCMD="$JAVA_HOME/jre/sh/javac"
+    else
+      JAVACMD="$JAVA_HOME/bin/java"
+      JAVACCMD="$JAVA_HOME/bin/javac"
+
+      if [ ! -x "$JAVACMD" ] || [ ! -x "$JAVACCMD" ]; then
+        echo "The JAVA_HOME environment variable is not defined correctly, so mvnw cannot run." >&2
+        echo "JAVA_HOME is set to \"$JAVA_HOME\", but \"\$JAVA_HOME/bin/java\" or \"\$JAVA_HOME/bin/javac\" does not exist." >&2
+        return 1
+      fi
+    fi
+  else
+    JAVACMD="$(
+      'set' +e
+      'unset' -f command 2>/dev/null
+      'command' -v java
+    )" || :
+    JAVACCMD="$(
+      'set' +e
+      'unset' -f command 2>/dev/null
+      'command' -v javac
+    )" || :
+
+    if [ ! -x "${JAVACMD-}" ] || [ ! -x "${JAVACCMD-}" ]; then
+      echo "The java/javac command does not exist in PATH nor is JAVA_HOME set, so mvnw cannot run." >&2
+      return 1
+    fi
+  fi
+}
+
+# hash string like Java String::hashCode
+hash_string() {
+  str="${1:-}" h=0
+  while [ -n "$str" ]; do
+    char="${str%"${str#?}"}"
+    h=$(((h * 31 + $(LC_CTYPE=C printf %d "'$char")) % 4294967296))
+    str="${str#?}"
+  done
+  printf %x\\n $h
+}
+
+verbose() { :; }
+[ "${MVNW_VERBOSE-}" != true ] || verbose() { printf %s\\n "${1-}"; }
+
+die() {
+  printf %s\\n "$1" >&2
+  exit 1
+}
+
+trim() {
+  # MWRAPPER-139:
+  #   Trims trailing and leading whitespace, carriage returns, tabs, and linefeeds.
+  #   Needed for removing poorly interpreted newline sequences when running in more
+  #   exotic environments such as mingw bash on Windows.
+  printf "%s" "${1}" | tr -d '[:space:]'
+}
+
+scriptDir="$(dirname "$0")"
+scriptName="$(basename "$0")"
+
+# parse distributionUrl and optional distributionSha256Sum, requires .mvn/wrapper/maven-wrapper.properties
+while IFS="=" read -r key value; do
+  case "${key-}" in
+  distributionUrl) distributionUrl=$(trim "${value-}") ;;
+  distributionSha256Sum) distributionSha256Sum=$(trim "${value-}") ;;
+  esac
+done <"$scriptDir/.mvn/wrapper/maven-wrapper.properties"
+[ -n "${distributionUrl-}" ] || die "cannot read distributionUrl property in $scriptDir/.mvn/wrapper/maven-wrapper.properties"
+
+case "${distributionUrl##*/}" in
+maven-mvnd-*bin.*)
+  MVN_CMD=mvnd.sh _MVNW_REPO_PATTERN=/maven/mvnd/
+  case "${PROCESSOR_ARCHITECTURE-}${PROCESSOR_ARCHITEW6432-}:$(uname -a)" in
+  *AMD64:CYGWIN* | *AMD64:MINGW*) distributionPlatform=windows-amd64 ;;
+  :Darwin*x86_64) distributionPlatform=darwin-amd64 ;;
+  :Darwin*arm64) distributionPlatform=darwin-aarch64 ;;
+  :Linux*x86_64*) distributionPlatform=linux-amd64 ;;
+  *)
+    echo "Cannot detect native platform for mvnd on $(uname)-$(uname -m), use pure java version" >&2
+    distributionPlatform=linux-amd64
+    ;;
+  esac
+  distributionUrl="${distributionUrl%-bin.*}-$distributionPlatform.zip"
+  ;;
+maven-mvnd-*) MVN_CMD=mvnd.sh _MVNW_REPO_PATTERN=/maven/mvnd/ ;;
+*) MVN_CMD="mvn${scriptName#mvnw}" _MVNW_REPO_PATTERN=/org/apache/maven/ ;;
+esac
+
+# apply MVNW_REPOURL and calculate MAVEN_HOME
+# maven home pattern: ~/.m2/wrapper/dists/{apache-maven-<version>,maven-mvnd-<version>-<platform>}/<hash>
+[ -z "${MVNW_REPOURL-}" ] || distributionUrl="$MVNW_REPOURL$_MVNW_REPO_PATTERN${distributionUrl#*"$_MVNW_REPO_PATTERN"}"
+distributionUrlName="${distributionUrl##*/}"
+distributionUrlNameMain="${distributionUrlName%.*}"
+distributionUrlNameMain="${distributionUrlNameMain%-bin}"
+MAVEN_USER_HOME="${MAVEN_USER_HOME:-${HOME}/.m2}"
+MAVEN_HOME="${MAVEN_USER_HOME}/wrapper/dists/${distributionUrlNameMain-}/$(hash_string "$distributionUrl")"
+
+exec_maven() {
+  unset MVNW_VERBOSE MVNW_USERNAME MVNW_PASSWORD MVNW_REPOURL || :
+  exec "$MAVEN_HOME/bin/$MVN_CMD" "$@" || die "cannot exec $MAVEN_HOME/bin/$MVN_CMD"
+}
+
+if [ -d "$MAVEN_HOME" ]; then
+  verbose "found existing MAVEN_HOME at $MAVEN_HOME"
+  exec_maven "$@"
+fi
+
+case "${distributionUrl-}" in
+*?-bin.zip | *?maven-mvnd-?*-?*.zip) ;;
+*) die "distributionUrl is not valid, must match *-bin.zip or maven-mvnd-*.zip, but found '${distributionUrl-}'" ;;
+esac
+
+# prepare tmp dir
+if TMP_DOWNLOAD_DIR="$(mktemp -d)" && [ -d "$TMP_DOWNLOAD_DIR" ]; then
+  clean() { rm -rf -- "$TMP_DOWNLOAD_DIR"; }
+  trap clean HUP INT TERM EXIT
+else
+  die "cannot create temp dir"
+fi
+
+mkdir -p -- "${MAVEN_HOME%/*}"
+
+# Download and Install Apache Maven
+verbose "Couldn't find MAVEN_HOME, downloading and installing it ..."
+verbose "Downloading from: $distributionUrl"
+verbose "Downloading to: $TMP_DOWNLOAD_DIR/$distributionUrlName"
+
+# select .zip or .tar.gz
+if ! command -v unzip >/dev/null; then
+  distributionUrl="${distributionUrl%.zip}.tar.gz"
+  distributionUrlName="${distributionUrl##*/}"
+fi
+
+# verbose opt
+__MVNW_QUIET_WGET=--quiet __MVNW_QUIET_CURL=--silent __MVNW_QUIET_UNZIP=-q __MVNW_QUIET_TAR=''
+[ "${MVNW_VERBOSE-}" != true ] || __MVNW_QUIET_WGET='' __MVNW_QUIET_CURL='' __MVNW_QUIET_UNZIP='' __MVNW_QUIET_TAR=v
+
+# normalize http auth
+case "${MVNW_PASSWORD:+has-password}" in
+'') MVNW_USERNAME='' MVNW_PASSWORD='' ;;
+has-password) [ -n "${MVNW_USERNAME-}" ] || MVNW_USERNAME='' MVNW_PASSWORD='' ;;
+esac
+
+if [ -z "${MVNW_USERNAME-}" ] && command -v wget >/dev/null; then
+  verbose "Found wget ... using wget"
+  wget ${__MVNW_QUIET_WGET:+"$__MVNW_QUIET_WGET"} "$distributionUrl" -O "$TMP_DOWNLOAD_DIR/$distributionUrlName" || die "wget: Failed to fetch $distributionUrl"
+elif [ -z "${MVNW_USERNAME-}" ] && command -v curl >/dev/null; then
+  verbose "Found curl ... using curl"
+  curl ${__MVNW_QUIET_CURL:+"$__MVNW_QUIET_CURL"} -f -L -o "$TMP_DOWNLOAD_DIR/$distributionUrlName" "$distributionUrl" || die "curl: Failed to fetch $distributionUrl"
+elif set_java_home; then
+  verbose "Falling back to use Java to download"
+  javaSource="$TMP_DOWNLOAD_DIR/Downloader.java"
+  targetZip="$TMP_DOWNLOAD_DIR/$distributionUrlName"
+  cat >"$javaSource" <<-END
+	public class Downloader extends java.net.Authenticator
+	{
+	  protected java.net.PasswordAuthentication getPasswordAuthentication()
+	  {
+	    return new java.net.PasswordAuthentication( System.getenv( "MVNW_USERNAME" ), System.getenv( "MVNW_PASSWORD" ).toCharArray() );
+	  }
+	  public static void main( String[] args ) throws Exception
+	  {
+	    setDefault( new Downloader() );
+	    java.nio.file.Files.copy( java.net.URI.create( args[0] ).toURL().openStream(), java.nio.file.Paths.get( args[1] ).toAbsolutePath().normalize() );
+	  }
+	}
+	END
+  # For Cygwin/MinGW, switch paths to Windows format before running javac and java
+  verbose " - Compiling Downloader.java ..."
+  "$(native_path "$JAVACCMD")" "$(native_path "$javaSource")" || die "Failed to compile Downloader.java"
+  verbose " - Running Downloader.java ..."
+  "$(native_path "$JAVACMD")" -cp "$(native_path "$TMP_DOWNLOAD_DIR")" Downloader "$distributionUrl" "$(native_path "$targetZip")"
+fi
+
+# If specified, validate the SHA-256 sum of the Maven distribution zip file
+if [ -n "${distributionSha256Sum-}" ]; then
+  distributionSha256Result=false
+  if [ "$MVN_CMD" = mvnd.sh ]; then
+    echo "Checksum validation is not supported for maven-mvnd." >&2
+    echo "Please disable validation by removing 'distributionSha256Sum' from your maven-wrapper.properties." >&2
+    exit 1
+  elif command -v sha256sum >/dev/null; then
+    if echo "$distributionSha256Sum  $TMP_DOWNLOAD_DIR/$distributionUrlName" | sha256sum -c - >/dev/null 2>&1; then
+      distributionSha256Result=true
+    fi
+  elif command -v shasum >/dev/null; then
+    if echo "$distributionSha256Sum  $TMP_DOWNLOAD_DIR/$distributionUrlName" | shasum -a 256 -c >/dev/null 2>&1; then
+      distributionSha256Result=true
+    fi
+  else
+    echo "Checksum validation was requested but neither 'sha256sum' or 'shasum' are available." >&2
+    echo "Please install either command, or disable validation by removing 'distributionSha256Sum' from your maven-wrapper.properties." >&2
+    exit 1
+  fi
+  if [ $distributionSha256Result = false ]; then
+    echo "Error: Failed to validate Maven distribution SHA-256, your Maven distribution might be compromised." >&2
+    echo "If you updated your Maven version, you need to update the specified distributionSha256Sum property." >&2
+    exit 1
+  fi
+fi
+
+# unzip and move
+if command -v unzip >/dev/null; then
+  unzip ${__MVNW_QUIET_UNZIP:+"$__MVNW_QUIET_UNZIP"} "$TMP_DOWNLOAD_DIR/$distributionUrlName" -d "$TMP_DOWNLOAD_DIR" || die "failed to unzip"
+else
+  tar xzf${__MVNW_QUIET_TAR:+"$__MVNW_QUIET_TAR"} "$TMP_DOWNLOAD_DIR/$distributionUrlName" -C "$TMP_DOWNLOAD_DIR" || die "failed to untar"
+fi
+
+# Find the actual extracted directory name (handles snapshots where filename != directory name)
+actualDistributionDir=""
+
+# First try the expected directory name (for regular distributions)
+if [ -d "$TMP_DOWNLOAD_DIR/$distributionUrlNameMain" ]; then
+  if [ -f "$TMP_DOWNLOAD_DIR/$distributionUrlNameMain/bin/$MVN_CMD" ]; then
+    actualDistributionDir="$distributionUrlNameMain"
+  fi
+fi
+
+# If not found, search for any directory with the Maven executable (for snapshots)
+if [ -z "$actualDistributionDir" ]; then
+  # enable globbing to iterate over items
+  set +f
+  for dir in "$TMP_DOWNLOAD_DIR"/*; do
+    if [ -d "$dir" ]; then
+      if [ -f "$dir/bin/$MVN_CMD" ]; then
+        actualDistributionDir="$(basename "$dir")"
+        break
+      fi
+    fi
+  done
+  set -f
+fi
+
+if [ -z "$actualDistributionDir" ]; then
+  verbose "Contents of $TMP_DOWNLOAD_DIR:"
+  verbose "$(ls -la "$TMP_DOWNLOAD_DIR")"
+  die "Could not find Maven distribution directory in extracted archive"
+fi
+
+verbose "Found extracted Maven distribution directory: $actualDistributionDir"
+printf %s\\n "$distributionUrl" >"$TMP_DOWNLOAD_DIR/$actualDistributionDir/mvnw.url"
+mv -- "$TMP_DOWNLOAD_DIR/$actualDistributionDir" "$MAVEN_HOME" || [ -d "$MAVEN_HOME" ] || die "fail to move MAVEN_HOME"
+
+clean || :
+exec_maven "$@"
+</file>
+
+<file path="mvnw.cmd">
+<# : batch portion
+@REM ----------------------------------------------------------------------------
+@REM Licensed to the Apache Software Foundation (ASF) under one
+@REM or more contributor license agreements.  See the NOTICE file
+@REM distributed with this work for additional information
+@REM regarding copyright ownership.  The ASF licenses this file
+@REM to you under the Apache License, Version 2.0 (the
+@REM "License"); you may not use this file except in compliance
+@REM with the License.  You may obtain a copy of the License at
+@REM
+@REM    http://www.apache.org/licenses/LICENSE-2.0
+@REM
+@REM Unless required by applicable law or agreed to in writing,
+@REM software distributed under the License is distributed on an
+@REM "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+@REM KIND, either express or implied.  See the License for the
+@REM specific language governing permissions and limitations
+@REM under the License.
+@REM ----------------------------------------------------------------------------
+
+@REM ----------------------------------------------------------------------------
+@REM Apache Maven Wrapper startup batch script, version 3.3.4
+@REM
+@REM Optional ENV vars
+@REM   MVNW_REPOURL - repo url base for downloading maven distribution
+@REM   MVNW_USERNAME/MVNW_PASSWORD - user and password for downloading maven
+@REM   MVNW_VERBOSE - true: enable verbose log; others: silence the output
+@REM ----------------------------------------------------------------------------
+
+@IF "%__MVNW_ARG0_NAME__%"=="" (SET __MVNW_ARG0_NAME__=%~nx0)
+@SET __MVNW_CMD__=
+@SET __MVNW_ERROR__=
+@SET __MVNW_PSMODULEP_SAVE=%PSModulePath%
+@SET PSModulePath=
+@FOR /F "usebackq tokens=1* delims==" %%A IN (`powershell -noprofile "& {$scriptDir='%~dp0'; $script='%__MVNW_ARG0_NAME__%'; icm -ScriptBlock ([Scriptblock]::Create((Get-Content -Raw '%~f0'))) -NoNewScope}"`) DO @(
+  IF "%%A"=="MVN_CMD" (set __MVNW_CMD__=%%B) ELSE IF "%%B"=="" (echo %%A) ELSE (echo %%A=%%B)
+)
+@SET PSModulePath=%__MVNW_PSMODULEP_SAVE%
+@SET __MVNW_PSMODULEP_SAVE=
+@SET __MVNW_ARG0_NAME__=
+@SET MVNW_USERNAME=
+@SET MVNW_PASSWORD=
+@IF NOT "%__MVNW_CMD__%"=="" ("%__MVNW_CMD__%" %*)
+@echo Cannot start maven from wrapper >&2 && exit /b 1
+@GOTO :EOF
+: end batch / begin powershell #>
+
+$ErrorActionPreference = "Stop"
+if ($env:MVNW_VERBOSE -eq "true") {
+  $VerbosePreference = "Continue"
+}
+
+# calculate distributionUrl, requires .mvn/wrapper/maven-wrapper.properties
+$distributionUrl = (Get-Content -Raw "$scriptDir/.mvn/wrapper/maven-wrapper.properties" | ConvertFrom-StringData).distributionUrl
+if (!$distributionUrl) {
+  Write-Error "cannot read distributionUrl property in $scriptDir/.mvn/wrapper/maven-wrapper.properties"
+}
+
+switch -wildcard -casesensitive ( $($distributionUrl -replace '^.*/','') ) {
+  "maven-mvnd-*" {
+    $USE_MVND = $true
+    $distributionUrl = $distributionUrl -replace '-bin\.[^.]*$',"-windows-amd64.zip"
+    $MVN_CMD = "mvnd.cmd"
+    break
+  }
+  default {
+    $USE_MVND = $false
+    $MVN_CMD = $script -replace '^mvnw','mvn'
+    break
+  }
+}
+
+# apply MVNW_REPOURL and calculate MAVEN_HOME
+# maven home pattern: ~/.m2/wrapper/dists/{apache-maven-<version>,maven-mvnd-<version>-<platform>}/<hash>
+if ($env:MVNW_REPOURL) {
+  $MVNW_REPO_PATTERN = if ($USE_MVND -eq $False) { "/org/apache/maven/" } else { "/maven/mvnd/" }
+  $distributionUrl = "$env:MVNW_REPOURL$MVNW_REPO_PATTERN$($distributionUrl -replace "^.*$MVNW_REPO_PATTERN",'')"
+}
+$distributionUrlName = $distributionUrl -replace '^.*/',''
+$distributionUrlNameMain = $distributionUrlName -replace '\.[^.]*$','' -replace '-bin$',''
+
+$MAVEN_M2_PATH = "$HOME/.m2"
+if ($env:MAVEN_USER_HOME) {
+  $MAVEN_M2_PATH = "$env:MAVEN_USER_HOME"
+}
+
+if (-not (Test-Path -Path $MAVEN_M2_PATH)) {
+    New-Item -Path $MAVEN_M2_PATH -ItemType Directory | Out-Null
+}
+
+$MAVEN_WRAPPER_DISTS = $null
+if ((Get-Item $MAVEN_M2_PATH).Target[0] -eq $null) {
+  $MAVEN_WRAPPER_DISTS = "$MAVEN_M2_PATH/wrapper/dists"
+} else {
+  $MAVEN_WRAPPER_DISTS = (Get-Item $MAVEN_M2_PATH).Target[0] + "/wrapper/dists"
+}
+
+$MAVEN_HOME_PARENT = "$MAVEN_WRAPPER_DISTS/$distributionUrlNameMain"
+$MAVEN_HOME_NAME = ([System.Security.Cryptography.SHA256]::Create().ComputeHash([byte[]][char[]]$distributionUrl) | ForEach-Object {$_.ToString("x2")}) -join ''
+$MAVEN_HOME = "$MAVEN_HOME_PARENT/$MAVEN_HOME_NAME"
+
+if (Test-Path -Path "$MAVEN_HOME" -PathType Container) {
+  Write-Verbose "found existing MAVEN_HOME at $MAVEN_HOME"
+  Write-Output "MVN_CMD=$MAVEN_HOME/bin/$MVN_CMD"
+  exit $?
+}
+
+if (! $distributionUrlNameMain -or ($distributionUrlName -eq $distributionUrlNameMain)) {
+  Write-Error "distributionUrl is not valid, must end with *-bin.zip, but found $distributionUrl"
+}
+
+# prepare tmp dir
+$TMP_DOWNLOAD_DIR_HOLDER = New-TemporaryFile
+$TMP_DOWNLOAD_DIR = New-Item -Itemtype Directory -Path "$TMP_DOWNLOAD_DIR_HOLDER.dir"
+$TMP_DOWNLOAD_DIR_HOLDER.Delete() | Out-Null
+trap {
+  if ($TMP_DOWNLOAD_DIR.Exists) {
+    try { Remove-Item $TMP_DOWNLOAD_DIR -Recurse -Force | Out-Null }
+    catch { Write-Warning "Cannot remove $TMP_DOWNLOAD_DIR" }
+  }
+}
+
+New-Item -Itemtype Directory -Path "$MAVEN_HOME_PARENT" -Force | Out-Null
+
+# Download and Install Apache Maven
+Write-Verbose "Couldn't find MAVEN_HOME, downloading and installing it ..."
+Write-Verbose "Downloading from: $distributionUrl"
+Write-Verbose "Downloading to: $TMP_DOWNLOAD_DIR/$distributionUrlName"
+
+$webclient = New-Object System.Net.WebClient
+if ($env:MVNW_USERNAME -and $env:MVNW_PASSWORD) {
+  $webclient.Credentials = New-Object System.Net.NetworkCredential($env:MVNW_USERNAME, $env:MVNW_PASSWORD)
+}
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$webclient.DownloadFile($distributionUrl, "$TMP_DOWNLOAD_DIR/$distributionUrlName") | Out-Null
+
+# If specified, validate the SHA-256 sum of the Maven distribution zip file
+$distributionSha256Sum = (Get-Content -Raw "$scriptDir/.mvn/wrapper/maven-wrapper.properties" | ConvertFrom-StringData).distributionSha256Sum
+if ($distributionSha256Sum) {
+  if ($USE_MVND) {
+    Write-Error "Checksum validation is not supported for maven-mvnd. `nPlease disable validation by removing 'distributionSha256Sum' from your maven-wrapper.properties."
+  }
+  Import-Module $PSHOME\Modules\Microsoft.PowerShell.Utility -Function Get-FileHash
+  if ((Get-FileHash "$TMP_DOWNLOAD_DIR/$distributionUrlName" -Algorithm SHA256).Hash.ToLower() -ne $distributionSha256Sum) {
+    Write-Error "Error: Failed to validate Maven distribution SHA-256, your Maven distribution might be compromised. If you updated your Maven version, you need to update the specified distributionSha256Sum property."
+  }
+}
+
+# unzip and move
+Expand-Archive "$TMP_DOWNLOAD_DIR/$distributionUrlName" -DestinationPath "$TMP_DOWNLOAD_DIR" | Out-Null
+
+# Find the actual extracted directory name (handles snapshots where filename != directory name)
+$actualDistributionDir = ""
+
+# First try the expected directory name (for regular distributions)
+$expectedPath = Join-Path "$TMP_DOWNLOAD_DIR" "$distributionUrlNameMain"
+$expectedMvnPath = Join-Path "$expectedPath" "bin/$MVN_CMD"
+if ((Test-Path -Path $expectedPath -PathType Container) -and (Test-Path -Path $expectedMvnPath -PathType Leaf)) {
+  $actualDistributionDir = $distributionUrlNameMain
+}
+
+# If not found, search for any directory with the Maven executable (for snapshots)
+if (!$actualDistributionDir) {
+  Get-ChildItem -Path "$TMP_DOWNLOAD_DIR" -Directory | ForEach-Object {
+    $testPath = Join-Path $_.FullName "bin/$MVN_CMD"
+    if (Test-Path -Path $testPath -PathType Leaf) {
+      $actualDistributionDir = $_.Name
+    }
+  }
+}
+
+if (!$actualDistributionDir) {
+  Write-Error "Could not find Maven distribution directory in extracted archive"
+}
+
+Write-Verbose "Found extracted Maven distribution directory: $actualDistributionDir"
+Rename-Item -Path "$TMP_DOWNLOAD_DIR/$actualDistributionDir" -NewName $MAVEN_HOME_NAME | Out-Null
+try {
+  Move-Item -Path "$TMP_DOWNLOAD_DIR/$MAVEN_HOME_NAME" -Destination $MAVEN_HOME_PARENT | Out-Null
+} catch {
+  if (! (Test-Path -Path "$MAVEN_HOME" -PathType Container)) {
+    Write-Error "fail to move MAVEN_HOME"
+  }
+} finally {
+  try { Remove-Item $TMP_DOWNLOAD_DIR -Recurse -Force | Out-Null }
+  catch { Write-Warning "Cannot remove $TMP_DOWNLOAD_DIR" }
+}
+
+Write-Output "MVN_CMD=$MAVEN_HOME/bin/$MVN_CMD"
+</file>
+
+<file path="pom.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.4</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.nirapod</groupId>
+    <artifactId>demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>demo</name>
+    <description>Demo Spring Boot Project</description>
+
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- JPA -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Validation -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <!-- MySQL -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Devtools -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+         <!-- PDF Generator -->
+        <dependency>
+		    <groupId>com.github.librepdf</groupId>
+		    <artifactId>openpdf</artifactId>
+		    <version>1.3.30</version>
+		</dependency>
+		
+		
+		<dependency>
+		    <groupId>com.google.zxing</groupId>
+		    <artifactId>core</artifactId>
+		    <version>3.5.3</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.google.zxing</groupId>
+		    <artifactId>javase</artifactId>
+		    <version>3.5.3</version>
+		</dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+</file>
+
+<file path="src/main/resources/application.properties">
+spring.application.name=demo
+
+#spring.datasource.driverClassName=com.mysql.jdbc.driver
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/vattax_db_claude
+spring.datasource.username=root
+spring.datasource.password=root
+
+# The SQL dialect makes Hibernate generate better SQL for the chosen database
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+#spring.jpa.properties.hibernate.current_session_context_class=org.springframework.orm.hibernate5.SpringSessionContext
+
+# Hibernate ddl auto (create, create-drop, validate, update)
+spring.jpa.show-sql=true
+spring.jpa.generate-ddl=true
+spring.jpa.hibernate.ddl-auto=update
+</file>
+
+</files>

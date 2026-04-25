@@ -1,0 +1,60 @@
+package com.nirapod.services;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.nirapod.dao.BusinessDAO;
+import com.nirapod.dao.TaxpayerDAO;
+import com.nirapod.model.Business;
+import com.nirapod.model.Taxpayer;
+
+@Service
+public class BusinessService {
+
+    @Autowired
+    private BusinessDAO businessDAO;
+    
+    @Autowired
+    private TaxpayerDAO taxpayerDAO;
+
+    public Business create(Business business) {
+    	Taxpayer taxpayer = taxpayerDAO.getById(business.getTaxpayer().getId());
+        if (taxpayer == null) {
+            throw new IllegalArgumentException("Taxpayer not found.");
+        }
+
+        // Block company taxpayers
+        String typeName = taxpayer.getTaxpayerType() != null
+            ? taxpayer.getTaxpayerType().getTypeName().toLowerCase() : "";
+        if (typeName.contains("company")) {
+            throw new IllegalStateException(
+                "Company taxpayers cannot have a separate Business Registration. " +
+                "Proceed to VAT Registration directly."
+            );
+        }
+
+        return businessDAO.save(business);
+    }
+
+    public List<Business> getAll() {
+        return businessDAO.getAll();
+    }
+
+    public Business getById(Long id) {
+        Business b = businessDAO.getById(id);
+        if (b == null || b.isDeleted()) {
+            throw new IllegalArgumentException("Business not found with ID: " + id);
+        }
+        return b;
+    }
+    public Business update(Business business) {
+        return businessDAO.update(business);
+    }
+
+
+    public void softDelete(Long id) {
+        Business business = getById(id);  
+        business.setDeleted(true);
+        businessDAO.update(business);
+    }
+}
