@@ -10,24 +10,23 @@ import java.util.Optional;
 @Repository
 public interface VatRegistrationDAO extends JpaRepository<VatRegistration, Long> {
 
-    // List all active (non-deleted) registrations
     List<VatRegistration> findByIsDeletedFalse();
 
-    // Safe fetch by primary key (excludes soft-deleted)
     Optional<VatRegistration> findByIdAndIsDeletedFalse(Long id);
 
-    // Duplicate guard — one active VAT registration per TIN
-    boolean existsByTinNumberAndIsDeletedFalse(String tinNumber);
-
-    // Duplicate guard — unique BIN across all records
+    // BIN uniqueness guard — used in generateBinNo() collision check
     boolean existsByBinNoAndIsDeletedFalse(String binNo);
 
-    // Find by taxpayer (for cascading soft-delete use case)
+    // Business-level duplicate guard — one active VAT registration per business
+    boolean existsByBusiness_IdAndIsDeletedFalse(Long businessId);
+
+    // Lookup by business — used for VAT status checks in BusinessVatStatusDTO
+    Optional<VatRegistration> findByBusiness_IdAndIsDeletedFalse(Long businessId);
+
+    // Cascade soft-delete: find all VAT registrations for a given taxpayer
     List<VatRegistration> findByTaxpayer_IdAndIsDeletedFalse(Long taxpayerId);
 
-    // VatRegistrationDAO.java — replace the TIN-based check with business-based
-    boolean existsByBusiness_IdAndIsDeletedFalse(Long businessId);
-    
-    // Add this — Spring Data JPA derives the query from the method name
-    Optional<VatRegistration> findByBusiness_IdAndIsDeletedFalse(Long businessId);
+    // FIX: removed existsByTinNumberAndIsDeletedFalse(String tinNumber)
+    // That method was declared but never called after the duplicate check was
+    // switched from TIN-level to business-level. Dead code removed to avoid confusion.
 }

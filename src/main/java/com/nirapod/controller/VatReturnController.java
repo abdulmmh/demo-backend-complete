@@ -19,13 +19,18 @@ public class VatReturnController {
     private VatReturnService vatReturnService;
 
     // POST /api/vat-returns
-    // Angular sends { vatRegistrationId, returnPeriod, periodMonth, periodYear, ... }
-    // binNo, tinNumber, businessName, returnNo, totalSupplies, netTaxPayable
-    // are all auto-set in Service — Angular does NOT send these
     @PostMapping
-    public ResponseEntity<VatReturn> createReturn(@RequestBody VatReturn vatReturn) {
-        VatReturn created = vatReturnService.createReturn(vatReturn);
-        return new ResponseEntity<>(created, HttpStatus.CREATED);
+    public ResponseEntity<?> createReturn(@RequestBody VatReturn vatReturn) {
+        // FIX: was returning raw 500 on business rule violations.
+        // Now returns 400 with a readable message for both Angular toast and debugging.
+        try {
+            VatReturn created = vatReturnService.createReturn(vatReturn);
+            return new ResponseEntity<>(created, HttpStatus.CREATED);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+        } catch (IllegalStateException e) {
+            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+        }
     }
 
     // GET /api/vat-returns
@@ -36,30 +41,48 @@ public class VatReturnController {
 
     // GET /api/vat-returns/{id}
     @GetMapping("/{id}")
-    public ResponseEntity<VatReturn> getById(@PathVariable Long id) {
-        return ResponseEntity.ok(vatReturnService.getReturnById(id));
+    public ResponseEntity<?> getById(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok(vatReturnService.getReturnById(id));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     // PUT /api/vat-returns/{id}
-    // returnNo, binNo, businessName and vatRegistration FK preserved in Service
     @PutMapping("/{id}")
-    public ResponseEntity<VatReturn> updateReturn(@PathVariable Long id,
-                                                  @RequestBody VatReturn updatedData) {
-        return ResponseEntity.ok(vatReturnService.updateReturn(id, updatedData));
+    public ResponseEntity<?> updateReturn(@PathVariable Long id,
+                                          @RequestBody VatReturn updatedData) {
+        try {
+            return ResponseEntity.ok(vatReturnService.updateReturn(id, updatedData));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        } catch (IllegalStateException e) {
+            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+        }
     }
 
     // PATCH /api/vat-returns/{id}/status
-    // Angular view component calls this for workflow actions (Submit, Accept, Reject, etc.)
     @PatchMapping("/{id}/status")
-    public ResponseEntity<VatReturn> updateStatus(@PathVariable Long id,
-                                                  @RequestBody Map<String, String> payload) {
-        return ResponseEntity.ok(vatReturnService.updateStatus(id, payload));
+    public ResponseEntity<?> updateStatus(@PathVariable Long id,
+                                          @RequestBody Map<String, String> payload) {
+        try {
+            return ResponseEntity.ok(vatReturnService.updateStatus(id, payload));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+        } catch (IllegalStateException e) {
+            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+        }
     }
 
-    // DELETE /api/vat-returns/{id} — soft delete only
+    // DELETE /api/vat-returns/{id}
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteReturn(@PathVariable Long id) {
-        vatReturnService.deleteReturn(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<?> deleteReturn(@PathVariable Long id) {
+        try {
+            vatReturnService.deleteReturn(id);
+            return ResponseEntity.noContent().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

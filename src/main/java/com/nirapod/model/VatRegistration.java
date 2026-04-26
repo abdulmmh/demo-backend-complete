@@ -15,11 +15,9 @@ public class VatRegistration {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // ── BIN (Business Identification Number) — auto-generated in Service ──
     @Column(name = "bin_no", nullable = false, unique = true, length = 20)
     private String binNo;
 
-    // ── Business Info ──────────────────────────────────────────────────────
     @Column(name = "business_name", nullable = false)
     private String businessName;
 
@@ -27,7 +25,7 @@ public class VatRegistration {
     private String ownerName;
 
     @Column(name = "vat_category", nullable = false, length = 20)
-    private String vatCategory;          // Standard | Zero Rated | Exempt | Special
+    private String vatCategory;
 
     @Column(name = "business_type", length = 50)
     private String businessType;
@@ -38,14 +36,12 @@ public class VatRegistration {
     @Column(name = "trade_license_no", length = 30)
     private String tradeLicenseNo;
 
-    // ── VAT Authority ──────────────────────────────────────────────────────
     @Column(name = "vat_zone", nullable = false, length = 30)
     private String vatZone;
 
     @Column(name = "vat_circle", nullable = false, length = 30)
     private String vatCircle;
 
-    // ── Dates ──────────────────────────────────────────────────────────────
     @Column(name = "registration_date")
     private LocalDate registrationDate;
 
@@ -55,11 +51,9 @@ public class VatRegistration {
     @Column(name = "expiry_date")
     private LocalDate expiryDate;
 
-    // ── Financial ─────────────────────────────────────────────────────────
     @Column(name = "annual_turnover", nullable = false)
     private Double annualTurnover = 0.0;
 
-    // ── Contact ───────────────────────────────────────────────────────────
     @Column(length = 100)
     private String email;
 
@@ -75,37 +69,49 @@ public class VatRegistration {
     @Column(length = 50)
     private String division;
 
-    // ── Status ────────────────────────────────────────────────────────────
     @Column(nullable = false, length = 20)
-    private String status = "Pending";   // Active | Inactive | Pending | Suspended | Cancelled
+    private String status = "Pending";
 
     @Column(length = 500)
     private String remarks;
 
-    // ── Soft Delete ───────────────────────────────────────────────────────
     @Column(nullable = false)
     private boolean isDeleted = false;
 
-    // ── Relationship: Taxpayer ─────────────────────────────────────────────
+    // ── Relationships ─────────────────────────────────────────────────────
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "taxpayer_id", nullable = false)
     private Taxpayer taxpayer;
 
-    @Transient
-    private Long taxpayerId;
-
-    
-    @Column(name = "tin_number", nullable = false, length = 30)
-    private String tinNumber;
-    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "business_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "taxpayer"})
     private Business business;
 
+    @Column(name = "tin_number", nullable = false, length = 30)
+    private String tinNumber;
+
+    // ── @Transient fields — sent by Angular, resolved to strings in Service ──
+
+    @Transient
+    private Long taxpayerId;
+
     @Transient
     private Long businessId;
+
+    @Transient
+    private Long vatZoneId;
+
+    @Transient
+    private Long vatCircleId;
+
+    @Transient
+    private Long districtId;
+
+    @Transient
+    private Long divisionId;
 
     // ── Getters & Setters ─────────────────────────────────────────────────
 
@@ -178,23 +184,29 @@ public class VatRegistration {
     public Taxpayer getTaxpayer() { return taxpayer; }
     public void setTaxpayer(Taxpayer taxpayer) { this.taxpayer = taxpayer; }
 
-    public Long getTaxpayerId() { return taxpayerId; }
-    public void setTaxpayerId(Long taxpayerId) { this.taxpayerId = taxpayerId; }
+    public Business getBusiness() { return business; }
+    public void setBusiness(Business business) { this.business = business; }
 
     public String getTinNumber() { return tinNumber; }
     public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
-	
-    public Business getBusiness() {
-		return business;
-	}
-	public void setBusiness(Business business) {
-		this.business = business;
-	}
-	public Long getBusinessId() {
-		return businessId;
-	}
-	public void setBusinessId(Long businessId) {
-		this.businessId = businessId;
-	}
-    
+
+    // Transient getters & setters
+
+    public Long getTaxpayerId() { return taxpayerId; }
+    public void setTaxpayerId(Long taxpayerId) { this.taxpayerId = taxpayerId; }
+
+    public Long getBusinessId() { return businessId; }
+    public void setBusinessId(Long businessId) { this.businessId = businessId; }
+
+    public Long getVatZoneId() { return vatZoneId; }
+    public void setVatZoneId(Long vatZoneId) { this.vatZoneId = vatZoneId; }
+
+    public Long getVatCircleId() { return vatCircleId; }
+    public void setVatCircleId(Long vatCircleId) { this.vatCircleId = vatCircleId; }
+
+    public Long getDistrictId() { return districtId; }
+    public void setDistrictId(Long districtId) { this.districtId = districtId; }
+
+    public Long getDivisionId() { return divisionId; }
+    public void setDivisionId(Long divisionId) { this.divisionId = divisionId; }
 }
