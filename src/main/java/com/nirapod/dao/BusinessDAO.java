@@ -36,4 +36,13 @@ public class BusinessDAO {
 
         return entityManager.merge(entity);
     }
+    
+    public List<Business> getByTaxpayerId(Long taxpayerId) {
+        return entityManager
+            .createQuery(
+                "from business b where b.taxpayer.id = :tid and b.isDeleted = false",
+                Business.class)
+            .setParameter("tid", taxpayerId)
+            .getResultList();
+    }
 }

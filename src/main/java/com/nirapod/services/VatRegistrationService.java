@@ -1,7 +1,9 @@
 package com.nirapod.services;
 
+import com.nirapod.dao.BusinessDAO;
 import com.nirapod.dao.TaxpayerDAO;
 import com.nirapod.dao.VatRegistrationDAO;
+import com.nirapod.model.Business;
 import com.nirapod.model.Taxpayer;
 import com.nirapod.model.VatRegistration;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,46 +23,67 @@ public class VatRegistrationService {
     // TaxpayerDAO is a custom EntityManager DAO — getById() returns object directly (NOT Optional)
     @Autowired
     private TaxpayerDAO taxpayerDAO;
+    
+    @Autowired
+    private BusinessDAO businessDAO;
 
     // ── Create ────────────────────────────────────────────────────────────────
 
     @Transactional
-    public VatRegistration createRegistration(VatRegistration vatReg) {
+	public VatRegistration createRegistration(VatRegistration vatReg) {
+	
+	    if (vatReg.getTaxpayerId() == null) {
+	        throw new IllegalArgumentException("taxpayerId is required.");
+	    }
+	    if (vatReg.getBusinessId() == null) {
+	        throw new IllegalArgumentException("businessId is required to link a VAT registration to a specific business.");
+	    }
+	    
+	    if (vatReg.getBusinessId() != null) {
+	        Business business = businessDAO.getById(vatReg.getBusinessId());
+	        if (business == null) {
+	            throw new IllegalArgumentException("Business not found: " + vatReg.getBusinessId());
+	        }
+	        vatReg.setBusiness(business);
 
-        // 1. Validate taxpayerId is present
-        if (vatReg.getTaxpayerId() == null) {
-            throw new IllegalArgumentException("taxpayerId is required to link a VAT registration.");
-        }
-
-        // 2. Resolve @Transient taxpayerId → Taxpayer entity
-        //    TaxpayerDAO uses custom EntityManager — getById() returns object directly, NOT Optional
-        Taxpayer taxpayer = taxpayerDAO.getById(vatReg.getTaxpayerId());
-        if (taxpayer == null) {
-            throw new IllegalArgumentException(
-                    "Taxpayer not found with ID: " + vatReg.getTaxpayerId());
-        }
-        vatReg.setTaxpayer(taxpayer);
-
-        // 3. Copy tinNumber from resolved taxpayer for direct column storage
-        vatReg.setTinNumber(taxpayer.getTinNumber());
-
-        // 4. Duplicate guard — one active VAT registration per TIN
-        if (vatRegistrationDAO.existsByTinNumberAndIsDeletedFalse(taxpayer.getTinNumber())) {
-            throw new IllegalStateException(
-                    "An active VAT registration already exists for TIN: " + taxpayer.getTinNumber());
-        }
-
-        // 5. Auto-generate BIN (Business Identification Number) — race-condition safe
-        vatReg.setBinNo(generateBinNo());
-
-        // 6. Set defaults
-        if (vatReg.getRegistrationDate() == null) {
-            vatReg.setRegistrationDate(LocalDate.now());
-        }
-        vatReg.setStatus("Pending");
-
-        return vatRegistrationDAO.save(vatReg);
-    }
+	        // Switch duplicate check from TIN-level to business-level
+	        if (vatRegistrationDAO.existsByBusiness_IdAndIsDeletedFalse(business.getId())) {
+	            throw new IllegalStateException(
+	                "VAT already registered for: " + business.getBusinessName());
+	        }
+	    }
+	    
+	    Taxpayer taxpayer = taxpayerDAO.getById(vatReg.getTaxpayerId());
+	    if (taxpayer == null) {
+	        throw new IllegalArgumentException("Taxpayer not found: " + vatReg.getTaxpayerId());
+	    }
+	
+	    // Resolve business FK
+	    Business business = businessDAO.getById(vatReg.getBusinessId());
+	    if (business == null || business.isDeleted()) {
+	        throw new IllegalArgumentException("Business not found: " + vatReg.getBusinessId());
+	    }
+	
+	    // Guard: business must belong to this taxpayer
+	    if (!business.getTaxpayer().getId().equals(taxpayer.getId())) {
+	        throw new IllegalStateException("Business does not belong to this taxpayer.");
+	    }
+	
+	    // Duplicate guard: one BIN per business
+	    if (vatRegistrationDAO.existsByBusiness_IdAndIsDeletedFalse(business.getId())) {
+	        throw new IllegalStateException(
+	            "Business \"" + business.getBusinessName() + "\" already has a VAT registration (BIN).");
+	    }
+	
+	    vatReg.setTaxpayer(taxpayer);
+	    vatReg.setBusiness(business);
+	    vatReg.setTinNumber(taxpayer.getTinNumber());
+	    vatReg.setBinNo(generateBinNo());
+	    if (vatReg.getRegistrationDate() == null) vatReg.setRegistrationDate(LocalDate.now());
+	    vatReg.setStatus("Pending");
+	
+	    return vatRegistrationDAO.save(vatReg);
+	}
 
     // ── Read All ──────────────────────────────────────────────────────────────
 

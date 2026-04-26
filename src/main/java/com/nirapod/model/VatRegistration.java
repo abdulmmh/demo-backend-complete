@@ -1,6 +1,8 @@
 package com.nirapod.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -85,7 +87,6 @@ public class VatRegistration {
     private boolean isDeleted = false;
 
     // ── Relationship: Taxpayer ─────────────────────────────────────────────
-    // Angular sends taxpayerId as @Transient; Service resolves it to this object
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "taxpayer_id", nullable = false)
@@ -94,9 +95,17 @@ public class VatRegistration {
     @Transient
     private Long taxpayerId;
 
-    // Also expose tinNumber directly so Angular can display it without joining
+    
     @Column(name = "tin_number", nullable = false, length = 30)
     private String tinNumber;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "business_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "taxpayer"})
+    private Business business;
+
+    @Transient
+    private Long businessId;
 
     // ── Getters & Setters ─────────────────────────────────────────────────
 
@@ -174,4 +183,18 @@ public class VatRegistration {
 
     public String getTinNumber() { return tinNumber; }
     public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
+	
+    public Business getBusiness() {
+		return business;
+	}
+	public void setBusiness(Business business) {
+		this.business = business;
+	}
+	public Long getBusinessId() {
+		return businessId;
+	}
+	public void setBusinessId(Long businessId) {
+		this.businessId = businessId;
+	}
+    
 }

@@ -1,12 +1,18 @@
 package com.nirapod.services;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.nirapod.dao.BusinessDAO;
 import com.nirapod.dao.TaxpayerDAO;
+import com.nirapod.dao.VatRegistrationDAO;
+import com.nirapod.dto.BusinessVatStatusDTO;
 import com.nirapod.model.Business;
 import com.nirapod.model.Taxpayer;
+import com.nirapod.model.VatRegistration;
 
 @Service
 public class BusinessService {
@@ -16,6 +22,28 @@ public class BusinessService {
     
     @Autowired
     private TaxpayerDAO taxpayerDAO;
+    
+    @Autowired
+    private VatRegistrationDAO vatRegistrationDAO;
+    
+    
+    public List<BusinessVatStatusDTO> getByTaxpayerWithVatStatus(Long taxpayerId) {
+    	 
+        // 1. Fetch all active businesses for this taxpayer
+        List<Business> businesses = businessDAO.getByTaxpayerId(taxpayerId);
+     
+        // 2. For each business, check if a VAT registration exists
+        //    then wrap both into the DTO — constructor handles null vat gracefully
+        return businesses.stream()
+            .map(b -> {
+                VatRegistration vat = vatRegistrationDAO
+                    .findByBusiness_IdAndIsDeletedFalse(b.getId())
+                    .orElse(null);
+                return new BusinessVatStatusDTO(b, vat);
+            })
+            .collect(Collectors.toList());
+    }
+     
 
     public Business create(Business business) {
     	Taxpayer taxpayer = taxpayerDAO.getById(business.getTaxpayer().getId());

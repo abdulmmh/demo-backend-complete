@@ -24,4 +24,10 @@ public interface VatRegistrationDAO extends JpaRepository<VatRegistration, Long>
 
     // Find by taxpayer (for cascading soft-delete use case)
     List<VatRegistration> findByTaxpayer_IdAndIsDeletedFalse(Long taxpayerId);
+
+    // VatRegistrationDAO.java — replace the TIN-based check with business-based
+    boolean existsByBusiness_IdAndIsDeletedFalse(Long businessId);
+    
+    // Add this — Spring Data JPA derives the query from the method name
+    Optional<VatRegistration> findByBusiness_IdAndIsDeletedFalse(Long businessId);
 }

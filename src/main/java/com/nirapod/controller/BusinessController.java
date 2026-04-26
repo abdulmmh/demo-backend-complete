@@ -4,6 +4,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.nirapod.dto.BusinessVatStatusDTO;
 import com.nirapod.model.Business;
 import com.nirapod.services.BusinessService;
 
@@ -43,5 +45,12 @@ public class BusinessController {
     public ResponseEntity<Void> softDelete(@PathVariable Long id) {
         businessService.softDelete(id);
         return ResponseEntity.noContent().build();
+    }
+    
+    
+    @GetMapping("/by-taxpayer/{taxpayerId}/vat-status")
+    public ResponseEntity<List<BusinessVatStatusDTO>> getByTaxpayerWithVatStatus(
+            @PathVariable Long taxpayerId) {
+        return ResponseEntity.ok(businessService.getByTaxpayerWithVatStatus(taxpayerId));
     }
 }
