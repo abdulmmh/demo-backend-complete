@@ -1,5 +1,6 @@
 package com.nirapod.controller;
 
+import com.nirapod.dto.VatRegistrationCreateRequest;
 import com.nirapod.model.VatRegistration;
 import com.nirapod.services.VatRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +19,34 @@ public class VatRegistrationController {
     @Autowired
     private VatRegistrationService vatRegistrationService;
 
-    // POST /api/vat-registrations
+    /**
+     * POST /api/vat-registrations
+     *
+     * Accepts a VatRegistrationCreateRequest DTO instead of the raw entity so
+     * the HTTP contract is decoupled from the JPA model.
+     *
+     * HTTP status mapping:
+     *   201 Created            — registration saved successfully.
+     *   400 Bad Request        — missing/invalid fields (IllegalArgumentException).
+     *   409 Conflict           — duplicate business registration or ineligible
+     *                            taxpayer status (IllegalStateException).
+     */
     @PostMapping
-    public ResponseEntity<?> createRegistration(@RequestBody VatRegistration vatReg) {
-        // FIX: was returning raw 500 on IllegalArgumentException / IllegalStateException.
-        // Now catches and returns proper 400 Bad Request with a readable message.
+    public ResponseEntity<?> createRegistration(
+            @RequestBody VatRegistrationCreateRequest request) {
         try {
-            VatRegistration created = vatRegistrationService.createRegistration(vatReg);
+            VatRegistration created = vatRegistrationService.createRegistration(request);
             return new ResponseEntity<>(created, HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+            // 400 — validation failures: missing ID, not found, effectiveDate order
+            return ResponseEntity
+                .badRequest()
+                .body(Map.of("message", e.getMessage()));
         } catch (IllegalStateException e) {
-            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+            // 409 — business rules: taxpayer Blacklisted/Suspended, duplicate BIN
+            return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(Map.of("message", e.getMessage()));
         }
     }
 
@@ -55,11 +72,16 @@ public class VatRegistrationController {
             @PathVariable Long id,
             @RequestBody VatRegistration updatedData) {
         try {
-            return ResponseEntity.ok(vatRegistrationService.updateRegistration(id, updatedData));
+            return ResponseEntity.ok(
+                vatRegistrationService.updateRegistration(id, updatedData));
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity
+                .badRequest()
+                .body(Map.of("message", e.getMessage()));
         } catch (IllegalStateException e) {
-            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+            return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(Map.of("message", e.getMessage()));
         }
     }
 

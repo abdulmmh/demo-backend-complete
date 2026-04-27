@@ -15,7 +15,7 @@ public class VatRegistration {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "bin_no", nullable = false, unique = true, length = 20)
+    @Column(name = "bin_no", nullable = false, unique = true, length = 30)
     private String binNo;
 
     @Column(name = "business_name", nullable = false)
@@ -36,11 +36,15 @@ public class VatRegistration {
     @Column(name = "trade_license_no", length = 30)
     private String tradeLicenseNo;
 
-    @Column(name = "vat_zone", nullable = false, length = 30)
+    @Column(name = "vat_zone", nullable = false, length = 50)
     private String vatZone;
 
-    @Column(name = "vat_circle", nullable = false, length = 30)
+    @Column(name = "vat_circle", nullable = false, length = 50)
     private String vatCircle;
+
+  
+    @Column(name = "zone_id")
+    private Long zoneId;
 
     @Column(name = "registration_date")
     private LocalDate registrationDate;
@@ -57,7 +61,7 @@ public class VatRegistration {
     @Column(length = 100)
     private String email;
 
-    @Column(nullable = false, length = 20)
+    @Column(length = 20)
     private String phone;
 
     @Column(length = 255)
@@ -78,7 +82,7 @@ public class VatRegistration {
     @Column(nullable = false)
     private boolean isDeleted = false;
 
-    // ── Relationships ─────────────────────────────────────────────────────
+    // ── Relationships ──────────────────────────────────────────────────────
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
@@ -93,120 +97,111 @@ public class VatRegistration {
     @Column(name = "tin_number", nullable = false, length = 30)
     private String tinNumber;
 
-    // ── @Transient fields — sent by Angular, resolved to strings in Service ──
+    // ── @Transient fields — received from Angular, resolved in Service ─────
 
-    @Transient
-    private Long taxpayerId;
+    @Transient private Long taxpayerId;
+    @Transient private Long businessId;
+    @Transient private Long vatZoneId;
+    @Transient private Long vatCircleId;
+    @Transient private Long districtId;
+    @Transient private Long divisionId;
 
-    @Transient
-    private Long businessId;
+    // ── Getters & Setters ──────────────────────────────────────────────────
 
-    @Transient
-    private Long vatZoneId;
+    public Long getId()                          { return id; }
+    public void setId(Long id)                   { this.id = id; }
 
-    @Transient
-    private Long vatCircleId;
+    public String getBinNo()                     { return binNo; }
+    public void setBinNo(String binNo)           { this.binNo = binNo; }
 
-    @Transient
-    private Long districtId;
+    public String getBusinessName()              { return businessName; }
+    public void setBusinessName(String v)        { this.businessName = v; }
 
-    @Transient
-    private Long divisionId;
+    public String getOwnerName()                 { return ownerName; }
+    public void setOwnerName(String v)           { this.ownerName = v; }
 
-    // ── Getters & Setters ─────────────────────────────────────────────────
+    public String getVatCategory()               { return vatCategory; }
+    public void setVatCategory(String v)         { this.vatCategory = v; }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public String getBusinessType()              { return businessType; }
+    public void setBusinessType(String v)        { this.businessType = v; }
 
-    public String getBinNo() { return binNo; }
-    public void setBinNo(String binNo) { this.binNo = binNo; }
+    public String getBusinessCategory()          { return businessCategory; }
+    public void setBusinessCategory(String v)    { this.businessCategory = v; }
 
-    public String getBusinessName() { return businessName; }
-    public void setBusinessName(String businessName) { this.businessName = businessName; }
+    public String getTradeLicenseNo()            { return tradeLicenseNo; }
+    public void setTradeLicenseNo(String v)      { this.tradeLicenseNo = v; }
 
-    public String getOwnerName() { return ownerName; }
-    public void setOwnerName(String ownerName) { this.ownerName = ownerName; }
+    public String getVatZone()                   { return vatZone; }
+    public void setVatZone(String v)             { this.vatZone = v; }
 
-    public String getVatCategory() { return vatCategory; }
-    public void setVatCategory(String vatCategory) { this.vatCategory = vatCategory; }
+    public String getVatCircle()                 { return vatCircle; }
+    public void setVatCircle(String v)           { this.vatCircle = v; }
 
-    public String getBusinessType() { return businessType; }
-    public void setBusinessType(String businessType) { this.businessType = businessType; }
+    public Long getZoneId()                      { return zoneId; }
+    public void setZoneId(Long v)                { this.zoneId = v; }
 
-    public String getBusinessCategory() { return businessCategory; }
-    public void setBusinessCategory(String businessCategory) { this.businessCategory = businessCategory; }
+    public LocalDate getRegistrationDate()       { return registrationDate; }
+    public void setRegistrationDate(LocalDate v) { this.registrationDate = v; }
 
-    public String getTradeLicenseNo() { return tradeLicenseNo; }
-    public void setTradeLicenseNo(String tradeLicenseNo) { this.tradeLicenseNo = tradeLicenseNo; }
+    public LocalDate getEffectiveDate()          { return effectiveDate; }
+    public void setEffectiveDate(LocalDate v)    { this.effectiveDate = v; }
 
-    public String getVatZone() { return vatZone; }
-    public void setVatZone(String vatZone) { this.vatZone = vatZone; }
+    public LocalDate getExpiryDate()             { return expiryDate; }
+    public void setExpiryDate(LocalDate v)       { this.expiryDate = v; }
 
-    public String getVatCircle() { return vatCircle; }
-    public void setVatCircle(String vatCircle) { this.vatCircle = vatCircle; }
+    public Double getAnnualTurnover()            { return annualTurnover; }
+    public void setAnnualTurnover(Double v)      { this.annualTurnover = v; }
 
-    public LocalDate getRegistrationDate() { return registrationDate; }
-    public void setRegistrationDate(LocalDate registrationDate) { this.registrationDate = registrationDate; }
+    public String getEmail()                     { return email; }
+    public void setEmail(String v)               { this.email = v; }
 
-    public LocalDate getEffectiveDate() { return effectiveDate; }
-    public void setEffectiveDate(LocalDate effectiveDate) { this.effectiveDate = effectiveDate; }
+    public String getPhone()                     { return phone; }
+    public void setPhone(String v)               { this.phone = v; }
 
-    public LocalDate getExpiryDate() { return expiryDate; }
-    public void setExpiryDate(LocalDate expiryDate) { this.expiryDate = expiryDate; }
+    public String getAddress()                   { return address; }
+    public void setAddress(String v)             { this.address = v; }
 
-    public Double getAnnualTurnover() { return annualTurnover; }
-    public void setAnnualTurnover(Double annualTurnover) { this.annualTurnover = annualTurnover; }
+    public String getDistrict()                  { return district; }
+    public void setDistrict(String v)            { this.district = v; }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public String getDivision()                  { return division; }
+    public void setDivision(String v)            { this.division = v; }
 
-    public String getPhone() { return phone; }
-    public void setPhone(String phone) { this.phone = phone; }
+    public String getStatus()                    { return status; }
+    public void setStatus(String v)              { this.status = v; }
 
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+    public String getRemarks()                   { return remarks; }
+    public void setRemarks(String v)             { this.remarks = v; }
 
-    public String getDistrict() { return district; }
-    public void setDistrict(String district) { this.district = district; }
+    public boolean isDeleted()                   { return isDeleted; }
+    public void setDeleted(boolean v)            { isDeleted = v; }
 
-    public String getDivision() { return division; }
-    public void setDivision(String division) { this.division = division; }
+    public Taxpayer getTaxpayer()                { return taxpayer; }
+    public void setTaxpayer(Taxpayer v)          { this.taxpayer = v; }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public Business getBusiness()                { return business; }
+    public void setBusiness(Business v)          { this.business = v; }
 
-    public String getRemarks() { return remarks; }
-    public void setRemarks(String remarks) { this.remarks = remarks; }
+    public String getTinNumber()                 { return tinNumber; }
+    public void setTinNumber(String v)           { this.tinNumber = v; }
 
-    public boolean isDeleted() { return isDeleted; }
-    public void setDeleted(boolean deleted) { isDeleted = deleted; }
+    // Transient getters/setters
+    public Long getTaxpayerId()                  { return taxpayerId; }
+    public void setTaxpayerId(Long v)            { this.taxpayerId = v; }
 
-    public Taxpayer getTaxpayer() { return taxpayer; }
-    public void setTaxpayer(Taxpayer taxpayer) { this.taxpayer = taxpayer; }
+    public Long getBusinessId()                  { return businessId; }
+    public void setBusinessId(Long v)            { this.businessId = v; }
 
-    public Business getBusiness() { return business; }
-    public void setBusiness(Business business) { this.business = business; }
+    public Long getVatZoneId()                   { return vatZoneId; }
+    public void setVatZoneId(Long v)             { this.vatZoneId = v; }
 
-    public String getTinNumber() { return tinNumber; }
-    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
+    public Long getVatCircleId()                 { return vatCircleId; }
+    public void setVatCircleId(Long v)           { this.vatCircleId = v; }
 
-    // Transient getters & setters
+    public Long getDistrictId()                  { return districtId; }
+    public void setDistrictId(Long v)            { this.districtId = v; }
 
-    public Long getTaxpayerId() { return taxpayerId; }
-    public void setTaxpayerId(Long taxpayerId) { this.taxpayerId = taxpayerId; }
-
-    public Long getBusinessId() { return businessId; }
-    public void setBusinessId(Long businessId) { this.businessId = businessId; }
-
-    public Long getVatZoneId() { return vatZoneId; }
-    public void setVatZoneId(Long vatZoneId) { this.vatZoneId = vatZoneId; }
-
-    public Long getVatCircleId() { return vatCircleId; }
-    public void setVatCircleId(Long vatCircleId) { this.vatCircleId = vatCircleId; }
-
-    public Long getDistrictId() { return districtId; }
-    public void setDistrictId(Long districtId) { this.districtId = districtId; }
-
-    public Long getDivisionId() { return divisionId; }
-    public void setDivisionId(Long divisionId) { this.divisionId = divisionId; }
+    public Long getDivisionId()                  { return divisionId; }
+    public void setDivisionId(Long v)            { this.divisionId = v; }
 }

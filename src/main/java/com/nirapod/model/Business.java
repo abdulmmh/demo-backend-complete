@@ -66,8 +66,8 @@ public class Business {
     private LocalDate expiryDate;
 
 
-    @Column(precision = 19, scale = 2)
-    private BigDecimal annualTurnover;
+    @Column
+    private Double annualTurnover;
 
     private Integer numberOfEmployees;
 
@@ -157,8 +157,8 @@ public class Business {
     public LocalDate getExpiryDate() { return expiryDate; }
     public void setExpiryDate(LocalDate expiryDate) { this.expiryDate = expiryDate; }
 
-    public BigDecimal getAnnualTurnover() { return annualTurnover; }
-    public void setAnnualTurnover(BigDecimal annualTurnover) { this.annualTurnover = annualTurnover; }
+    public Double getAnnualTurnover() { return annualTurnover; }
+    public void setAnnualTurnover(Double annualTurnover) { this.annualTurnover = annualTurnover; }
 
     public Integer getNumberOfEmployees() { return numberOfEmployees; }
     public void setNumberOfEmployees(Integer numberOfEmployees) { this.numberOfEmployees = numberOfEmployees; }
