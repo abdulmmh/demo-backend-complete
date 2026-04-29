@@ -1,0 +1,80 @@
+package com.nirapod.dto;
+
+/**
+ * UserRegistrationRequest DTO
+ *
+ * Unified payload from the public /register endpoint.
+ * The backend enforces TAXPAYER role — the client cannot request any other role.
+ *
+ * accountType: "Individual" | "Company"
+ */
+public class UserRegistrationRequest {
+
+    // ── Common ────────────────────────────────────────────────────────────────
+    private String accountType;   // "Individual" | "Company"
+    private String fullName;
+    private String email;
+    private String phone;
+    private String password;      // plaintext — BCrypt applied in service layer
+
+    // ── Individual-specific ───────────────────────────────────────────────────
+    private String nid;
+    private String dateOfBirth;   // ISO date string "YYYY-MM-DD"
+    private String gender;
+    private String profession;
+
+    // ── Company-specific ──────────────────────────────────────────────────────
+    private String companyName;
+    private String rjscNo;
+    private String incorporationDate;   // ISO date string "YYYY-MM-DD"
+    private String natureOfBusiness;
+    private String authorizedPersonName;
+    private String authorizedPersonNid;
+
+    // ── Getters & Setters ─────────────────────────────────────────────────────
+
+    public String getAccountType()           { return accountType; }
+    public void   setAccountType(String v)   { this.accountType = v; }
+
+    public String getFullName()              { return fullName; }
+    public void   setFullName(String v)      { this.fullName = v; }
+
+    public String getEmail()                 { return email; }
+    public void   setEmail(String v)         { this.email = v; }
+
+    public String getPhone()                 { return phone; }
+    public void   setPhone(String v)         { this.phone = v; }
+
+    public String getPassword()              { return password; }
+    public void   setPassword(String v)      { this.password = v; }
+
+    public String getNid()                   { return nid; }
+    public void   setNid(String v)           { this.nid = v; }
+
+    public String getDateOfBirth()           { return dateOfBirth; }
+    public void   setDateOfBirth(String v)   { this.dateOfBirth = v; }
+
+    public String getGender()                { return gender; }
+    public void   setGender(String v)        { this.gender = v; }
+
+    public String getProfession()            { return profession; }
+    public void   setProfession(String v)    { this.profession = v; }
+
+    public String getCompanyName()           { return companyName; }
+    public void   setCompanyName(String v)   { this.companyName = v; }
+
+    public String getRjscNo()                { return rjscNo; }
+    public void   setRjscNo(String v)        { this.rjscNo = v; }
+
+    public String getIncorporationDate()         { return incorporationDate; }
+    public void   setIncorporationDate(String v) { this.incorporationDate = v; }
+
+    public String getNatureOfBusiness()          { return natureOfBusiness; }
+    public void   setNatureOfBusiness(String v)  { this.natureOfBusiness = v; }
+
+    public String getAuthorizedPersonName()         { return authorizedPersonName; }
+    public void   setAuthorizedPersonName(String v) { this.authorizedPersonName = v; }
+
+    public String getAuthorizedPersonNid()          { return authorizedPersonNid; }
+    public void   setAuthorizedPersonNid(String v)  { this.authorizedPersonNid = v; }
+}
