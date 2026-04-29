@@ -17,30 +17,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.util.List;
 
-/**
- * PublicRegistrationService
- *
- * Atomic flow — all three records (User, Taxpayer, Tin) are created in a single
- * transaction. If any step fails, the entire transaction rolls back so no
- * orphaned records are created.
- *
- * Duplicate detection:
- *   - email     → 409 Conflict (caught by GlobalExceptionHandler via IllegalStateException)
- *   - NID       → 409 Conflict (Individual)
- *   - RJSC No.  → 409 Conflict (Company)
- *
- * Security:
- *   - Password hashed with BCrypt (strength 12) before persisting
- *   - Role is always forced to "TAXPAYER" — the DTO has no role field by design
- */
 @Service
 @Transactional
 public class PublicRegistrationService {
 
-    // BCrypt strength 12 — good balance of security and performance for a
-    // government portal on modern hardware (~250ms per hash)
     private static final BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder(12);
 
     @Autowired private UserDAO         userDAO;
@@ -53,31 +34,33 @@ public class PublicRegistrationService {
         // ── 1. Input validation ────────────────────────────────────────────────
         validateRequest(req);
 
-        // ── 2. Duplicate checks — 409 via GlobalExceptionHandler ──────────────
+        // ── 2. Duplicate check — email, NID/RJSC ──────────────────────────────
         checkEmailNotTaken(req.getEmail());
         checkIdentityNotTaken(req);
 
-        // ── 3. Create User (portal account) ───────────────────────────────────
+        // ── 3. User (portal account)────────────────────────────────
         User user = buildUser(req);
         userDAO.save(user);
 
-        // ── 4. Resolve TaxpayerType from master data ──────────────────────────
-        TaxpayerType taxpayerType = resolveTaxpayerType(req.getAccountType());
+        // ── 4. TaxpayerType ─────────────────────
+        TaxpayerType taxpayerType = taxpayerTypeDAO
+                .findByTypeNameIgnoreCase(req.getAccountType())
+                .orElseThrow(() -> new IllegalStateException(
+                        "TaxpayerType '" + req.getAccountType() + "' not found. " +
+                        "Please contact the system administrator."));
 
-        // ── 5. Create Taxpayer record ──────────────────────────────────────────
+        // ── 5. Taxpayer record ───────────────────────────────────────
         Taxpayer taxpayer = buildTaxpayer(req, taxpayerType);
         taxpayerDAO.save(taxpayer);
 
-        // ── 6. Create Tin via TinService (auto-generates TIN number + links back)
+
         Tin tin = buildTin(req, taxpayer.getId());
         tinDAO.saveAndFlush(tin);
 
-        // TinService generateTIN pattern: "TIN-" + 9-digit padded ID
         String generatedTin = "TIN-" + String.format("%09d", tin.getId());
         tin.setTinNumber(generatedTin);
         tinDAO.save(tin);
 
-        // Link TIN back to Taxpayer and User for quick lookup
         taxpayer.setTinNumber(generatedTin);
         taxpayerDAO.update(taxpayer);
 
@@ -88,7 +71,7 @@ public class PublicRegistrationService {
                 req.getFullName(),
                 req.getEmail(),
                 req.getAccountType(),
-                "Registration successful. Your TIN has been issued: " + generatedTin
+                "Registration successful. Your TIN: " + generatedTin
         );
     }
 
@@ -99,9 +82,9 @@ public class PublicRegistrationService {
         user.setFullName(req.getFullName());
         user.setEmail(req.getEmail().toLowerCase().trim());
         user.setPhone(req.getPhone());
-        user.setRole("TAXPAYER");        // ALWAYS forced — cannot be overridden by client
+        user.setRole("TAXPAYER");                         
         user.setStatus("Active");
-        user.setPassword(bcrypt.encode(req.getPassword()));   // BCrypt hash
+        user.setPassword(bcrypt.encode(req.getPassword()));
         return user;
     }
 
@@ -113,21 +96,19 @@ public class PublicRegistrationService {
         t.setStatus("Active");
         t.setRegistrationDate(LocalDate.now());
         t.setSameAsPermanent(false);
-
-        // Default empty addresses (citizen can complete profile later)
         t.setPresentAddress(new Address());
         t.setPermanentAddress(new Address());
 
         if ("Individual".equals(req.getAccountType())) {
             t.setFullName(req.getFullName());
             t.setNid(req.getNid());
-            t.setGender(req.getGender());
+            t.setGender(req.getGender());                 
             t.setProfession(req.getProfession());
             if (req.getDateOfBirth() != null && !req.getDateOfBirth().isBlank()) {
                 t.setDateOfBirth(LocalDate.parse(req.getDateOfBirth()));
             }
         } else {
-            t.setCompanyName(req.getFullName());   // fullName doubles as company display name
+            t.setCompanyName(req.getFullName());
             t.setRjscNo(req.getRjscNo());
             t.setNatureOfBusiness(req.getNatureOfBusiness());
             t.setAuthorizedPersonName(req.getAuthorizedPersonName());
@@ -141,7 +122,7 @@ public class PublicRegistrationService {
 
     private Tin buildTin(UserRegistrationRequest req, Long taxpayerId) {
         Tin tin = new Tin();
-        tin.setTinNumber("PENDING");   // placeholder until ID is known
+        tin.setTinNumber("PENDING");                     
         tin.setTaxpayerId(taxpayerId);
         tin.setEmail(req.getEmail().toLowerCase().trim());
         tin.setPhone(req.getPhone());
@@ -152,13 +133,14 @@ public class PublicRegistrationService {
             tin.setTaxpayerName(req.getFullName());
             tin.setTinCategory("Individual");
             tin.setNid(req.getNid());
+            tin.setGender(req.getGender());               
             if (req.getDateOfBirth() != null && !req.getDateOfBirth().isBlank()) {
                 tin.setDateOfBirth(LocalDate.parse(req.getDateOfBirth()));
             }
         } else {
             tin.setTaxpayerName(req.getFullName());
             tin.setTinCategory("Company");
-            tin.setNid(req.getAuthorizedPersonNid());   // authorized person NID
+            tin.setNid(req.getAuthorizedPersonNid());    
             if (req.getIncorporationDate() != null && !req.getIncorporationDate().isBlank()) {
                 tin.setIncorporationDate(LocalDate.parse(req.getIncorporationDate()));
             }
@@ -183,9 +165,18 @@ public class PublicRegistrationService {
             if (req.getNid() == null || req.getNid().isBlank()) {
                 throw new IllegalArgumentException("NID is required for Individual registration.");
             }
+            if (req.getGender() == null || req.getGender().isBlank()) {
+                throw new IllegalArgumentException("Gender is required for Individual registration.");
+            }
         } else {
             if (req.getRjscNo() == null || req.getRjscNo().isBlank()) {
-                throw new IllegalArgumentException("RJSC registration number is required for Company registration.");
+                throw new IllegalArgumentException("RJSC number is required for Company registration.");
+            }
+            if (req.getAuthorizedPersonName() == null || req.getAuthorizedPersonName().isBlank()) {
+                throw new IllegalArgumentException("Authorized person name is required.");
+            }
+            if (req.getAuthorizedPersonNid() == null || req.getAuthorizedPersonNid().isBlank()) {
+                throw new IllegalArgumentException("Authorized person NID is required.");
             }
         }
     }
@@ -195,24 +186,22 @@ public class PublicRegistrationService {
                 .anyMatch(u -> email.equalsIgnoreCase(u.getEmail()));
         if (exists) {
             throw new IllegalStateException(
-                    "An account with this email address already exists. Please log in or use a different email."
+                    "An account with this email already exists. Please log in or use a different email."
             );
         }
     }
 
     private void checkIdentityNotTaken(UserRegistrationRequest req) {
         if ("Individual".equals(req.getAccountType())) {
-            // Check NID uniqueness against existing taxpayers
             boolean nidExists = taxpayerDAO.getAll().stream()
                     .anyMatch(t -> req.getNid().equals(t.getNid()));
             if (nidExists) {
                 throw new IllegalStateException(
                         "A TIN is already registered with this NID. " +
-                        "If you have forgotten your login, please use password reset."
+                        "If you forgot your login, please use password reset."
                 );
             }
         } else {
-            // Check RJSC No uniqueness against existing taxpayers
             boolean rjscExists = taxpayerDAO.getAll().stream()
                     .anyMatch(t -> req.getRjscNo().equals(t.getRjscNo()));
             if (rjscExists) {
@@ -222,13 +211,5 @@ public class PublicRegistrationService {
                 );
             }
         }
-    }
-
-    // ── Helper: resolve TaxpayerType entity from master data ─────────────────
-
-    private TaxpayerType resolveTaxpayerType(String accountType) {
-        return taxpayerTypeDAO.findByTypeNameIgnoreCase(accountType)
-                .orElseThrow(() -> new IllegalStateException(
-                    "TaxpayerType '" + accountType + "' not found in master data."));
     }
 }

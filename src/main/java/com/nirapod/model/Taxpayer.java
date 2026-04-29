@@ -31,6 +31,7 @@ public class Taxpayer {
     private String fathersName;
     private String mothersName;
     private LocalDate dateOfBirth;
+    private String gender;
     private String profession;
 
     // ─── Company Fields ───
@@ -164,4 +165,12 @@ public class Taxpayer {
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 }

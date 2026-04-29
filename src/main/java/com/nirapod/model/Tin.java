@@ -20,6 +20,7 @@ public class Tin {
     private String nid;
     private String passportNo;
     private LocalDate dateOfBirth;
+    private String gender;
     private LocalDate incorporationDate;
     private String email;
     private String phone;
@@ -114,4 +115,13 @@ public class Tin {
 
     public Long getTaxpayerId() { return taxpayerId; }
     public void setTaxpayerId(Long taxpayerId) { this.taxpayerId = taxpayerId; }
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+    
 }
