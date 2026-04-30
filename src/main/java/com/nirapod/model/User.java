@@ -3,7 +3,7 @@ package com.nirapod.model;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity(name = "appUser")
+@Entity(name = "user")
 @Table(name = "users")
 public class User {
 

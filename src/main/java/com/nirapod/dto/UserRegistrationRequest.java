@@ -1,43 +1,49 @@
 package com.nirapod.dto;
 
-/**
- * UserRegistrationRequest DTO
- *
- * Unified payload from the public /register endpoint.
- * The backend enforces TAXPAYER role — the client cannot request any other role.
- *
- * accountType: "Individual" | "Company"
- */
+
 public class UserRegistrationRequest {
 
     // ── Common ────────────────────────────────────────────────────────────────
-    private String accountType;   // "Individual" | "Company"
+	private Long   taxpayerTypeId; 
+	private String accountCategory;   
     private String fullName;
     private String email;
     private String phone;
-    private String password;      // plaintext — BCrypt applied in service layer
+    private String password;      
 
     // ── Individual-specific ───────────────────────────────────────────────────
     private String nid;
-    private String dateOfBirth;   // ISO date string "YYYY-MM-DD"
+    private String dateOfBirth;   
     private String gender;
     private String profession;
 
     // ── Company-specific ──────────────────────────────────────────────────────
     private String companyName;
     private String rjscNo;
-    private String incorporationDate;   // ISO date string "YYYY-MM-DD"
+    private String incorporationDate;   
     private String natureOfBusiness;
     private String authorizedPersonName;
     private String authorizedPersonNid;
 
     // ── Getters & Setters ─────────────────────────────────────────────────────
 
-    public String getAccountType()           { return accountType; }
-    public void   setAccountType(String v)   { this.accountType = v; }
+    
 
     public String getFullName()              { return fullName; }
-    public void   setFullName(String v)      { this.fullName = v; }
+    
+    public Long getTaxpayerTypeId() {
+		return taxpayerTypeId;
+	}
+	public void setTaxpayerTypeId(Long taxpayerTypeId) {
+		this.taxpayerTypeId = taxpayerTypeId;
+	}
+	public String getAccountCategory() {
+		return accountCategory;
+	}
+	public void setAccountCategory(String accountCategory) {
+		this.accountCategory = accountCategory;
+	}
+	public void   setFullName(String v)      { this.fullName = v; }
 
     public String getEmail()                 { return email; }
     public void   setEmail(String v)         { this.email = v; }
