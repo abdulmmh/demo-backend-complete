@@ -33,7 +33,6 @@ public class PaymentController {
         return ResponseEntity.ok(paymentService.getById(id));
     }
 
-    // Only status and remarks are patchable — amount, TIN, bank details are immutable
     @PatchMapping("/{id}/status")
     public ResponseEntity<Payment> updateStatus(
             @PathVariable Long id,

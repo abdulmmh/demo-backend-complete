@@ -19,18 +19,7 @@ public class VatRegistrationController {
     @Autowired
     private VatRegistrationService vatRegistrationService;
 
-    /**
-     * POST /api/vat-registrations
-     *
-     * Accepts a VatRegistrationCreateRequest DTO instead of the raw entity so
-     * the HTTP contract is decoupled from the JPA model.
-     *
-     * HTTP status mapping:
-     *   201 Created            — registration saved successfully.
-     *   400 Bad Request        — missing/invalid fields (IllegalArgumentException).
-     *   409 Conflict           — duplicate business registration or ineligible
-     *                            taxpayer status (IllegalStateException).
-     */
+
     @PostMapping
     public ResponseEntity<?> createRegistration(
             @RequestBody VatRegistrationCreateRequest request) {

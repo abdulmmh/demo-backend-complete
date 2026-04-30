@@ -13,23 +13,11 @@ import org.springframework.web.bind.annotation.*;
 import com.nirapod.model.User;
 import com.nirapod.services.UserService;
 
-/**
- * AuthController — updated to handle both:
- *   - Legacy plain-text passwords (internal staff created before BCrypt was added)
- *   - BCrypt-hashed passwords (all accounts created via /public/register)
- *
- * The dual-check ensures zero disruption to existing demo/test accounts while
- * correctly verifying hashed passwords for self-registered taxpayers.
- *
- * Migration path: when all passwords are BCrypt-hashed (Phase 2), remove the
- * plain-text fallback check entirely.
- */
 @RestController
 @RequestMapping("/api/auth")
 @CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
 
-    // Same strength (12) used in PublicRegistrationService
     private static final BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder(12);
 
     @Autowired
@@ -56,9 +44,6 @@ public class AuthController {
                     .body(Map.of("message", "Invalid email or password."));
         }
 
-        // Dual password check:
-        // 1. BCrypt match (self-registered taxpayers)
-        // 2. Plain-text match (existing internal staff accounts — legacy only)
         boolean passwordValid = isPasswordValid(password, matched.getPassword());
 
         if (!passwordValid) {
@@ -73,11 +58,9 @@ public class AuthController {
                             ". Please contact the NBR helpdesk."));
         }
 
-        // Update lastLogin timestamp
         matched.setLastLogin(LocalDateTime.now());
         userService.update(matched);
 
-        // Build response — no real JWT yet (placeholder token)
         Map<String, Object> response = new HashMap<>();
         response.put("id",       matched.getId());
         response.put("fullName", matched.getFullName());
@@ -87,14 +70,6 @@ public class AuthController {
 
         return ResponseEntity.ok(response);
     }
-
-    /**
-     * Checks the submitted password against the stored value.
-     *
-     * BCrypt hashes always start with "$2a$" or "$2b$".
-     * Plain-text passwords don't — so we can detect which check to run
-     * without needing a separate column flag on the User entity.
-     */
     private boolean isPasswordValid(String submitted, String stored) {
         if (stored == null) return false;
 

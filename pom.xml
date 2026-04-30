@@ -90,26 +90,12 @@
 		    <version>3.5.3</version>
 		</dependency>
 		
-		<!-- ──────────────────────────────────────────────────────────────────────────
-		     ADD to pom.xml if spring-security-crypto is not already on the classpath.
-		     If you already have spring-boot-starter-security, BCryptPasswordEncoder
-		     is already available and no extra dependency is needed.
-		     ────────────────────────────────────────────────────────────────────────── -->
 		
+		<!-- Spring Sequrity-->
 		<dependency>
-		    <groupId>org.springframework.security</groupId>
-		    <artifactId>spring-security-crypto</artifactId>
-		    <!-- version managed by spring-boot-starter-parent, no explicit version needed -->
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		
-		<!--
-		    spring-security-crypto gives you BCryptPasswordEncoder without pulling in
-		    the full Spring Security filter chain (no WebSecurityConfigurerAdapter,
-		    no login form, no CSRF). Your current open-CORS setup stays exactly as-is.
-		
-		    If you later add spring-boot-starter-security for JWT, remove this standalone
-		    dependency — BCrypt is already included in the full security starter.
-		-->
 
     </dependencies>
 

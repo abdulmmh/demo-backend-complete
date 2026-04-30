@@ -82,7 +82,6 @@ public class TinController {
         byte[] csvData = tinService.exportTinsToCsv();
         
         HttpHeaders headers = new HttpHeaders();
-        // ফাইলের নাম সেট করে দেওয়া হচ্ছে
         headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=tin_list.csv");
         headers.setContentType(MediaType.parseMediaType("text/csv"));
         

@@ -21,8 +21,7 @@ public class VatReturnController {
     // POST /api/vat-returns
     @PostMapping
     public ResponseEntity<?> createReturn(@RequestBody VatReturn vatReturn) {
-        // FIX: was returning raw 500 on business rule violations.
-        // Now returns 400 with a readable message for both Angular toast and debugging.
+
         try {
             VatReturn created = vatReturnService.createReturn(vatReturn);
             return new ResponseEntity<>(created, HttpStatus.CREATED);
