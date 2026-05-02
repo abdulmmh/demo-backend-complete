@@ -1,4 +1,4 @@
-package com.nirapod.services;
+package com.nirapod.service;
 
 import java.util.List;
 

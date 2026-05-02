@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Entity
+@Entity(name = "taxZone")
 @Table(name = "tax_zones")
 public class TaxZone {
 

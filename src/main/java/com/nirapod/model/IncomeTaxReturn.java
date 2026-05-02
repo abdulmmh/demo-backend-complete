@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+@Entity(name = "incomeTaxReturn")
 @Table(name = "income_tax_returns")
 public class IncomeTaxReturn {
 

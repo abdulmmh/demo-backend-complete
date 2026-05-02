@@ -13,6 +13,8 @@ public interface IncomeTaxReturnDAO extends JpaRepository<IncomeTaxReturn, Long>
     boolean existsByTinNumberAndAssessmentYearAndIsDeletedFalse(String tinNumber, String assessmentYear);
     
     List<IncomeTaxReturn> findByIsDeletedFalse();
+
+    List<IncomeTaxReturn> findByTaxpayer_IdAndIsDeletedFalse(Long taxpayerId);
     
     Optional<IncomeTaxReturn> findByIdAndIsDeletedFalse(Long id);
 }

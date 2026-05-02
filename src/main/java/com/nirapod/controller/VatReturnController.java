@@ -1,7 +1,8 @@
 package com.nirapod.controller;
 
 import com.nirapod.model.VatReturn;
-import com.nirapod.services.VatReturnService;
+import com.nirapod.service.VatReturnService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

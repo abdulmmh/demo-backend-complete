@@ -1,4 +1,4 @@
-package com.nirapod.services;
+package com.nirapod.service;
 
 import com.nirapod.dao.VatRegistrationDAO;
 import com.nirapod.dao.VatReturnDAO;

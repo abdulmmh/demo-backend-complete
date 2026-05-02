@@ -1,6 +1,7 @@
 package com.nirapod.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
@@ -54,8 +55,24 @@ public class TaxpayerDAO {
         return entityManager.find(Taxpayer.class, id);
     }
 
-    public void update(Taxpayer taxpayer) {
-        entityManager.merge(taxpayer);
+    public Optional<Taxpayer> findByNid(String nid) {
+        return entityManager.createQuery(
+                "from taxpayer t where t.nid = :nid", Taxpayer.class)
+            .setParameter("nid", nid)
+            .getResultStream()
+            .findFirst();
+    }
+
+    public Optional<Taxpayer> findByRjscNo(String rjscNo) {
+        return entityManager.createQuery(
+                "from taxpayer t where t.rjscNo = :rjscNo", Taxpayer.class)
+            .setParameter("rjscNo", rjscNo)
+            .getResultStream()
+            .findFirst();
+    }
+
+    public Taxpayer update(Taxpayer taxpayer) {
+        return entityManager.merge(taxpayer);
     }
 
 

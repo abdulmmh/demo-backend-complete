@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.nirapod.model.User;
-import com.nirapod.services.UserService;
+import com.nirapod.service.UserService;
 
 @RestController
 @RequestMapping("/api/users")

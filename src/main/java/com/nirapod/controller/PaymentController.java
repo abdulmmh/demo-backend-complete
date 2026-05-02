@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.nirapod.model.Payment;
-import com.nirapod.services.PaymentService;
+import com.nirapod.service.PaymentService;
 
 @RestController
 @RequestMapping("/api/payments")

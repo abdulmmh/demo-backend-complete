@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "vatReturns")
 @Table(name = "vat_returns")
 public class VatReturn {
 

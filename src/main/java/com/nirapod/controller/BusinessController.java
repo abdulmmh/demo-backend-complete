@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.nirapod.dto.BusinessVatStatusDTO;
 import com.nirapod.model.Business;
-import com.nirapod.services.BusinessService;
+import com.nirapod.service.BusinessService;
 
 @RestController
 @RequestMapping("/api/businesses")

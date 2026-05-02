@@ -11,7 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import com.nirapod.model.User;
-import com.nirapod.services.UserService;
+import com.nirapod.service.UserService;
 
 @RestController
 @RequestMapping("/api/auth")

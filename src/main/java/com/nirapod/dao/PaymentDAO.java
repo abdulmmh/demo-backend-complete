@@ -31,6 +31,13 @@ public class PaymentDAO {
         return entityManager.find(Payment.class, id);
     }
 
+    public List<Payment> getByTaxpayerId(Long taxpayerId) {
+        return entityManager
+            .createQuery("from payment where taxpayer.id = :tid and isDeleted = false", Payment.class)
+            .setParameter("tid", taxpayerId)
+            .getResultList();
+    }
+
     @Transactional
     public Payment update(Payment entity) {
         return entityManager.merge(entity);

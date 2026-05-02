@@ -1,4 +1,4 @@
-package com.nirapod.dto;
+package com.nirapod.dto.response;
 
 public class RegistrationResponse {
 

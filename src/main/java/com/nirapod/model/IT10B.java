@@ -3,7 +3,7 @@ package com.nirapod.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-@Entity
+@Entity(name = "it10bAssetsLiabilitie")
 @Table(name = "it_10b_assets_liabilities")
 public class IT10B {
 

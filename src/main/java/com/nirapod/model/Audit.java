@@ -3,6 +3,7 @@ package com.nirapod.model;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity(name = "audit")
 @Table(name = "audits")
@@ -10,13 +11,17 @@ public class Audit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(unique = true)
     private String auditNo;
 
-    private String tinNumber;
-    private String taxpayerName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "taxpayer_id", nullable = false)
+    private Taxpayer taxpayer;
+
+    // ── REMOVED: tinNumber, taxpayerName — read via taxpayer FK ──
+
     private String auditType;
     private String priority;
     private String assessmentYear;
@@ -45,17 +50,15 @@ public class Audit {
         this.createdAt = LocalDateTime.now();
         if (this.status == null) this.status = "Scheduled";
         if (this.auditNo == null || this.auditNo.isEmpty())
-            this.auditNo = "AUD-" + System.currentTimeMillis();
+            this.auditNo = "AUD-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
     }
 
-    public Integer getId() { return id; }
-    public void setId(Integer id) { this.id = id; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
     public String getAuditNo() { return auditNo; }
     public void setAuditNo(String auditNo) { this.auditNo = auditNo; }
-    public String getTinNumber() { return tinNumber; }
-    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
-    public String getTaxpayerName() { return taxpayerName; }
-    public void setTaxpayerName(String taxpayerName) { this.taxpayerName = taxpayerName; }
+    public Taxpayer getTaxpayer() { return taxpayer; }
+    public void setTaxpayer(Taxpayer taxpayer) { this.taxpayer = taxpayer; }
     public String getAuditType() { return auditType; }
     public void setAuditType(String auditType) { this.auditType = auditType; }
     public String getPriority() { return priority; }

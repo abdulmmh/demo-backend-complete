@@ -3,6 +3,7 @@ package com.nirapod.model;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity(name = "penalty")
 @Table(name = "penalties")
@@ -10,13 +11,17 @@ public class Penalty {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(unique = true)
     private String penaltyNo;
 
-    private String tinNumber;
-    private String taxpayerName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "taxpayer_id", nullable = false)
+    private Taxpayer taxpayer;
+
+    // ── REMOVED: tinNumber, taxpayerName — read via taxpayer FK ──
+
     private String penaltyType;
     private String severity;
     private Double penaltyAmount;
@@ -46,20 +51,18 @@ public class Penalty {
         this.createdAt = LocalDateTime.now();
         if (this.status == null) this.status = "Issued";
         if (this.penaltyNo == null || this.penaltyNo.isEmpty())
-            this.penaltyNo = "PEN-" + System.currentTimeMillis();
+            this.penaltyNo = "PEN-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
         if (this.penaltyAmount != null && this.interestAmount != null)
             this.totalAmount = this.penaltyAmount + this.interestAmount;
         if (this.paidAmount == null) this.paidAmount = 0.0;
     }
 
-    public Integer getId() { return id; }
-    public void setId(Integer id) { this.id = id; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
     public String getPenaltyNo() { return penaltyNo; }
     public void setPenaltyNo(String penaltyNo) { this.penaltyNo = penaltyNo; }
-    public String getTinNumber() { return tinNumber; }
-    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
-    public String getTaxpayerName() { return taxpayerName; }
-    public void setTaxpayerName(String taxpayerName) { this.taxpayerName = taxpayerName; }
+    public Taxpayer getTaxpayer() { return taxpayer; }
+    public void setTaxpayer(Taxpayer taxpayer) { this.taxpayer = taxpayer; }
     public String getPenaltyType() { return penaltyType; }
     public void setPenaltyType(String penaltyType) { this.penaltyType = penaltyType; }
     public String getSeverity() { return severity; }

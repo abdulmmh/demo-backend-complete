@@ -1,8 +1,9 @@
 package com.nirapod.controller;
 
-import com.nirapod.dto.VatRegistrationCreateRequest;
+import com.nirapod.dto.request.VatRegistrationCreateRequest;
 import com.nirapod.model.VatRegistration;
-import com.nirapod.services.VatRegistrationService;
+import com.nirapod.service.VatRegistrationService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

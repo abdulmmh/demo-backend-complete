@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "itrActionHistory")
 @Table(name = "itr_action_history")
 public class ITRAction {
 

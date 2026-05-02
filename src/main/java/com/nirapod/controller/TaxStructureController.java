@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.nirapod.model.TaxStructure;
-import com.nirapod.services.TaxStructureService;
+import com.nirapod.service.TaxStructureService;
 
 @RestController
 @RequestMapping("/api/tax-structures")

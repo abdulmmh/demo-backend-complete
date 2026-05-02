@@ -1,6 +1,7 @@
 package com.nirapod.dao;
 
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Repository;
 import com.nirapod.model.User;
 import jakarta.persistence.EntityManager;
@@ -20,6 +21,14 @@ public class UserDAO {
 
     public List<User> getAll() {
         return entityManager.createQuery("from user", User.class).getResultList();
+    }
+
+    public Optional<User> findByEmail(String email) {
+        return entityManager.createQuery(
+                "from user u where lower(u.email) = lower(:email)", User.class)
+            .setParameter("email", email)
+            .getResultStream()
+            .findFirst();
     }
 
     public User getById(int id) {

@@ -2,44 +2,51 @@ package com.nirapod.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.nirapod.model.Notice;
-import com.nirapod.services.NoticeService;
+import jakarta.validation.Valid;
+
+import com.nirapod.dto.request.NoticeRequest;
+import com.nirapod.dto.response.NoticeResponse;
+import com.nirapod.service.NoticeService;
 
 @RestController
 @RequestMapping("/api/notices")
-@CrossOrigin(origins = "http://localhost:4200")
+// CrossOrigin removed — handled globally in SecurityConfig
 public class NoticeController {
 
-    @Autowired
-    private NoticeService noticeService;
+    @Autowired private NoticeService noticeService;
 
     @PostMapping
-    public ResponseEntity<Notice> create(@RequestBody Notice notice) {
-        noticeService.create(notice);
-        return ResponseEntity.ok(notice);
+    public ResponseEntity<NoticeResponse> create(@Valid @RequestBody NoticeRequest req) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(noticeService.create(req));
     }
 
     @GetMapping
-    public ResponseEntity<List<Notice>> getAll() {
+    public ResponseEntity<List<NoticeResponse>> getAll() {
         return ResponseEntity.ok(noticeService.getAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Notice> getById(@PathVariable int id) {
-        Notice result = noticeService.getById(id);
-        return result != null ? ResponseEntity.ok(result) : ResponseEntity.notFound().build();
+    public ResponseEntity<NoticeResponse> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(noticeService.getById(id));
+    }
+
+    @GetMapping("/taxpayer/{taxpayerId}")
+    public ResponseEntity<List<NoticeResponse>> getByTaxpayer(@PathVariable Long taxpayerId) {
+        return ResponseEntity.ok(noticeService.getByTaxpayerId(taxpayerId));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Notice> update(@PathVariable int id, @RequestBody Notice notice) {
-        noticeService.update(notice);
-        return ResponseEntity.ok(notice);
+    public ResponseEntity<NoticeResponse> update(
+            @PathVariable Long id,
+            @Valid @RequestBody NoticeRequest req) {
+        return ResponseEntity.ok(noticeService.update(id, req));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable int id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         noticeService.delete(id);
         return ResponseEntity.noContent().build();
     }

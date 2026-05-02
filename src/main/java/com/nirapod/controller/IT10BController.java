@@ -1,7 +1,8 @@
 package com.nirapod.controller;
 
 import com.nirapod.model.IT10B;
-import com.nirapod.services.IT10BService;
+import com.nirapod.service.IT10BService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

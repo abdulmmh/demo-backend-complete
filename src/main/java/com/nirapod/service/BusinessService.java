@@ -1,4 +1,4 @@
-package com.nirapod.services;
+package com.nirapod.service;
 
 import java.util.List;
 import java.util.Map;
@@ -14,7 +14,10 @@ import com.nirapod.model.Business;
 import com.nirapod.model.Taxpayer;
 import com.nirapod.model.VatRegistration;
 
+import org.springframework.transaction.annotation.Transactional;
+
 @Service
+@Transactional
 public class BusinessService {
 
     @Autowired

@@ -9,82 +9,66 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.nirapod.model.Taxpayer;
-import com.nirapod.model.Tin;
-import com.nirapod.services.TaxpayerService;
-import com.nirapod.services.TinCertificateService;
-import com.nirapod.services.TinService;
+import com.nirapod.dto.request.TinRequest;
+import com.nirapod.dto.response.TinResponse;
+import com.nirapod.service.TinCertificateService;
+import com.nirapod.service.TinService;
 
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/tins")
-@CrossOrigin(origins = "http://localhost:4200") 
+// CrossOrigin removed — handled globally in SecurityConfig
 public class TinController {
 
-    @Autowired
-    private TinService tinService;
-    
-    @Autowired
-    private TaxpayerService taxpayerService;
-
-    @Autowired
-    private TinCertificateService tinCertificateService;
+    @Autowired private TinService           tinService;
+    @Autowired private TinCertificateService tinCertificateService;
 
     @PostMapping
-    public ResponseEntity<Tin> createTin(@RequestBody Tin tin) {
-        Tin createdTin = tinService.createTin(tin);
-        return ResponseEntity.ok(createdTin);
+    public ResponseEntity<TinResponse> create(@Valid @RequestBody TinRequest req) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(tinService.createTin(req));
     }
 
     @GetMapping
-    public ResponseEntity<List<Tin>> getAllTins() {
+    public ResponseEntity<List<TinResponse>> getAll() {
         return ResponseEntity.ok(tinService.getAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Tin> getTinById(@PathVariable Long id) {
-        Tin tin = tinService.getById(id);
-        return tin != null ? ResponseEntity.ok(tin) : ResponseEntity.notFound().build();
+    public ResponseEntity<TinResponse> getById(@PathVariable Long id) {
+        return ResponseEntity.ok(tinService.getById(id));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Tin> updateTin(@PathVariable Long id, @RequestBody Tin tin) {
-        Tin updatedTin = tinService.updateTin(id, tin);
-        return updatedTin != null ? ResponseEntity.ok(updatedTin) : ResponseEntity.notFound().build();
+    public ResponseEntity<TinResponse> update(
+            @PathVariable Long id,
+            @Valid @RequestBody TinRequest req) {
+        return ResponseEntity.ok(tinService.updateTin(id, req));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTin(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         tinService.deleteTin(id);
         return ResponseEntity.noContent().build();
     }
-    
+
     @GetMapping("/{id}/certificate")
-    public void downloadTinCertificate(@PathVariable Long id, HttpServletResponse response) throws Exception {
-
-        Tin tin = tinService.getById(id);
-        Taxpayer taxpayer = taxpayerService.getById(tin.getTaxpayerId());
-
-
+    public void downloadCertificate(
+            @PathVariable Long id,
+            HttpServletResponse response) throws Exception {
+        TinResponse tin = tinService.getById(id);
         response.setContentType("application/pdf");
-        String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=TIN_Certificate_" + tin.getTinNumber() + ".pdf";
-        response.setHeader(headerKey, headerValue);
-
-
-        tinCertificateService.generateCertificate(tin, taxpayer, response);
+        response.setHeader("Content-Disposition",
+            "attachment; filename=TIN_Certificate_" + tin.getTinNumber() + ".pdf");
+        tinCertificateService.generateCertificate(id, response);
     }
-    
- // Export TINs
+
     @GetMapping("/export")
-    public ResponseEntity<byte[]> exportTins() {
-        byte[] csvData = tinService.exportTinsToCsv();
-        
+    public ResponseEntity<byte[]> export() {
         HttpHeaders headers = new HttpHeaders();
         headers.set(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=tin_list.csv");
         headers.setContentType(MediaType.parseMediaType("text/csv"));
-        
-        return new ResponseEntity<>(csvData, headers, HttpStatus.OK);
+        return new ResponseEntity<>(tinService.exportToCsv(), headers, HttpStatus.OK);
     }
 }

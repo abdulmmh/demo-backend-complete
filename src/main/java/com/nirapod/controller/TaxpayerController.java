@@ -8,11 +8,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.nirapod.model.Taxpayer;
-import com.nirapod.services.TaxpayerService;
+import com.nirapod.service.TaxpayerService;
 
 @RestController
 @RequestMapping("/api/taxpayers")
-@CrossOrigin(origins = "http://localhost:4200")
 public class TaxpayerController {
 
     @Autowired
@@ -52,9 +51,8 @@ public class TaxpayerController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Taxpayer> update(@PathVariable Long id, @RequestBody Taxpayer taxpayer) {
-        taxpayer.setId(id);
-        taxpayerService.update(taxpayer);
-        return ResponseEntity.ok(taxpayer);
+        Taxpayer updated = taxpayerService.update(id, taxpayer);
+        return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")

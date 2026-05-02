@@ -1,4 +1,4 @@
-package com.nirapod.services;
+package com.nirapod.service;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.nirapod.dao.ProductDAO;
 import com.nirapod.dao.TaxStructureDAO;
-import com.nirapod.dto.ProductRequest;
+import com.nirapod.dto.request.ProductRequest;
 import com.nirapod.model.Product;
 import com.nirapod.model.TaxStructure;
 

@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.*;
 
-import com.nirapod.dto.ProductRequest;
+import com.nirapod.dto.request.ProductRequest;
 import com.nirapod.model.Product;
-import com.nirapod.services.ProductService;
+import com.nirapod.service.ProductService;
 
 
 @RestController

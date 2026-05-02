@@ -1,8 +1,9 @@
 package com.nirapod.controller;
 
-import com.nirapod.dto.RegistrationResponse;
-import com.nirapod.dto.UserRegistrationRequest;
-import com.nirapod.services.PublicRegistrationService;
+import com.nirapod.dto.request.UserRegistrationRequest;
+import com.nirapod.dto.response.RegistrationResponse;
+import com.nirapod.service.PublicRegistrationService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

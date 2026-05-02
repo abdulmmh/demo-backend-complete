@@ -3,6 +3,7 @@ package com.nirapod.model;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity(name = "refund")
 @Table(name = "refunds")
@@ -10,13 +11,19 @@ public class Refund {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(unique = true)
     private String refundNo;
 
-    private String tinNumber;
-    private String taxpayerName;
+    // ── Relationship — name read via taxpayer.getFullName(), tinNumber via taxpayer.getTinNumber() ──
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "taxpayer_id", nullable = false)
+    private Taxpayer taxpayer;
+
+    // ── REMOVED: private String tinNumber     (read from taxpayer.getTinNumber())    ──
+    // ── REMOVED: private String taxpayerName  (read from taxpayer.getFullName())     ──
+
     private String refundType;
     private String refundMethod;
     private Double claimAmount;
@@ -45,19 +52,17 @@ public class Refund {
         this.createdAt = LocalDateTime.now();
         if (this.status == null) this.status = "Pending";
         if (this.refundNo == null || this.refundNo.isEmpty())
-            this.refundNo = "REF-" + System.currentTimeMillis();
+            this.refundNo = "REF-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
         if (this.approvedAmount == null) this.approvedAmount = 0.0;
-        if (this.paidAmount == null) this.paidAmount = 0.0;
+        if (this.paidAmount == null)     this.paidAmount = 0.0;
     }
 
-    public Integer getId() { return id; }
-    public void setId(Integer id) { this.id = id; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
     public String getRefundNo() { return refundNo; }
     public void setRefundNo(String refundNo) { this.refundNo = refundNo; }
-    public String getTinNumber() { return tinNumber; }
-    public void setTinNumber(String tinNumber) { this.tinNumber = tinNumber; }
-    public String getTaxpayerName() { return taxpayerName; }
-    public void setTaxpayerName(String taxpayerName) { this.taxpayerName = taxpayerName; }
+    public Taxpayer getTaxpayer() { return taxpayer; }
+    public void setTaxpayer(Taxpayer taxpayer) { this.taxpayer = taxpayer; }
     public String getRefundType() { return refundType; }
     public void setRefundType(String refundType) { this.refundType = refundType; }
     public String getRefundMethod() { return refundMethod; }

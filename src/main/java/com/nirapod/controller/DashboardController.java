@@ -1,72 +1,84 @@
 package com.nirapod.controller;
 
 import java.util.*;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.nirapod.model.*;
-import com.nirapod.services.*;
+
+import com.nirapod.dto.response.AuditResponse;
+import com.nirapod.dto.response.PenaltyResponse;
+import com.nirapod.dto.response.RefundResponse;
+import com.nirapod.model.Business;
+import com.nirapod.model.Payment;
+import com.nirapod.model.Taxpayer;
+import com.nirapod.service.*;
 
 @RestController
 @RequestMapping("/api/dashboard")
-@CrossOrigin(origins = "http://localhost:4200")
 public class DashboardController {
 
     @Autowired private TaxpayerService taxpayerService;
     @Autowired private BusinessService businessService;
-    @Autowired private VatReturnService vatReturnService;
-    @Autowired private PaymentService paymentService;
-    @Autowired private AuditService auditService;
-    @Autowired private RefundService refundService;
-    @Autowired private PenaltyService penaltyService;
+    @Autowired private PaymentService  paymentService;
+    @Autowired private AuditService    auditService;
+    @Autowired private RefundService   refundService;
+    @Autowired private PenaltyService  penaltyService;
 
     @GetMapping("/stats")
     public ResponseEntity<Map<String, Object>> getStats() {
-        List<Taxpayer>  taxpayers  = taxpayerService.getAll();
-        List<Business>  businesses = businessService.getAll();
-//        List<VatReturn> vatReturns = vatReturnService.get();
-        List<Payment>   payments   = paymentService.getAll();
-        List<Audit>     audits     = auditService.getAll();
-        List<Refund>    refunds    = refundService.getAll();
-        List<Penalty>   penalties  = penaltyService.getAll();
+
+        List<Taxpayer>      taxpayers  = taxpayerService.getAll();
+        List<Business>      businesses = businessService.getAll();
+        List<Payment>       payments   = paymentService.getAll();
+
+        // AuditService, RefundService, PenaltyService now return Response DTOs
+        // after the enterprise refactor — use those directly
+        List<AuditResponse>   audits    = auditService.getAll();
+        List<RefundResponse>  refunds   = refundService.getAll();
+        List<PenaltyResponse> penalties = penaltyService.getAll();
 
         double totalRevenue = payments.stream()
                 .filter(p -> "Completed".equals(p.getStatus()))
                 .mapToDouble(p -> p.getAmount() != null ? p.getAmount() : 0)
                 .sum();
 
-        long pendingAudits  = audits.stream().filter(a -> "Scheduled".equals(a.getStatus()) || "In Progress".equals(a.getStatus())).count();
-        long pendingRefunds = refunds.stream().filter(r -> "Pending".equals(r.getStatus())).count();
-        long issuedPenalties = penalties.stream().filter(p -> "Issued".equals(p.getStatus()) || "Pending".equals(p.getStatus())).count();
-        long completedAudits = audits.stream().filter(a -> "Completed".equals(a.getStatus())).count();
-        long flaggedCases    = audits.stream().filter(a -> "Flagged".equals(a.getStatus())).count();
+        long pendingAudits   = audits.stream()
+                .filter(a -> "Scheduled".equals(a.getStatus()) || "In Progress".equals(a.getStatus()))
+                .count();
+        long completedAudits = audits.stream()
+                .filter(a -> "Completed".equals(a.getStatus())).count();
+        long flaggedCases    = audits.stream()
+                .filter(a -> "Flagged".equals(a.getStatus())).count();
+        long pendingRefunds  = refunds.stream()
+                .filter(r -> "Pending".equals(r.getStatus())).count();
+        long issuedPenalties = penalties.stream()
+                .filter(p -> "Issued".equals(p.getStatus()) || "Pending".equals(p.getStatus()))
+                .count();
 
         Map<String, Object> stats = new LinkedHashMap<>();
-        stats.put("totalTaxpayers",       taxpayers.size());
-        stats.put("totalBusinesses",       businesses.size());
-//        stats.put("totalVatReturns",       vatReturns.size());
-        stats.put("totalPayments",         payments.size());
-        stats.put("totalRevenue",          totalRevenue);
-        stats.put("pendingAudits",         pendingAudits);
-        stats.put("pendingRefunds",        pendingRefunds);
-        stats.put("issuedPenalties",       issuedPenalties);
-        stats.put("taxpayerGrowth",        5.2);
-        stats.put("revenueGrowth",         8.7);
-        stats.put("vatReturnGrowth",       3.1);
-        stats.put("paymentGrowth",         6.4);
-        stats.put("totalAudits",           audits.size());
-        stats.put("completedAudits",       completedAudits);
-        stats.put("flaggedCases",          flaggedCases);
-        stats.put("auditGrowth",           2.3);
-        stats.put("todayEntries",          0);
-        stats.put("pendingTasks",          pendingAudits + pendingRefunds);
-        stats.put("taxpayersAddedThisMonth", 0);
-        stats.put("myVatReturns",          0);
-        stats.put("myPayments",            0);
-        stats.put("myPendingNotices",      0);
-        stats.put("myRefundStatus",        0);
-        stats.put("myTotalPaid",           0.0);
+        stats.put("totalTaxpayers",          taxpayers.size());
+        stats.put("totalBusinesses",          businesses.size());
+        stats.put("totalPayments",            payments.size());
+        stats.put("totalRevenue",             totalRevenue);
+        stats.put("pendingAudits",            pendingAudits);
+        stats.put("pendingRefunds",           pendingRefunds);
+        stats.put("issuedPenalties",          issuedPenalties);
+        stats.put("taxpayerGrowth",           5.2);
+        stats.put("revenueGrowth",            8.7);
+        stats.put("vatReturnGrowth",          3.1);
+        stats.put("paymentGrowth",            6.4);
+        stats.put("totalAudits",              audits.size());
+        stats.put("completedAudits",          completedAudits);
+        stats.put("flaggedCases",             flaggedCases);
+        stats.put("auditGrowth",              2.3);
+        stats.put("todayEntries",             0);
+        stats.put("pendingTasks",             pendingAudits + pendingRefunds);
+        stats.put("taxpayersAddedThisMonth",  0);
+        stats.put("myVatReturns",             0);
+        stats.put("myPayments",               0);
+        stats.put("myPendingNotices",         0);
+        stats.put("myRefundStatus",           0);
+        stats.put("myTotalPaid",              0.0);
 
         return ResponseEntity.ok(stats);
     }
@@ -101,7 +113,12 @@ public class DashboardController {
             Map<String, Object> m = new LinkedHashMap<>();
             m.put("id",            p.getId());
             m.put("transactionId", p.getTransactionId());
-            m.put("taxpayerName",  p.getTaxpayerName());
+            // taxpayerName now resolved from FK — not from stored column
+            m.put("taxpayerName",  p.getTaxpayer() != null
+                ? (p.getTaxpayer().getFullName() != null
+                    ? p.getTaxpayer().getFullName()
+                    : p.getTaxpayer().getCompanyName())
+                : "N/A");
             m.put("amount",        p.getAmount());
             m.put("paymentType",   p.getPaymentType());
             m.put("paymentDate",   p.getPaymentDate());
@@ -114,13 +131,10 @@ public class DashboardController {
     @GetMapping("/vat-chart")
     public ResponseEntity<List<Map<String, Object>>> getVatChart() {
         String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
-//        List<VatReturn> all = vatReturnService.getAll();
         List<Map<String, Object>> chart = new ArrayList<>();
         for (String month : months) {
-//            long count = all.stream().filter(v -> month.equalsIgnoreCase(v.getPeriodMonth())).count();
             Map<String, Object> point = new LinkedHashMap<>();
             point.put("label", month);
-//            point.put("value", count);
             chart.add(point);
         }
         return ResponseEntity.ok(chart);
@@ -134,8 +148,8 @@ public class DashboardController {
         for (String month : months) {
             double total = all.stream()
                     .filter(p -> p.getPaymentDate() != null &&
-                                 month.equals(p.getPaymentDate().getMonth().name().substring(0,3).charAt(0)
-                                     + p.getPaymentDate().getMonth().name().substring(1,3).toLowerCase()))
+                                 month.equals(p.getPaymentDate().getMonth().name().substring(0, 3).charAt(0)
+                                     + p.getPaymentDate().getMonth().name().substring(1, 3).toLowerCase()))
                     .mapToDouble(p -> p.getAmount() != null ? p.getAmount() : 0)
                     .sum();
             Map<String, Object> point = new LinkedHashMap<>();

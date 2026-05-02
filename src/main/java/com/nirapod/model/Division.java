@@ -9,7 +9,7 @@ import jakarta.persistence.*;
 
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Entity
+@Entity(name = "division")
 @Table(name = "divisions")
 
 public class Division {

@@ -1,4 +1,4 @@
-package com.nirapod.services;
+package com.nirapod.service;
 
 import com.nirapod.model.IncomeTaxReturn;
 import org.springframework.stereotype.Service;

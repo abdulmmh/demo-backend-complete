@@ -1,4 +1,4 @@
-package com.nirapod.services;
+package com.nirapod.service;
 
 import com.nirapod.dao.BusinessDAO;
 import com.nirapod.dao.DistrictDAO;
@@ -7,7 +7,7 @@ import com.nirapod.dao.TaxCircleDAO;
 import com.nirapod.dao.TaxZoneDAO;
 import com.nirapod.dao.TaxpayerDAO;
 import com.nirapod.dao.VatRegistrationDAO;
-import com.nirapod.dto.VatRegistrationCreateRequest;
+import com.nirapod.dto.request.VatRegistrationCreateRequest;
 import com.nirapod.model.Address;
 import com.nirapod.model.Business;
 import com.nirapod.model.TaxCircle;
